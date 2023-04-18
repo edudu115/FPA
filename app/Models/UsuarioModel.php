@@ -13,8 +13,6 @@ class UsuarioModel extends Model
                                  "tempoCampus", "tempoExp", 
                                  "tempoProfissional", "tempoInstuicao", 
                                  "nivelCarreira", "idade"];
-    protected $returnType = "array";
-
-    //gustavo é viado
+    protected $returnType = "object";
 }
 ?>
