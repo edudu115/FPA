@@ -10,9 +10,11 @@ class UsuarioModel extends Model
     protected $primaryKey = "idUsuario";
     protected $useAutoIncrement = true;
     protected $allowedFields = ["nome", "prontuario", "senha", "cpf", "cargo",
-                                 "tempoCampus", "tempoCampus", "tempoExp", 
+                                 "tempoCampus", "tempoExp", 
                                  "tempoProfissional", "tempoInstuicao", 
                                  "nivelCarreira", "idade"];
     protected $returnType = "array";
+
+    //gustavo é viado
 }
 ?>
