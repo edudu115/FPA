@@ -4,7 +4,7 @@
 
     class Usuario extends BaseController
     {
-        private $funcionar 
+        private $usuario
 
         public function __construct()
         {
