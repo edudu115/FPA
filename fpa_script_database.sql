@@ -104,5 +104,5 @@ insert into componentes(nomeMateria, diaHorario, curso, horasSemanais) value('IP
 insert into componentes(nomeMateria, diaHorario, curso, horasSemanais) value('DAC - Desenho Assistido por Computador', '2023-02-16 14:25:00', 'Int mec Tarde', 2);
 
 -- PREFERENCIA -- 
---insert into preferencia(professor_idProfessor, componentes_idComponentes, prioridade) value('')
+-- insert into preferencia(professor_idProfessor, componentes_idComponentes, prioridade) value('')
 

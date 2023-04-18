@@ -2,7 +2,7 @@
 
     namespace App\Controllers;
 
-    class Funcionario extends BaseController
+    class Usuario extends BaseController
     {
         private $funcionar 
 
