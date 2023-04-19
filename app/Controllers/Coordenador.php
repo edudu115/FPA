@@ -2,7 +2,7 @@
 
     namespace App\Controllers;
 
-    class Coordenador extends Funcionario
+    class Coordenador extends Usuario
     {
 
     }
