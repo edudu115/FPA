@@ -8,7 +8,7 @@ class AtribuidoModel extends Model{
     protected $table = "atribuido";
     protected $primaryKey = "idAtribuido";
     protected $useAutoIncrement = true;
-    protected $allowedFields = ["componentes_idComponentes", "user_idUsuario"]
+    protected $allowedFields = ["componentes_idComponentes", "user_idUsuario"];
 }
 
 
