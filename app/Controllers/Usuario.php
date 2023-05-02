@@ -29,6 +29,8 @@
 
             $this->userModel->insert($dados);
         }
+
+        
     }
 
 ?>
