@@ -9,6 +9,4 @@
         public $user_idUsuario;
     }
 
-    //testeaaaaaaaaaaaaaaaaa
-
 ?>
