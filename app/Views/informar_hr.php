@@ -13,7 +13,7 @@
   <body class="bg-green">
 
    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#"> <img class="d-block mx-auto mb-4" src="ifsp.png" alt="" width="90" height="90"></a>
+  <a class="navbar-brand" href="#"> <img class="d-block mx-auto mb-4" src="imgs/ifsp.png" alt="" width="90" height="90"></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -39,22 +39,12 @@
 <center> <h4>Disponibilidade de horário para atribuição de componentes curriculares</h4> </center>
 <br><br>
 <table style="background-color:beige" class="table table-bordered">
-
-<div class="form-check">
-  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-  <label class="form-check-label" for="flexCheckDefault">
-    Default checkbox
-  </label>
-</div>
-<div class="form-check">
-  <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-  <label class="form-check-label" for="flexCheckChecked">
-    Checked checkbox
   
 </div>
   <thead>
     <tr>
-      <th scope="col">Matéria</th>
+   
+      <th  scope="col">Matéria</th>
       <th scope="col">dia-Horario</th>
       <th scope="col">curso</th> 
       <th scope="col">Horas_Semanais</th>
@@ -64,16 +54,16 @@
   <tbody>
     <tr>
      
-      <td>ISO-Introdução a Sistemas Operacionais</td>
-      <td>2023-02-13 19:00:00</td>
-      <td>Tec-info noturno</td>
-      <td>4</td>
+      <td>ISO-Introdução a Sistemas Operacionais <input type="checkbox" width="60"></td>
+      <td>2023-02-13 19:00:00 <input type="checkbox" width="60"></td>
+      <td>Tec-info noturno<input type="checkbox"  width="60"></td>
+      <td>4<input type="checkbox" align="right" ></td>
      
     </tr>
     <tbody>
     <tr>
     
-      <td>IPW-Introdução a Programação web</td>
+      <td>IPW-Introdução a Programação web<input type="checkbox" width="60" ></td>
       <td></td>
       <td></td>
     </tr>
@@ -81,5 +71,7 @@
   </tbody>
 </table>
 </label>
+<br><br><br>
+<button class="btn btn-primary btn-lg btn-block" type="submit">Salvar</button>
 </body>
 </html>
