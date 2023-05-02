@@ -6,5 +6,4 @@
     {
     }
 
-    //DALE DELE DOLE
 ?>
