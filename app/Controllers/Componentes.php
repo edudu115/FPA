@@ -4,7 +4,7 @@
 
 use ReflectionFunctionAbstract;
 
-    class Componente extends BaseController
+    class Componentes extends BaseController
     {
         private $componenteModel;
         public function __construct(){

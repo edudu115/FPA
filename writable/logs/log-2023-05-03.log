@@ -1,0 +1,51 @@
+CRITICAL - 2023-05-03 00:35:05 --> Invalid file: "informar_hr.php"
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 33.
+ 1 SYSTEMPATH/View/View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('informar_hr.php')
+ 2 SYSTEMPATH/Common.php(1184): CodeIgniter\View\View->render('informar_hr', [], true)
+ 3 APPPATH/Controllers/Home.php(9): view('informar_hr')
+ 4 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Home->index()
+ 5 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-03 00:35:10 --> Invalid file: "informar_hr.php"
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 33.
+ 1 SYSTEMPATH/View/View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('informar_hr.php')
+ 2 SYSTEMPATH/Common.php(1184): CodeIgniter\View\View->render('informar_hr', [], true)
+ 3 APPPATH/Controllers/Home.php(9): view('informar_hr')
+ 4 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Home->index()
+ 5 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-03 00:48:16 --> Undefined variable $componentes
+in APPPATH/Views/componentesView.php on line 56.
+ 1 APPPATH/Views/componentesView.php(56): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $componentes', '/opt/htdocs/projetoFPA/FPA/app/Views/componentesView.php', 56)
+ 2 SYSTEMPATH/View/View.php(213): include('/opt/htdocs/projetoFPA/FPA/app/Views/componentesView.php')
+ 3 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1184): CodeIgniter\View\View->render('componentesView', [], true)
+ 5 APPPATH/Controllers/Home.php(9): view('componentesView')
+ 6 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Home->index()
+ 7 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-03 00:50:29 --> Undefined variable $componentes
+in APPPATH/Views/componentesView.php on line 56.
+ 1 APPPATH/Views/componentesView.php(56): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $componentes', '/opt/htdocs/projetoFPA/FPA/app/Views/componentesView.php', 56)
+ 2 SYSTEMPATH/View/View.php(213): include('/opt/htdocs/projetoFPA/FPA/app/Views/componentesView.php')
+ 3 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1184): CodeIgniter\View\View->render('componentesView', [], true)
+ 5 APPPATH/Controllers/Home.php(9): view('componentesView')
+ 6 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Home->index()
+ 7 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-05-03 00:59:53 --> Undefined variable $componentes
+in APPPATH/Views/componentesView.php on line 56.
+ 1 APPPATH/Views/componentesView.php(56): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $componentes', '/opt/htdocs/projetoFPA/FPA/app/Views/componentesView.php', 56)
+ 2 SYSTEMPATH/View/View.php(213): include('/opt/htdocs/projetoFPA/FPA/app/Views/componentesView.php')
+ 3 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1184): CodeIgniter\View\View->render('componentesView', [], true)
+ 5 APPPATH/Controllers/Home.php(9): view('componentesView')
+ 6 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Home->index()
+ 7 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
