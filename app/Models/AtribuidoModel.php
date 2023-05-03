@@ -9,6 +9,7 @@ class AtribuidoModel extends Model{
     protected $primaryKey = "idAtribuido";
     protected $useAutoIncrement = true;
     protected $allowedFields = ["componentes_idComponentes", "user_idUsuario"];
+    protected $returnType = "object";
 }
 
 

@@ -6,6 +6,11 @@ class Home extends BaseController
 {
     public function index()
     {
-        return view('informar_hr');
+        return view('componentesView');
+    }
+
+    public function Cadastro()
+    {
+        return view('cadastroView');
     }
 }
