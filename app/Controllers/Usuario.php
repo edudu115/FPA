@@ -30,6 +30,20 @@
             $this->userModel->insert($dados);
         }
 
+        public function salvar_componentes()
+        {
+            $dados = [
+                "cargo" => $this->request->getPost("cargo"),
+                "tempoCampus" => $this->request->getPost("tempoCampus"),
+                "tempoExp" => $this->request->getPost("tempoExp"),
+                "tempoProfissional" => $this->request->getPost("tempoProfissional"),
+                "tempoInstituicao" => $this->request->getPost("tempoInstituicao"),
+                "nivelCarreira" => $this->request->getPost("nivelCarreira"),
+                "idade" => $this->request->getPost("idade")
+            ];
+
+
+        }
         
     }
 
