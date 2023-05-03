@@ -30,7 +30,14 @@
             $this->userModel->insert($dados);
         }
 
-        public function salvar_componentes()
+        public function findUsuario()
+        {
+            return view('cadastroView',[
+                'user' => $this->userModel->find(),
+              ]);
+        }
+
+        public function updateUsuario()
         {
             $dados = [
                 "cargo" => $this->request->getPost("cargo"),
