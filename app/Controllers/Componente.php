@@ -11,9 +11,9 @@ use ReflectionFunctionAbstract;
             $this->componenteModel = new \App\Models\ComponentesModel();
         }
 
-        public function infoCadastro(){
+        public function viewComponente(){
             return view('componentesView',[
-                                            'componetes' => $this->componenteModel->find(),
+                                            'componentes' => $this->componenteModel->find(),
                                           ]);
         }
     }
