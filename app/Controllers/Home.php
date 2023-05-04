@@ -9,8 +9,15 @@ class Home extends BaseController
         return view('login');
     }
 
+    public function cadastroView()
+    {
+        echo 1;
+        //return view ('cadastroView');
+    }
+
     public function Cadastro()
     {
         return view('cadastroView');
     }
+
 }
