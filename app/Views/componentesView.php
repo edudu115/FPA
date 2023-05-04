@@ -64,7 +64,7 @@
         echo "<td>".$componente->horasSemanais."</td>";
 
         echo "<td> <select  style= 'width : 150px;' class='form-select' aria-label='Default select example'>
-      <option selected>Não Selecionado</option>
+      <option selected value='0'>Não Selecionado</option>
   <option value='1'>Primário</option>
   <option value='2'>Segundário</option>
 </select> </td>
