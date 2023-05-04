@@ -17,6 +17,11 @@ use ReflectionFunctionAbstract;
                                             'componentes' => $this->componenteModel->find(),
                                         ]);
         }
+
+        // public function salveComponente(){
+
+        //     $this->componenteModel->savw
+        // }
     }
 
 ?>
