@@ -5,7 +5,7 @@
     class Preferencia extends BaseController
     {
         public $idPreferencia;
-        //testeaaaaaaaaaaagjsad
+        //teste
     }
 
 ?>
