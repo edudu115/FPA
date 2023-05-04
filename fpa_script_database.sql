@@ -95,7 +95,7 @@ DEFAULT CHARACTER SET = utf8;
 -- POPULANDO DATABASE --
 -- USUARIO --
 insert into usuario(nome, prontuario, senha, cpf, cargo) value('João','12345','12345','6789','c');
-insert into usuario(nome, prontuario, senha, cpf, cargo) value('Andre','12345','12345','12345','p');
+insert into usuario(nome, prontuario, senha, cpf, cargo) value('Andre','345678','12345','12345','p');
 insert into usuario(nome, prontuario, senha, cpf, cargo) value('Moana','67890','67890','67890','p');
 
 -- COMPONENTES --
