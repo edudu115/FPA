@@ -14,19 +14,18 @@
 
         public function logar()
         {
-            
-            //$usuario = $this->userModel->find();
 
             $prontuario = $this->request->getPost('prontuario');
             $senha = $this->request->getPost('senha');
 
             $retorno = $this->userModel->verificar_login($prontuario, $senha);
 
-            if($retorno)
-                return view(base_url("cadastroView"));
-
-            return view(base_url());
-
+            if($retorno){
+                return view(base_url("Home/cadastroView"));
+            }
+            else{
+                return view(base_url());
+            }
         }
 
 

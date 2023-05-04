@@ -23,7 +23,7 @@ class UsuarioModel extends Model{
         if($query->getNumRows() > 0)
             return True;
 
-        return False;
+        return false;
     }
 }
 ?>
