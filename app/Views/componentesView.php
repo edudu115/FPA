@@ -13,7 +13,7 @@
   <body class='bg-green'>
 
    <nav class='navbar navbar-expand-lg navbar-light bg-light'>
-  <a class='navbar-brand' href='#'> <img class='d-block mx-auto mb-4' src='imgs/ifsp.png' alt=' width='90' height='90'></a>
+  <a class='navbar-brand' href='#'> <img class='d-block mx-auto mb-4' src='imgs/ifsp.png' alt='' width='90' height='90'></a>
   <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#conteudoNavbarSuportado' aria-controls='conteudoNavbarSuportado' aria-expanded='false' aria-label='Alterna navegação'>
     <span class='navbar-toggler-icon'></span>
   </button>
