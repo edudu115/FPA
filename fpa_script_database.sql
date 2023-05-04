@@ -19,7 +19,7 @@ USE fpa_database ;
 CREATE TABLE IF NOT EXISTS usuario (
   idUsuario INT NOT NULL AUTO_INCREMENT,
   nome VARCHAR(45) NOT NULL,
-  prontuario VARCHAR(45) NOT NULL,
+  prontuario VARCHAR(45) NOT NULL UNIQUE,
   senha VARCHAR(45) NOT NULL,
   cpf VARCHAR(45) NOT NULL,
   cargo VARCHAR(1) DEFAULT 'p',
