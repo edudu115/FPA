@@ -12,6 +12,5 @@ class Home extends BaseController
     public function Cadastro()
     {
         return view('cadastroView');
-        //teste
     }
 }

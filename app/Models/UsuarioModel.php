@@ -13,5 +13,17 @@ class UsuarioModel extends Model{
                                  "tempoProfissional", "tempoInstuicao", 
                                  "nivelCarreira", "idade"];
     protected $returnType = "object";
+
+    public function verificar_login($p, $s)
+    {
+        $sql = "SELECT * FROM usuario WHERE prontuario='$p' AND senha='$s'";
+    
+        $query = $this->db->query($sql);
+
+        if($query->getNumRows() > 0)
+            return True;
+
+        return False;
+    }
 }
 ?>
