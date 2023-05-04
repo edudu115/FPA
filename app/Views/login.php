@@ -25,16 +25,13 @@
   <body class='text-center'>
     <form class='form-signin'>
         <br><br><br>
-      <img class='mb-4' src='imgs/ifsp.png' alt='' width='110' height='110'>
+      <img class='mb-4' src='<?= base_url('ifsp.png') ?>' alt='' width='110' height='110'>
       <h1 class='h3 mb-3 font-weight-normal'>Faça login</h1>
       <label for='inputEmail' class='sr-only'>Prontuário</label>
      <center> <input style= 'width : 350px;' type='email' id='inputEmail' class='form-control' placeholder='Seu email' required autofocus></center>
       <label for='inputPassword' class='sr-only'>Senha</label>
       <center><input style= 'width : 350px;'type='password' id='inputPassword' class='form-control' placeholder='Senha' required></center>
       <div class='checkbox mb-3'>
-        <label>
-          <input type='checkbox' value='remember-me'> Lembrar de mim
-        </label>
       </div>
       <button class='btn btn-lg btn-primary btn-block' type='submit'>Login</button>
       <p class='mt-5 mb-3 text-muted'>&copy; 2023</p>
