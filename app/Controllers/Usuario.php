@@ -11,7 +11,6 @@
             $this->userModel = new \App\Models\UsuarioModel;
         }
 
-
         public function logar()
         {
 
@@ -21,13 +20,12 @@
             $retorno = $this->userModel->verificar_login($prontuario, $senha);
 
             if($retorno){
-                return view(base_url("Home/cadastroView"));
+                return view('cadastroView');
             }
             else{
                 return view(base_url());
             }
         }
-
 
         public function findUsuario()
         {
@@ -47,7 +45,6 @@
                 "nivelCarreira" => $this->request->getPost("nivelCarreira"),
                 "idade" => $this->request->getPost("idade")
             ];
-//testando git
 
         }
         

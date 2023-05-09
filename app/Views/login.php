@@ -28,7 +28,7 @@
       <img class='mb-4' src='<?= base_url('ifsp.png') ?>' alt='' width='110' height='110'>
       <h1 class='h3 mb-3 font-weight-normal'>Faça login</h1>
       <label for='inputEmail' class='sr-only'>Prontuário</label>
-     <center> <input style= 'width : 350px;' type='text' id='inputEmail' name="prontuario" class='form-control' placeholder='Seu prontuário' required autofocus></center>
+     <center> <input style= 'width : 350px;' type='text' id='inputEmail' name="prontuario" class='form-control' placeholder='Prontuário' required autofocus></center>
       <label for='inputPassword' class='sr-only'>Senha</label>
       <center><input style= 'width : 350px;'type='password' id='inputPassword' name="senha" class='form-control' placeholder='Senha' required></center>
       <div class='checkbox mb-3'>
