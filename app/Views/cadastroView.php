@@ -42,13 +42,12 @@
         <h1>Formulário de Cadastro</h1>
         <p class="lead"></p>
       </div>
-    
           <form class="needs-validation" novalidate action="" method="POST">
             <input type="hidden" name="id" value="">
             <div class="row">
               <div class="col-md-6 mb-3">
                 <label for="Cargo">Cargo</label>
-                <input type="text" class="form-control" id="cargo" name="cargo" placeholder="" value="" required>
+                <input type="text" class="form-control" id="cargo" name="cargo" disabled value="<?= $user->cargo=="c"? "coordenador" : "professor" ?>" >
                 <div class="invalid-feedback">
                   É obrigatório inserir um Cargo válido.                    
                 </div>

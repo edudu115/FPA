@@ -16,14 +16,17 @@ class UsuarioModel extends Model{
 
     public function verificar_login($p, $s)
     {
-        $sql = "SELECT * FROM usuario WHERE prontuario='$p' AND senha='$s'";
-    
-        $query = $this->db->query($sql);
+        // $sql = "SELECT * FROM usuario WHERE prontuario='$p' AND senha='$s'";
+        // $query = $this->db->query($sql);
+        // print_r($query);
 
-        if($query->getNumRows() > 0)
-            return True;
+        $query = $this->db->query("SELECT * FROM usuario WHERE prontuario='$p' AND senha='$s'");
+        return $query->getResult('object');
 
-        return false;
+        //if($query->getNumRows() > 0)
+          //  return True;
+
+        //return false;
     }
 }
 ?>
