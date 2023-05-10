@@ -19,11 +19,15 @@
 
             $retorno = $this->userModel->verificar_login($prontuario, $senha);
 
-            if($retorno){
-                return view('cadastroView');
+            if($retorno)
+            {
+                $dados = ["user" => $retorno[0]];
+                return view('cadastroView', $dados);
             }
-            else{
-                return view(base_url());
+            else
+            {
+                $oi = "oi";
+                $this->response->redirect(base_url());
             }
         }
 
