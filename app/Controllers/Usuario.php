@@ -26,7 +26,6 @@
             }
             else
             {
-                $oi = "oi";
                 $this->response->redirect(base_url());
             }
         }

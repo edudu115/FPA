@@ -37,66 +37,80 @@
 </nav> 
 
     <div class="container">
-      <div class="py-5 text-center">
+      <div class="py-1 text-center">
 
         <h1>Formulário de Cadastro</h1>
         <p class="lead"></p>
       </div>
-          <form class="needs-validation" novalidate action="" method="POST">
-            <input type="hidden" name="id" value="">
+          <form class="needs-validation" action="" method="POST">
+            <input type="hidden" name="id" value="<?= $user->idUsuario ?>">
             <div class="row">
-              <div class="col-md-6 mb-3">
+              <div class="col-3"></div>
+              <div class="col-6">
+              <div class="">
                 <label for="Cargo">Cargo</label>
-                <input type="text" class="form-control" id="cargo" name="cargo" disabled value="<?= $user->cargo=="c"? "coordenador" : "professor" ?>" >
-                <div class="invalid-feedback">
-                  É obrigatório inserir um Cargo válido.                    
-                </div>
+                <input type="text" class="form-control" id="cargo" name="cargo" disabled value="<?= $user->cargo=="c"? "Coordenador" : "Professor" ?>" >
               </div>
-              <div class="col-md-6 mb-3">
+
+            <div class="mt-2">
+                <label for="tempoExp">Tempo de Experiencia</label>
+                <input type="number" class="form-control" id="tempoExp" name="tempoExp" placeholder=""  value="" required>
+                <div class="invalid-feedback">
+                  É obrigatório inserir tempo de Experiencia.
+                </div>
+            </div>
+                <div class="mt-2">
                 <label for="tempoCampus">Tempo de Campus</label>
-                <input type="text" class="form-control" id="tempoCampus" name="tempoCampus" placeholder="" value="" required>
+                <input type="number" class="form-control" id="tempoCampus" name="tempoCampus" placeholder="" value="" required>
                 <div class="invalid-feedback">
                   É obrigatório inserir um tempo de Campus.
                 </div>
               </div>
-            </div>
-            <div class="col-md-6 mb-3">
-                <label for="tempoExp">Tempo de Experiencia</label>
-                <input type="text" class="form-control" id="tempoExp" name="tempoExp" placeholder=""  value="" required>
-                <div class="invalid-feedback">
-                  É obrigatório inserir tempo de Experiencia.
-                </div>
-            <div class="col-md-6 mb-3">
+            <div class="mt-2">
                 <label for="TempoProfissional">Tempo Profissional</label>
-                <input type="text" class="form-control" id="tempoProfissional" name="tempoProfissional" placeholder="" value="" required>
+                <input type="number" class="form-control" id="tempoProfissional" name="tempoProfissional" placeholder="" value="" required>
                 <div class="invalid-feedback">
-                  É obrigatório inserir tempo  Profissional
+                  É obrigatório inserir tempo Profissional
                 </div>
               </div>
-            <div class="col-md-6 mb-3">
+            <div class="mt-2">
                 <label for="tempoInstituicao">Tempo de Instituição</label>
-                <input type="text" class="form-control" id="tempoInstituicao" name="tempoInstituicao" placeholder="" value="" required>
+                <input type="number" class="form-control" id="tempoInstituicao" name="tempoInstituicao" placeholder="" value="" required>
                 <div class="invalid-feedback">
                   É obrigatório inserir tempo de Instituição
                 </div>
               </div>
-            <div class="col-md-6 mb-3">
+            <div class="mt-2">
                 <label for="nivelCarreira">Nivel de Carreira</label>
-                <input type="text" class="form-control" id="nivelCarreira" name="nivelCarreira" placeholder="" value="" required>
-                <div class="invalid-feedback">
-                  É obrigatório inserir Nivel de Carreira
-                </div>
+                  <select name="nivelCarreira">
+                    <option>DI-1</option>
+                    <option>DI-2</option>
+                    <option>DII-1</option>
+                    <option>DII-2</option>
+                    <option>DIII-1</option>
+                    <option>DIII-2</option>
+                    <option>DIII-3</option>
+                    <option>DIII-4</option>
+                    <option>DIV-1</option>
+                    <option>DIV-2</option>
+                    <option>DIV-3</option>
+                    <option>DIV-4</option>
+                    <option>TITULAR</option>
+                  </select>
               </div>
-            <div class="col-md-6 mb-3">
+            <div class="mt-2">
                 <label for="idade">Idade</label>
-                <input type="text" class="form-control" id="idade" name="idade" placeholder="" required>
+                <input type="number" class="form-control" id="idade" name="idade" placeholder="" required>
                 <div class="invalid-feedback">
                  Idade é obrigatório.
                 </div>
               </div>
-              <button class="btn btn-primary btn-lg btn-block" type="submit">Salvar</button>
+              <button class="btn btn-primary btn-lg btn-block mt-1" type="submit">Salvar</button>
           </form>
+        </div>
+        <div class="col-3"></div>
       </div>
+
             </form>
             
       <footer class="my-5 pt-5 text-muted text-center text-small">
