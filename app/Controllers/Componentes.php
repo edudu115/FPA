@@ -31,6 +31,11 @@ use ReflectionFunctionAbstract;
              ]);
              $this->response->redirect('http://localhost/projetoFPA/FPA/public/Componentes/viewComponente');
         }
+
+        public function deleteComponente($idComponentes){
+            $this->componenteModel->delete(($idComponentes));
+            $this->response->redirect('http://localhost/projetoFPA/FPA/public/Componentes/viewComponente');
+        }
     }
 
 ?>

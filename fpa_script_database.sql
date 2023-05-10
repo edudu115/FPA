@@ -33,6 +33,15 @@ CREATE TABLE IF NOT EXISTS usuario (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
+-- -----------------------------------------------------
+-- Table `fpa_database`.`cursos`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS cursos (
+  idCurso INT NOT NULL,
+  nomeCurso VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`idCurso`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
 
 -- -----------------------------------------------------
 -- Table `fpa_database`.`componentes`
@@ -40,12 +49,30 @@ DEFAULT CHARACTER SET = utf8;
 CREATE TABLE IF NOT EXISTS componentes (
   idComponentes INT NOT NULL AUTO_INCREMENT,
   nomeMateria VARCHAR(45) NOT NULL,
-  diaHorario DATETIME NOT NULL,
-  curso VARCHAR(45),
+  cursos_idCurso INT NOT NULL,
+  periodo VARCHAR(15), -- M=Manhã, T=Tarde, N=Noturno
   horasSemanais INT,
-  PRIMARY KEY (`idComponentes`))
+  PRIMARY KEY (`idComponentes`),
+  CONSTRAINT fk_componentes_cursos
+    FOREIGN KEY (cursos_idCurso)
+    REFERENCES fpa_database.cursos (idCurso)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
+
+-- -----------------------------------------------------
+-- Table `fpa_database`.`componentes_horario`
+-- -----------------------------------------------------
+CREATE Table IF NOT EXISTS componentes_horario (
+  idComponenteHorario INT NOT NULL,
+  diaSemana VARCHAR(45) NOT NULL,
+  horaInicio DATE NOT NULL,
+  horaFim DATE NOT NULL,
+  PRIMARY KEY(`idComponenteHorario`,`diaSemana`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
 
 
 -- -----------------------------------------------------
@@ -53,16 +80,16 @@ DEFAULT CHARACTER SET = utf8;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS preferencia (
   idPreferencia INT NOT NULL AUTO_INCREMENT,
-  professor_idProfessor INT NOT NULL,
+  usuario_idUsuario INT NOT NULL,
   componentes_idComponentes INT NOT NULL,
   prioridade VARCHAR(45) NOT NULL,
   PRIMARY KEY (idPreferencia),
-  CONSTRAINT fk_preferencia_professor
-    FOREIGN KEY (professor_idProfessor)
+  CONSTRAINT fk_preferencia_usuario
+    FOREIGN KEY (usuario_idUsuario)
     REFERENCES fpa_database.usuario (idUsuario)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT fk_preferencia_componentes1
+  CONSTRAINT fk_preferencia_componentes
     FOREIGN KEY (componentes_idComponentes)
     REFERENCES fpa_database.componentes (idComponentes)
     ON DELETE NO ACTION
@@ -77,15 +104,15 @@ DEFAULT CHARACTER SET = utf8;
 CREATE TABLE IF NOT EXISTS atribuido (
   idAtribuido INT NOT NULL AUTO_INCREMENT,
   componentes_idComponentes INT NOT NULL,
-  user_idUsuario INT NOT NULL,
+  usuario_idUsuario INT NOT NULL,
   PRIMARY KEY (idAtribuido),
-  CONSTRAINT fk_atribuido_componentes1
+  CONSTRAINT fk_atribuido_componentes
     FOREIGN KEY (componentes_idComponentes)
     REFERENCES fpa_database.componentes (idComponentes)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT fk_atribuido_usuario1
-    FOREIGN KEY (user_idUsuario)
+  CONSTRAINT fk_atribuido_usuario
+    FOREIGN KEY (usuario_idUsuario)
     REFERENCES fpa_database.usuario (idUsuario)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
@@ -94,14 +121,14 @@ DEFAULT CHARACTER SET = utf8;
 
 -- POPULANDO DATABASE --
 -- USUARIO --
-insert into usuario(nome, prontuario, senha, cpf, cargo) value('João','12345','12345','6789','c');
-insert into usuario(nome, prontuario, senha, cpf, cargo) value('Andre','345678','12345','12345','p');
-insert into usuario(nome, prontuario, senha, cpf, cargo) value('Moana','67890','67890','67890','p');
+-- insert into usuario(nome, prontuario, senha, cpf, cargo) value('João','12345','12345','6789','c');
+-- insert into usuario(nome, prontuario, senha, cpf, cargo) value('Andre','345678','12345','12345','p');
+-- insert into usuario(nome, prontuario, senha, cpf, cargo) value('Moana','67890','67890','67890','p');
 
 -- COMPONENTES --
-insert into componentes(nomeMateria, diaHorario, curso, horasSemanais) value('ISO - Introdução a Sistemas Operacionais', '2023-02-13 19:00:00', 'Tec info noturno', 4);
-insert into componentes(nomeMateria, diaHorario, curso, horasSemanais) value('IPW - Introdução a Programção Web', '2023-02-15 12:35:00', 'Int info Tarde', 4);
-insert into componentes(nomeMateria, diaHorario, curso, horasSemanais) value('DAC - Desenho Assistido por Computador', '2023-02-16 14:25:00', 'Int mec Tarde', 2);
+-- insert into componentes(nomeMateria, diaHorario, curso, horasSemanais) value('ISO - Introdução a Sistemas Operacionais', '2023-02-13 19:00:00', 'Tec info noturno', 4);
+-- insert into componentes(nomeMateria, diaHorario, curso, horasSemanais) value('IPW - Introdução a Programção Web', '2023-02-15 12:35:00', 'Int info Tarde', 4);
+-- insert into componentes(nomeMateria, diaHorario, curso, horasSemanais) value('DAC - Desenho Assistido por Computador', '2023-02-16 14:25:00', 'Int mec Tarde', 2);
 
 -- PREFERENCIA -- 
 -- insert into preferencia(professor_idProfessor, componentes_idComponentes, prioridade) value('')

@@ -9,6 +9,14 @@
 
     <title></title>
   </head>
+  <script>
+        function confirmar(){
+            if(confirm('Deseja excluir esta pessoa?'))
+                return true;
+
+            return false;
+        }
+    </script>
   <style>
         body{
             background-color: #c2ddc1;
@@ -63,13 +71,13 @@
         echo "<td>".$componente->diaHorario."</td>";
         echo "<td>".$componente->curso."</td>";
         echo "<td>".$componente->horasSemanais."</td>";
-
         echo "<td> <select  style= 'width : 150px;' class='form-select' aria-label='Default select example'>
       <option selected value='0'>Não Selecionado</option>
   <option value='1'>Primário</option>
   <option value='2'>Segundário</option>
-</select> </td>
-    </tr>";
+</select> </td>";
+        echo "<td><a onclick='return confirmar()' class='btn btn-danger' href='Componentes/deleteComponente/".$componente->idComponentes."'>Remover</a></td>";
+        echo "</tr>";
       }
       ?>
    
