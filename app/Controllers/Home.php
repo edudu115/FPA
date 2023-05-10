@@ -20,4 +20,14 @@ class Home extends BaseController
         return view('cadastroView');
     }
 
+    public function atribuidosView()
+    {
+        $professor = [
+            'Ricardo',
+            'Marcelo',
+            'Rogerio'
+        ];
+        echo view('atribuidoView', ['professor' => $professor]);
+    }
+
 }

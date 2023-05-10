@@ -4,9 +4,22 @@
 
     class Atribuido extends BaseController
     {
-        public $idAtribuido;
-        public $componentes_idComponentes;
-        public $user_idUsuario;
+        private $AtribuidoModel;
+        public function __construct(){
+            $this->AtribuidoModel = new \App\Models\AtribuidoModel();
+        }
+
+        public function atribuidoView(){
+
+            return view('atribuidoView',[
+                                            'atribuidos' => $this->AtribuidoModel->find(),
+                                        ]);
+        }
+
+        // public function salveComponente(){
+
+        //     $this->componenteModel->savw
+        // }
     }
 
 ?>
