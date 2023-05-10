@@ -18,10 +18,19 @@ use ReflectionFunctionAbstract;
                                         ]);
         }
 
-        // public function salveComponente(){
+        public function viewFormComponente(){
+            return view('formComponentesView');
+        }
 
-        //     $this->componenteModel->savw
-        // }
+        public function salveComponente(){
+             $this->componenteModel->save([
+                                            'nomeMateria'=>$this->request->getPost('nomeMateria'),
+                                            'diaHorario'=>$this->request->getPost('diaHorario'),
+                                            'curso'=>$this->request->getPost('curso'),
+                                            'horasSemanais'=>$this->request->getPost('horasSemanais')
+             ]);
+             $this->response->redirect('http://localhost/projetoFPA/FPA/public/Componentes/viewComponente');
+        }
     }
 
 ?>

@@ -55,6 +55,7 @@
     </tr>
   </thead>
   <tbody>
+  <a class='btn btn-success' href="<?=base_url('Componentes/viewFormComponente')?>">Adicionar um componente</a>
      <?php
      foreach($componentes as $componente){
       echo "<tr>";

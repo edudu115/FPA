@@ -10,7 +10,7 @@
             $this->preferenciaModel = new \App\Models\PreferenciaModel();
         }
 
-        public function salvePrefencia(){
+        public function savePrefencia(){
             $this->preferenciaModel->save([
                                             'professor_idProfessor'=>$this->request->getPost('professor_idProfessor'),
                                             'componentes_idComponentes'=>$this->request->getPost('componentes_idComponentes'),
