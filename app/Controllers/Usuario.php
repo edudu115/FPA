@@ -5,19 +5,24 @@
     class Usuario extends BaseController
     {
         private $userModel;
+        private $session;
 
         public function __construct()
         {
             $this->userModel = new \App\Models\UsuarioModel;
+            $this->session = \Config\Services::session();
         }
 
         public function logar()
         {
-
             $prontuario = $this->request->getPost('prontuario');
             $senha = $this->request->getPost('senha');
 
             $retorno = $this->userModel->verificar_login($prontuario, $senha);
+
+            $array = ['cargo' => $retorno[0]->cargo];
+            $this->session->set($array);
+            //PARA ACESSAR A SESSÃO: $this->session->cargo;
 
             if($retorno)
             {
@@ -50,7 +55,7 @@
             ];
 
         }
-        
+
     }
 
 ?>
