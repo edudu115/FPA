@@ -11,6 +11,15 @@ class ComponentesModel extends Model{
     protected $allowedFields = ["nomeMateria", "horario_idHorario",
                                 "cursos_idCurso", "periodo", "horasSemanais"];
     protected $returnType = "object";
+
+    public function joinComponente()
+    {
+        $query = $this->db->query("SELECT cursos.nomeCurso, horario.diaSemana, horario.horaInicio, horario.horaFim
+                                   FROM ((componentes 
+                                   INNER JOIN horario ON componentes.horario_idHorario = horario.idHorario)
+                                   INNER JOIN cursos ON componentes.cursos_idCurso = cursos.idCurso)");
+        return $query->getResult('object');
+    }
 }
 
 
