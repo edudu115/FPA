@@ -10,7 +10,7 @@ class UsuarioModel extends Model{
     protected $useAutoIncrement = true;
     protected $allowedFields = ["nome", "prontuario", "senha", "cpf", "cargo",
                                  "tempoCampus", "tempoExp", 
-                                 "tempoProfissional", "tempoInstuicao", 
+                                 "tempoProfissional", "tempoInstituicao", 
                                  "nivelCarreira", "idade"];
     protected $returnType = "object";
 

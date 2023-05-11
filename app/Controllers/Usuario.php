@@ -40,7 +40,7 @@
         public function updateUsuario()
         {
             $dados = [
-                "cargo" => $this->request->getPost("cargo"),
+                "idUsuario" => $this->request->getPost('id'),
                 "tempoCampus" => $this->request->getPost("tempoCampus"),
                 "tempoExp" => $this->request->getPost("tempoExp"),
                 "tempoProfissional" => $this->request->getPost("tempoProfissional"),
@@ -49,6 +49,9 @@
                 "idade" => $this->request->getPost("idade")
             ];
 
+            $this->userModel->save($dados);
+            //$this->response->redirect(base_url('Componentes/viewComponente'));
+            echo "ablublé";
         }
 
     }

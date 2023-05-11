@@ -12,7 +12,6 @@ use ReflectionFunctionAbstract;
         }
 
         public function viewComponente(){
-
             return view('componentesView',[
                                             'componentes' => $this->componenteModel->find(),
                                         ]);
