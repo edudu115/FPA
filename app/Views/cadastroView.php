@@ -13,7 +13,7 @@
   <body class="bg-green">
 
    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#"> <img class='mb-4' src='<?= base_url('ifsp.png') ?>' alt='' width='90' height='90'></a>
+  <a class="navbar-brand" href=""> <img class='mb-4' src='<?= base_url('ifsp.png') ?>' alt='' width='90' height='90'></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -42,7 +42,7 @@
         <h1>Formulário de Cadastro</h1>
         <p class="lead"></p>
       </div>
-          <form class="needs-validation" action="" method="POST">
+          <form class="needs-validation" action="<?= base_url('Usuario/updateUsuario') ?>" method="POST">
             <input type="hidden" name="id" value="<?= $user->idUsuario ?>">
             <div class="row">
               <div class="col-3"></div>
@@ -80,24 +80,24 @@
                   É obrigatório inserir tempo de Instituição
                 </div>
               </div>
-            <div class="mt-2 input-group">
+            <div class="mt-3 input-group">
                 <div class="input-group-prepend">
                   <label class="input-group-text" for="nivelCarreira">Nivel de Carreira</label>
                 </div>
                   <select class="custom-select bg-light" name="nivelCarreira">
-                    <option>DI-1</option>
-                    <option>DI-2</option>
-                    <option>DII-1</option>
-                    <option>DII-2</option>
-                    <option>DIII-1</option>
-                    <option>DIII-2</option>
-                    <option>DIII-3</option>
-                    <option>DIII-4</option>
-                    <option>DIV-1</option>
-                    <option>DIV-2</option>
-                    <option>DIV-3</option>
-                    <option>DIV-4</option>
-                    <option>TITULAR</option>
+                    <option value="1">DI-1</option>
+                    <option value="2">DI-2</option>
+                    <option value="3">DII-1</option>
+                    <option value="4">DII-2</option>
+                    <option value="5">DIII-1</option>
+                    <option value="6">DIII-2</option>
+                    <option value="7">DIII-3</option>
+                    <option value="8">DIII-4</option>
+                    <option value="9">DIV-1</option>
+                    <option value="10">DIV-2</option>
+                    <option value="11">DIV-3</option>
+                    <option value="12">DIV-4</option>
+                    <option value="13">TITULAR</option>
                   </select>
               </div>
             <div class="mt-2">
