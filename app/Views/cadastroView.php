@@ -80,9 +80,11 @@
                   É obrigatório inserir tempo de Instituição
                 </div>
               </div>
-            <div class="mt-2">
-                <label for="nivelCarreira">Nivel de Carreira</label>
-                  <select name="nivelCarreira">
+            <div class="mt-2 input-group">
+                <div class="input-group-prepend">
+                  <label class="input-group-text" for="nivelCarreira">Nivel de Carreira</label>
+                </div>
+                  <select class="custom-select bg-light" name="nivelCarreira">
                     <option>DI-1</option>
                     <option>DI-2</option>
                     <option>DII-1</option>
