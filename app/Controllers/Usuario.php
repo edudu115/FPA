@@ -20,12 +20,14 @@
 
             $retorno = $this->userModel->verificar_login($prontuario, $senha);
 
-            $array = ['cargo' => $retorno[0]->cargo];
-            $this->session->set($array);
-            //PARA ACESSAR A SESSÃO: $this->session->cargo;
+            // PARA ACESSAR A SESSÃO: $this->session->chave;
+            // NESTE CASO: $this->session->cargo;
 
             if($retorno)
             {
+                $array = ['cargo' => $retorno[0]->cargo];
+                $this->session->set($array);
+
                 $dados = ["user" => $retorno[0]];
                 return view('cadastroView', $dados);
             }
@@ -33,13 +35,6 @@
             {
                 $this->response->redirect(base_url());
             }
-        }
-
-        public function findUsuario()
-        {
-            return view('cadastroView',[
-                'user' => $this->userModel->find(),
-              ]);
         }
 
         public function updateUsuario()
