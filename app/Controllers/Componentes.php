@@ -1,21 +1,21 @@
 <?php
 
     namespace App\Controllers;
-
-use ReflectionFunctionAbstract;
-
     class Componentes extends BaseController
     {
         private $componenteModel;
+        public $session;
         public function __construct(){
             $this->componenteModel = new \App\Models\ComponentesModel();
+            $this->session = \Config\Services::session();
         }
 
         public function viewComponente(){
-            return view('componentesView',[
-                                            'componentes' => $this->componenteModel->find(),
-                                        ]);
-        }
+            $dados = ['componentes' => $this->componenteModel->find(),
+                      'cargo' => $this->session->cargo];
+
+            return view('componentesView',[$dados]);
+            }
 
         public function viewFormComponente(){
             return view('formComponentesView');

@@ -1,7 +1,6 @@
 <?php
 
     namespace App\Controllers;
-
     class Usuario extends BaseController
     {
         private $userModel;
@@ -11,6 +10,11 @@
         {
             $this->userModel = new \App\Models\UsuarioModel;
             $this->session = \Config\Services::session();
+        }
+
+        public function index()
+        {
+            return view("login.php");
         }
 
         public function logar()
