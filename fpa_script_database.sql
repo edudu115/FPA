@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS usuario (
   tempoCampus INT,
   tempoExp INT,
   tempoProfissional INT,
-  tempoInstuicao INT,
+  tempoInstituicao INT,
   nivelCarreira INT,
   idade INT,
   PRIMARY KEY (idUsuario))
