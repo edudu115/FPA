@@ -21,20 +21,21 @@
             return view('formComponentesView');
         }
 
-        public function salveComponente(){
-             $this->componenteModel->save([
+        public function saveComponente(){
+
+            $this->componenteModel->save([
                                             'nomeMateria'=>$this->request->getPost('nomeMateria'),
-                                            'diaHorario'=>$this->request->getPost('diaHorario'),
-                                            'curso'=>$this->request->getPost('curso'),
-                                            'horasSemanais'=>$this->request->getPost('horasSemanais')
-             ]);
-             //$this->response->redirect('http://localhost/projetoFPA/FPA/public/Componentes/viewComponente');
-             $this->response->redirect(base_url('Componentes/viewComponente');
-        }
+                                            'horario_idHorario'=>$this->request->getPost('horario_idHorario'),
+                                            'cursos_idCurso'=>$this->request->getPost('cursos_idCurso'),
+                                            'pediodo'=>$this->request->getPost('periodo'),
+                                            'horasSemanas'=>$this->request->getPost('horasSemanas')
+                                        ]);
+            $this->response->redirect(base_url('Componentes/viewComponente'));
+            }
 
         public function deleteComponente($idComponentes){
             $this->componenteModel->delete(($idComponentes));
-            $this->response->redirect(base_url('Componentes/viewComponente');
+            $this->response->redirect(base_url('Componentes/viewComponente'));
         }
     }
 

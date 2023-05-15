@@ -14,7 +14,7 @@ class ComponentesModel extends Model{
 
     public function joinComponente()
     {
-        $query = $this->db->query("SELECT cursos.nomeCurso, horario.diaSemana, horario.horaInicio, horario.horaFim
+        $query = $this->db->query("SELECT componentes.nomeMateria, componentes.periodo, componentes.horasSemanais, cursos.nomeCurso, horario.diaSemana, horario.horaInicio, horario.horaFim
                                    FROM ((componentes 
                                    INNER JOIN horario ON componentes.horario_idHorario = horario.idHorario)
                                    INNER JOIN cursos ON componentes.cursos_idCurso = cursos.idCurso)");
