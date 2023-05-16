@@ -37,7 +37,7 @@ DEFAULT CHARACTER SET = utf8;
 -- Table `fpa_database`.`cursos`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS cursos (
-  idCurso INT NOT NULL,
+  idCurso INT NOT NULL AUTO_INCREMENT,
   nomeCurso VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idCurso`))
 ENGINE = InnoDB
@@ -47,7 +47,7 @@ DEFAULT CHARACTER SET = utf8;
 -- Table `fpa_database`.`horario`
 -- -----------------------------------------------------
 CREATE Table IF NOT EXISTS horario (
-  idHorario INT NOT NULL,
+  idHorario INT NOT NULL AUTO_INCREMENT,
   diaSemana VARCHAR(45) NOT NULL,
   horaInicio TIME NOT NULL,
   horaFim TIME NOT NULL,
@@ -130,14 +130,14 @@ insert into usuario(nome, prontuario, senha, cpf, cargo) value('Andre','345678',
 insert into usuario(nome, prontuario, senha, cpf, cargo) value('Moana','67890','67890','67890','p');
 
 -- CURSOS --
-insert into cursos(idCurso, nomeCurso) value(001,'TI - Técnico Informática');
-insert into cursos(idCurso, nomeCurso) value(002,'TSI - Tecnologia para Sistema da Internet');
-insert into cursos(idCurso, nomeCurso) value(003,'TM - Técnico Mecatronica');
+insert into cursos(nomeCurso) value('TI - Técnico Informática');
+insert into cursos(nomeCurso) value('TSI - Tecnologia para Sistema da Internet');
+insert into cursos(nomeCurso) value('TM - Técnico Mecatronica');
 
 -- HORARIO --
-insert into horario(idHorario, diaSemana, horaInicio, horaFim) value(01,'quarta', '19:00', '22:35');
-insert into horario(idHorario, diaSemana, horaInicio, horaFim) value(02,'terça e sexta', '19:00', '22:35');
-insert into horario(idHorario, diaSemana, horaInicio, horaFim) value(03,'terça', '12:35', '14:15');
+insert into horario(diaSemana, horaInicio, horaFim) value('quarta', '19:00', '22:35');
+insert into horario(diaSemana, horaInicio, horaFim) value('terça e sexta', '19:00', '22:35');
+insert into horario(diaSemana, horaInicio, horaFim) value('terça', '12:35', '14:15');
 
 -- COMPONENTES --
 insert into componentes(nomeMateria, horario_idHorario, cursos_idCurso, periodo, horasSemanais) value('ISO - Introdução a Sistemas Operacionais', 01, 001, 'N', 4);
