@@ -8,8 +8,7 @@ class HorarioModel extends Model{
     protected $table = "horario";
     protected $primaryKey = "idHorario";
     protected $useAutoIncrement = true;
-    protected $allowedFields =  ["idHorario", 
-                                "diaSemana",
+    protected $allowedFields =  ["diaSemana",
                                 "horaInicio",
                                 "horaFim"];
     protected $returnType = "object";

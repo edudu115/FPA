@@ -4,9 +4,13 @@
     class Componentes extends BaseController
     {
         private $componenteModel;
+        private $cursoModel;
+        private $horarioModel;
         public $session;
         public function __construct(){
             $this->componenteModel = new \App\Models\ComponentesModel();
+            $this->cursoModel = new \App\Models\CursosModel();
+            $this->horarioModel = new \App\Models\HorarioModel();
             $this->session = \Config\Services::session();
         }
         
@@ -26,12 +30,17 @@
             $this->componenteModel->save([
                                             'nomeMateria'=>$this->request->getPost('nomeMateria'),
                                             'periodo'=>$this->request->getPost('periodo'),
-                                            'nomeCurso'=>$this->request->getPost('nomeCurso'),
-                                            'horasSemanais'=>$this->request->getPost('horasSemanais'),
-                                            'diaSemana'=>$this->request->getPost('diaSemana'),
-                                            'horaInicio'=>$this->request->getPost('horaInicio'),
-                                            'horaFim'=>$this->request->getPost('horaFim')
+                                            'horasSemanais'=>$this->request->getPost('horasSemanais')
                                         ]);
+            $this->cursoModel->save([
+                                        'nomeCurso'=>$this->request->getPost('nomeCurso')
+                                    ]);
+            $this->horarioModel->save([
+                                        'diaSemana'=>$this->request->getPost('diaSemana'),
+                                        'horaInicio'=>$this->request->getPost('horaInicio'),
+                                        'horaFim'=>$this->request->getPost('horaFim')
+                                      ]);
+            
             $this->response->redirect(base_url('Componentes/viewComponente'));
             }
 

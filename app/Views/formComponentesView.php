@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="<?= base_url('Componentes/salveComponente')?>" method="post">
+    <form action="<?= base_url('Componentes/saveComponente')?>" method="post">
         <label class="form-label" for="nomeMateria">Nome da Matéria</label>
         <input class="form-control" type="text" name="nomeMateria" id="nomeMateria" value="<?= isset($componente) ? $componente->nomeMateria: "" ?>">
         <label class="form-label" for="periodo">Período</label>
