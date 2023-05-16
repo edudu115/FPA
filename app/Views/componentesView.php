@@ -56,29 +56,36 @@
 </div>
   <thead>
     <tr>
-      <th  scope="col">Matéria</th>
-      <th scope="col">dia-Horario</th>
-      <th scope="col">curso</th> 
-      <th scope="col">Horas_Semanais</th>
+      <th scope="col">Matéria</th>
+      <th scope="col">Período</th>
+      <th scope="col">Horas Semanais</th> 
+      <th scope="col">Nome do curso</th>
+      <th scope="col">Dia da Semana</th>
+      <th scope="col">Horário de Início</th>
+      <th scope="col">Horário de Fim</th>
+      <th scope="col">Preferência</th>
     </tr>
   </thead>
   <tbody>
   <a class='btn btn-success' href="<?=base_url('Componentes/viewFormComponente')?>">Adicionar um componente</a>
      <?php
-     foreach($componentes as $componente){
+     foreach($retorna as $componente){
       echo "<tr>";
         echo "<td>".$componente->nomeMateria."</td>";
-        echo "<td>".$componente->diaHorario."</td>";
-        echo "<td>".$componente->curso."</td>";
+        echo "<td>".$componente->periodo."</td>";
         echo "<td>".$componente->horasSemanais."</td>";
+        echo "<td>".$componente->nomeCurso."</td>";
+        echo "<td>".$componente->diaSemana."</td>";
+        echo "<td>".$componente->horaInicio."</td>";
+        echo "<td>".$componente->horaFim."</td>";
         echo "<td> <select  style= 'width : 150px;' class='form-select' aria-label='Default select example'>
       <option selected value='0'>Não Selecionado</option>
   <option value='1'>Primário</option>
   <option value='2'>Segundário</option>
 </select> </td>";
-        echo "<td><a onclick='return confirmar()' class='btn btn-danger' href='Componentes/deleteComponente/".$componente->idComponentes."'>Remover</a></td>";
+        echo "<td><a onclick='return confirmar()' class='btn btn-danger' href='#".$componente->idComponentes."'>Remover</a></td>";
         echo "</tr>";
-      }
+    }
       ?>
    
     

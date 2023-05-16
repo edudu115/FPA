@@ -9,13 +9,13 @@
             $this->componenteModel = new \App\Models\ComponentesModel();
             $this->session = \Config\Services::session();
         }
-
+        
         public function viewComponente(){
-            $dados = ['componentes' => $this->componenteModel->find(),
-                      'cargo' => $this->session->cargo];
-
-            return view('componentesView',[$dados]);
-            }
+            $dados = ['retorna'=>$this->componenteModel->joinComponente(),
+                        'cargo' => $this->session->cargo];
+            //echo $retorna[0]->nomeMateria;
+            return view('componentesView', $dados);
+        }
 
         public function viewFormComponente(){
             return view('formComponentesView');
@@ -25,10 +25,12 @@
 
             $this->componenteModel->save([
                                             'nomeMateria'=>$this->request->getPost('nomeMateria'),
-                                            'horario_idHorario'=>$this->request->getPost('horario_idHorario'),
-                                            'cursos_idCurso'=>$this->request->getPost('cursos_idCurso'),
-                                            'pediodo'=>$this->request->getPost('periodo'),
-                                            'horasSemanas'=>$this->request->getPost('horasSemanas')
+                                            'periodo'=>$this->request->getPost('periodo'),
+                                            'nomeCurso'=>$this->request->getPost('nomeCurso'),
+                                            'horasSemanais'=>$this->request->getPost('horasSemanais'),
+                                            'diaSemana'=>$this->request->getPost('diaSemana'),
+                                            'horaInicio'=>$this->request->getPost('horaInicio'),
+                                            'horaFim'=>$this->request->getPost('horaFim')
                                         ]);
             $this->response->redirect(base_url('Componentes/viewComponente'));
             }
