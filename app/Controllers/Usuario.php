@@ -54,8 +54,7 @@
             ];
 
             $this->userModel->save($dados);
-            //$this->response->redirect(base_url('Componentes/viewComponente'));
-            echo "ablublé";
+            $this->response->redirect(base_url('Componentes/viewComponente'));
         }
 
     }

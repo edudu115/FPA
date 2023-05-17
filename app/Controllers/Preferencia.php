@@ -10,14 +10,41 @@
             $this->preferenciaModel = new \App\Models\PreferenciaModel();
         }
 
-        public function savePrefencia(){
-            $this->preferenciaModel->save([
-                                            'professor_idProfessor'=>$this->request->getPost('professor_idProfessor'),
-                                            'componentes_idComponentes'=>$this->request->getPost('componentes_idComponentes'),
-                                            'prioridade'=>$this->request->getPost('prioridade')
-            ]);
+        public function savePreferencia(){
+            // $ret = $this->request->getPost("preferencia0");
+            // print_r($ret);
+            
+            $i=0;
+            $retorno = $this->request->getPost("preferencia".$i);
+            echo $retorno;
+
+            // $p = false;
+            // for($i = 0; $p == true; $i++){
+            //     $retorno = $this->request->getPost("preferencia".$i);
+            //     echo $retorno;
+            //     if($retorno == null){
+            //         $p = true;
+            //     }
+            // }
+                // $retorno = $this->request->getPost('preferencia'.$i);
+                // print_r($retorno);
+                // if(empty($retorno)){
+                //     echo "vazio<br>";
+                // }else{
+                //     echo "cheio<br>";
+                // }
+            
+            // var_dump($retorno);
+
+            // $i = 0;
+            // $retorno = $this->request->getPost('preferencia'.$i);
+            // while(!empty($retorno))
+            // {
+            //     print_r($retorno);
+            //     $i++;
+            //     $retorno = $this->request->getPost('preferencia'.$i);
+            // }
         }
-        
     }
 
 ?>
