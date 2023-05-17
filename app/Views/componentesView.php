@@ -41,11 +41,11 @@
       </li>
     </ul>
   <div style='text-align:left'>
-    <form class="form-inline my-2 my-lg-0">
+    <form class="form-inline my-2 my-lg-0" action="<?= base_url('Preferencia/savePreferencia') ?>" method="POST">
       <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar"> 
 </div>
 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar  </button>
-    </form>
+
   </div>
 </nav> 
 <br><br>
@@ -69,30 +69,31 @@
   <tbody>
   <a class='btn btn-success' href="<?=base_url('Componentes/viewFormComponente')?>">Adicionar um componente</a>
      <?php
+     $i = 0;
      foreach($retorna as $componente){
       echo "<tr>";
         echo "<td>".$componente->nomeMateria."</td>";
         echo "<td>".$componente->periodo."</td>";
         echo "<td>".$componente->horasSemanais."</td>";
-        echo "<td>".$componente->nomeCurso."</td>";
+        echo "<td>".$componente->cursos_idCurso."</td>";
         echo "<td>".$componente->diaSemana."</td>";
         echo "<td>".$componente->horaInicio."</td>";
         echo "<td>".$componente->horaFim."</td>";
-        echo "<td> <select  style= 'width : 150px;' class='form-select' aria-label='Default select example'>
+        echo "<td> <select  style= 'width : 150px;' class='form-select' aria-label='Default select example' name='preferencia".$i."'>
       <option selected value='0'>Não Selecionado</option>
-  <option value='1'>Primário</option>
-  <option value='2'>Segundário</option>
+      <option value='1'>Primário</option>
+      <option value='2'>Segundário</option>
 </select> </td>";
         echo "<td><a onclick='return confirmar()' class='btn btn-danger' href='#".$componente->idComponentes."'>Remover</a></td>";
         echo "</tr>";
+        $i++;
     }
       ?>
-   
-    
   </tbody>
 </table>
 </label>
 <br><br><br>
-<button class="btn btn-primary btn-lg btn-block" type="submit">Salvar</button>
+<input class="btn btn-primary btn-lg btn-block" type="submit" value="Salvar">
+</form>
 </body>
 </html>
