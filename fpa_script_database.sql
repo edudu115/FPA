@@ -37,21 +37,9 @@ DEFAULT CHARACTER SET = utf8;
 -- Table `fpa_database`.`cursos`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS cursos (
-  idCurso INT NOT NULL AUTO_INCREMENT,
+  idCurso VARCHAR(10) NOT NULL,
   nomeCurso VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idCurso`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
-
--- -----------------------------------------------------
--- Table `fpa_database`.`horario`
--- -----------------------------------------------------
-CREATE Table IF NOT EXISTS horario (
-  idHorario INT NOT NULL AUTO_INCREMENT,
-  diaSemana VARCHAR(45) NOT NULL,
-  horaInicio TIME NOT NULL,
-  horaFim TIME NOT NULL,
-  PRIMARY KEY(`idHorario`,`diaSemana`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
@@ -59,25 +47,44 @@ DEFAULT CHARACTER SET = utf8;
 -- Table `fpa_database`.`componentes`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS componentes (
-  idComponentes INT NOT NULL AUTO_INCREMENT,
+  idComponentes VARCHAR(10) NOT NULL,
   nomeMateria VARCHAR(45) NOT NULL,
-  horario_idHorario INT NOT NULL,
-  cursos_idCurso INT NOT NULL,
+  cursos_idCurso VARCHAR(10) NOT NULL,
   periodo VARCHAR(15), -- M=Manhã, T=Tarde, N=Noturno
   horasSemanais INT,
+  usuario_atribuidoPara INT,
   PRIMARY KEY (`idComponentes`),
-  CONSTRAINT fk_componentes_horario
-    FOREIGN KEY (horario_idHorario)
-    REFERENCES fpa_database.horario (idHorario)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
   CONSTRAINT fk_componentes_cursos
     FOREIGN KEY (cursos_idCurso)
     REFERENCES fpa_database.cursos (idCurso)
     ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT fk_componentes_usuario
+    FOREIGN KEY (usuario_atribuidoPara)
+    REFERENCES fpa_database.usuario (idUsuario)
+    ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
+
+-- -----------------------------------------------------
+-- Table `fpa_database`.`horario`
+-- -----------------------------------------------------
+CREATE Table IF NOT EXISTS horario (
+  componente_idComponentes VARCHAR(10) NOT NULL,
+  idHorario INT NOT NULL AUTO_INCREMENT,
+  diaSemana VARCHAR(45) NOT NULL,
+  horaInicio TIME NOT NULL,
+  horaFim TIME NOT NULL,
+  PRIMARY KEY(`idHorario`),
+  CONSTRAINT fk_horario_componentes
+    FOREIGN KEY (componente_idComponentes)
+    REFERENCES fpa_database.componentes (idComponentes)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
 
 -- -----------------------------------------------------
 -- Table `fpa_database`.`preferencia`
@@ -85,8 +92,8 @@ DEFAULT CHARACTER SET = utf8;
 CREATE TABLE IF NOT EXISTS preferencia (
   idPreferencia INT NOT NULL AUTO_INCREMENT,
   usuario_idUsuario INT NOT NULL,
-  componentes_idComponentes INT NOT NULL,
-  prioridade VARCHAR(45) NOT NULL,
+  componentes_idComponentes VARCHAR(10) NOT NULL,
+  prioridade INT NOT NULL,
   PRIMARY KEY (idPreferencia),
   CONSTRAINT fk_preferencia_usuario
     FOREIGN KEY (usuario_idUsuario)
@@ -101,28 +108,6 @@ CREATE TABLE IF NOT EXISTS preferencia (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
-
--- -----------------------------------------------------
--- Table `fpa_database`.`atribuido`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS atribuido (
-  idAtribuido INT NOT NULL AUTO_INCREMENT,
-  componentes_idComponentes INT NOT NULL,
-  usuario_idUsuario INT NOT NULL,
-  PRIMARY KEY (idAtribuido),
-  CONSTRAINT fk_atribuido_componentes
-    FOREIGN KEY (componentes_idComponentes)
-    REFERENCES fpa_database.componentes (idComponentes)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT fk_atribuido_usuario
-    FOREIGN KEY (usuario_idUsuario)
-    REFERENCES fpa_database.usuario (idUsuario)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
-
 -- POPULANDO DATABASE --
 -- USUARIO --
 insert into usuario(nome, prontuario, senha, cpf, cargo) value('João','12345','12345','6789','c');
@@ -130,21 +115,29 @@ insert into usuario(nome, prontuario, senha, cpf, cargo) value('Andre','345678',
 insert into usuario(nome, prontuario, senha, cpf, cargo) value('Moana','67890','67890','67890','p');
 
 -- CURSOS --
-insert into cursos(nomeCurso) value('TI - Técnico Informática');
-insert into cursos(nomeCurso) value('TSI - Tecnologia para Sistema da Internet');
-insert into cursos(nomeCurso) value('TM - Técnico Mecatronica');
+
+insert into cursos(idCurso, nomeCUrso) value
+         ('EM', 'Engrenharia Mecânica'),
+         ('ADS', 'Análise e Desenvolvimento de Sistemas'),
+         ('TII', 'Técnico Integrado em Informática'),
+         ('TIM', 'Técnico Integrado em Mecânica'),
+         ('TI', 'Técnico Informática'),
+         ('TM', 'Técnico Mecatrônica'),
+         ('TSI', 'Tecnólogo para Sistema da Internet'),
+         ('LM', 'Licenciatura em Matemática');
+
+-- COMPONENTE --
+insert into componentes(idComponentes, nomeMateria, cursos_idCurso, periodo, horasSemanais) value('ISO', 'Introdução a Sistemas Operacionais', 'TSI', 'N', 4);
+insert into componentes(idComponentes, nomeMateria, cursos_idCurso, periodo, horasSemanais) value('IPW', 'Introdução a Programção Web', 'TI', 'T', 8);
+insert into componentes(idComponentes, nomeMateria, cursos_idCurso, periodo, horasSemanais) value('DAC', 'Desenho Assistido por Computador', 'TSI', 'M', 4);
 
 -- HORARIO --
-insert into horario(diaSemana, horaInicio, horaFim) value('quarta', '19:00', '22:35');
-insert into horario(diaSemana, horaInicio, horaFim) value('terça e sexta', '19:00', '22:35');
-insert into horario(diaSemana, horaInicio, horaFim) value('terça', '12:35', '14:15');
-
--- COMPONENTES --
-insert into componentes(nomeMateria, horario_idHorario, cursos_idCurso, periodo, horasSemanais) value('ISO - Introdução a Sistemas Operacionais', 01, 001, 'N', 4);
-insert into componentes(nomeMateria, horario_idHorario, cursos_idCurso, periodo, horasSemanais) value('IPW - Introdução a Programção Web', 02, 002, 'T', 8);
-insert into componentes(nomeMateria, horario_idHorario, cursos_idCurso, periodo, horasSemanais) value('DAC - Desenho Assistido por Computador', 03, 003, 'M', 4);
+insert into horario(componente_idComponentes, diaSemana, horaInicio, horaFim) value('ISO', 'quarta', '19:00', '22:35');
+insert into horario(componente_idComponentes, diaSemana, horaInicio, horaFim) value('IPW', 'terça', '19:00', '22:35');
+insert into horario(componente_idComponentes, diaSemana, horaInicio, horaFim) value('IPW', 'sexta', '19:00', '22:35');
+insert into horario(componente_idComponentes, diaSemana, horaInicio, horaFim) value('DAC', 'terça', '12:35', '14:15');
 
 -- ATRIBUIDO -- 
-insert into atribuido(componentes_idComponentes, usuario_idUsuario) value(1,1);
-insert into atribuido(componentes_idComponentes, usuario_idUsuario) value(2,2);
+-- insert into atribuido(componentes_idComponentes, usuario_idUsuario) value('ISO',1);
+-- insert into atribuido(componentes_idComponentes, usuario_idUsuario) value('IPW',2);
 
