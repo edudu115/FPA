@@ -80,9 +80,9 @@
         echo "<td>".$componente->horaInicio."</td>";
         echo "<td>".$componente->horaFim."</td>";
         echo "<td> <select  style= 'width : 150px;' class='form-select' aria-label='Default select example' name='preferencia".$i."'>
-      <option selected value='0'>Não Selecionado</option>
-      <option value='1'>Primário</option>
-      <option value='2'>Segundário</option>
+      <option selected value='1'>Não Selecionado</option>
+      <option value='2'>Primário</option>
+      <option value='3'>Segundário</option>
 </select> </td>";
         echo "<td><a onclick='return confirmar()' class='btn btn-danger' href='#".$componente->idComponentes."'>Remover</a></td>";
         echo "</tr>";
