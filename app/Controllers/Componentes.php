@@ -16,12 +16,10 @@
         }
         
         public function viewComponente(){
-            $dados = ['retorna'=>$this->componenteModel->joinComponente(),
-                      'componente'=>$this->componenteModel,
-                      'curso'=>$this->cursoModel,
-                      'horario'=>$this->horarioModel,
-                      'cargo' => $this->session->cargo];
-            //echo $retorna[0]->nomeMateria;
+            $retorna = $this->componenteModel->joinComponente();
+            $dados = ['retorna'=> $retorna,
+                      'cargoUsuario' => $this->session->cargoUsuario,
+                      ];
             return view('componentesView', $dados);
         }
 
