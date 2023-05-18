@@ -14,17 +14,25 @@
 
         public function savePreferencia()
         {
+            $idUsuario = $this->session->idUsuario;
+
             $i = 0;
-            $retorno = $this->request->getPost("preferencia".$i);
+            $retorno = intval($this->request->getPost("preferencia".$i));
             while(!empty($retorno))
             {
-                echo $retorno;
+                $componente = $this->request->getPost("id_componente".$i);
+                if($retorno > 1)
+                {
+                    $retorno = $retorno - 1;
+                    $dados = ['usuario_idUsuario' => $idUsuario,
+                              'componentes_idComponentes' => $componente,
+                              'prioridade' => $retorno];
+                    $this->preferenciaModel->insert($dados);
+                }
+                
                 $i++;
-                $retorno = $this->request->getPost("preferencia".$i);
+                $retorno = intval($this->request->getPost("preferencia".$i));
             }
-
-            
         }
     }
-
 ?>

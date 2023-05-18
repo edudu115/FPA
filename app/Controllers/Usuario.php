@@ -29,7 +29,9 @@
 
             if($retorno)
             {
-                $array = ['cargo' => $retorno[0]->cargo];
+                $array = ['cargoUsuario' => $retorno[0]->cargo,
+                          'idUsuario' => $retorno[0]->idUsuario,
+                          'nomeUsuario' => $retorno[0]->nome];
                 $this->session->set($array);
 
                 $dados = ["user" => $retorno[0]];
