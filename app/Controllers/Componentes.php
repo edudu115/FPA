@@ -40,8 +40,8 @@
             $this->componenteModel->insert($dados);
             }
 
-        public function deleteComponente($idComponentes){
-            $this->componenteModel->delete(($idComponentes));
+        public function deleteComponente($id){
+            $this->componenteModel->delete(($id));
             $this->response->redirect(base_url('Componentes/viewComponente'));
         }
     }
