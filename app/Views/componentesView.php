@@ -72,6 +72,7 @@
      $i = 0;
      foreach($retorna as $componente){
       echo "<tr>";
+      //echo "<input type='hidden' name='id_componente' value='$componente->idComponentes'";
         echo "<td>".$componente->nomeMateria."</td>";
         echo "<td>".$componente->periodo."</td>";
         echo "<td>".$componente->horasSemanais."</td>";
@@ -86,6 +87,7 @@
 </select> </td>";
         echo "<td><a onclick='return confirmar()' class='btn btn-danger' href='#".$componente->idComponentes."'>Remover</a></td>";
         echo "</tr>";
+        echo "<input type='hidden' name='id_componente$i' value='$componente->idComponentes'";
         $i++;
     }
       ?>
