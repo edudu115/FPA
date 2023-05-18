@@ -127,9 +127,9 @@ insert into cursos(idCurso, nomeCUrso) value
          ('LM', 'Licenciatura em Matemática');
 
 -- COMPONENTE --
-insert into componentes(idComponentes, nomeMateria, cursos_idCurso, periodo, horasSemanais) value('ISO', 'Introdução a Sistemas Operacionais', 'TSI', 'N', 4);
-insert into componentes(idComponentes, nomeMateria, cursos_idCurso, periodo, horasSemanais) value('IPW', 'Introdução a Programção Web', 'TI', 'T', 8);
-insert into componentes(idComponentes, nomeMateria, cursos_idCurso, periodo, horasSemanais) value('DAC', 'Desenho Assistido por Computador', 'TSI', 'M', 4);
+insert into componentes(idComponentes, nomeMateria, cursos_idCurso, periodo, horasSemanais) value('ISO', 'Introdução a Sistemas Operacionais', 'TSI', 'Noite', 4);
+insert into componentes(idComponentes, nomeMateria, cursos_idCurso, periodo, horasSemanais) value('IPW', 'Introdução a Programção Web', 'TI', 'Tarde', 8);
+insert into componentes(idComponentes, nomeMateria, cursos_idCurso, periodo, horasSemanais) value('DAC', 'Desenho Assistido por Computador', 'TSI', 'Manhã', 4);
 
 -- HORARIO --
 insert into horario(componente_idComponentes, diaSemana, horaInicio, horaFim) value('ISO', 'quarta', '19:00', '22:35');
