@@ -7,9 +7,9 @@ use CodeIgniter\Model;
 class ComponentesModel extends Model{
     protected $table = "componentes";
     protected $primaryKey = "idComponentes";
-    protected $useAutoIncrement = true;
-    protected $allowedFields = ["nomeMateria", "horario_idHorario",
-                                "cursos_idCurso", "periodo", "horasSemanais"];
+    protected $useAutoIncrement = false;
+    protected $allowedFields = ["idComponentes", "nomeMateria",
+                                "cursos_idCurso", "periodo", "horasSemanais", "usuario_atribuidoPara"];
     protected $returnType = "object";
 
     public function joinComponente()

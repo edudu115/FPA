@@ -30,16 +30,14 @@
         }
 
         public function saveComponente(){
+            $dados = [
+                'idComponentes'=>$this->request->getPost('idComponente'),                                      
+                'nomeMateria'=>$this->request->getPost('nomeMateria'),
+                'periodo'=>$this->request->getPost('periodo'),
+                'horasSemanais'=>$this->request->getPost('horasSemanais'),
+                'cursos_idCurso'=>$this->request->getPost('curso_idCurso')];
 
-
-            $this->componenteModel->save([
-                                            'nomeMateria'=>$this->request->getPost('nomeMateria'),
-                                            'periodo'=>$this->request->getPost('periodo'),
-                                            'horasSemanais'=>$this->request->getPost('horasSemanais'),
-                                            'curso_idCurso'=>$this->request->getPost('curso_idCurso')
-                                        ]);
-            
-            $this->response->redirect(base_url('Componentes/viewComponente'));
+            $this->componenteModel->insert($dados);
             }
 
         public function deleteComponente($idComponentes){
