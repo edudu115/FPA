@@ -13,10 +13,13 @@
         <label class="form-label" for="nomeMateria">Nome da Matéria</label>
             <input class="form-control" type="text" name="nomeMateria" id="nomeMateria" value="<?= isset($componente) ? $componente->nomeMateria: "" ?>">
         <label class="form-label" for="periodo">Período</label>
-            <input class="form-control" type="text" name="periodo" id="periodo" value="<?= isset($componente) ? $componente->periodo: "" ?>">
+            <select name='periodo' id='periodo'>
+                <option value='Manhã'>Manhã</option>
+                <option value='Tarde'>Tarde</option>
+                <option value='Noite'>Noite</option>
+            </select>
         <label class="form-label" for="horasSemanais">Horas Semanais</label>
             <input class="form-control" type="number" name="horasSemanais" id="horasSemanais" value="<?= isset($componente) ? $componente->horasSemanais: "" ?>">
-        
         <?php
         echo "<label class='form-label' for='cursos'>Nome Cursos: </label>";
             echo "<select name='curso_idCurso' id='cursos'>";
