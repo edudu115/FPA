@@ -19,6 +19,11 @@ class ComponentesModel extends Model{
                                    INNER JOIN horario ON componentes.idComponentes = horario.componente_idComponentes)");
         return $query->getResult('object');
     }
+
+    public function atribuidoComponentes()
+    {
+        $query = $this->db->query("dsd");
+    }
 }
 
 

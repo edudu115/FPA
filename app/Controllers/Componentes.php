@@ -24,30 +24,19 @@
         }
 
         public function viewFormComponente(){
-            return view('formComponentesView');
+            return view('formComponentesView', [
+                                                    'cursos'=>$this->cursoModel->find()
+                                               ]);
         }
 
         public function saveComponente(){
 
-            $this->cursoModel->save([
-                'nomeCurso'=>$this->request->getPost('nomeCurso')
-            ]);
-            $this->horarioModel->save([
-                'diaSemana'=>$this->request->getPost('diaSemana'),
-                'horaInicio'=>$this->request->getPost('horaInicio'),
-                'horaFim'=>$this->request->getPost('horaFim')
-            ]);
-
-            $idCurso = $this->cursoModel->find($this->request->getPost('nomeCurso'));
-            $idHorario = $this->cursoModel->find($this->request->getPost(''));
-
 
             $this->componenteModel->save([
                                             'nomeMateria'=>$this->request->getPost('nomeMateria'),
-                                            'horario_idHorario'=>9,
-                                            'cursos_idCurso'=>9,
                                             'periodo'=>$this->request->getPost('periodo'),
-                                            'horasSemanais'=>$this->request->getPost('horasSemanais')
+                                            'horasSemanais'=>$this->request->getPost('horasSemanais'),
+                                            'curso_idCurso'=>$this->request->getPost('curso_idCurso')
                                         ]);
             
             $this->response->redirect(base_url('Componentes/viewComponente'));
