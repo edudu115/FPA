@@ -65,11 +65,7 @@
           background-color: #bee6a3;
         }
        
-        #button{
-        
-        background-color: green;
-      
-      }
+    
 
         #nav{
           width: 1920px;
@@ -114,72 +110,19 @@
       <input  id='pes' class='form-control mr-sm-2' type='search' placeholder='Pesquisar' aria-label='Pesquisar'> 
 </div>
 <button  id='pesq'  class='btn btn-outline-success my-2 my-sm-0' type='submit'>Pesquisar</button>
- <a href='login.php' <button  id='sair'  class='btn btn-outline-success my-2 my-sm-0' type='submit'>sair</button></a>
+ <a href='updateloginViews.php' <button  id='sair'  class='btn btn-outline-success my-2 my-sm-0' type='submit'>sair</button></a>
 </select>   
     </form>
   </div>
-  <a href='UsuarioViews.php'><img class='mb-4' src='<?= base_url('user.jpeg') ?>' class='rounded-circle' width='50' height='50'  left='50px' id='imgs'></a>
-  <a href='Alterar_Senha.php'><img class='mb-4' src='<?= base_url('engrenagem.png') ?>' class='rounded-circle' width='50' height='50'  left='50px' id='engrenagem'></a>
+  <a href='UsuarioViews.php'><img class='mb-4' src='<?= base_url('user.jpeg') ?>'class='rounded-circle' width='50' height='50'  left='50px' id='imgs'></a>
+  <a href='Alterar_SenhaViews.php'><img class='mb-4' src='<?= base_url('engrenagem.png') ?>' class='rounded-circle' width='50' height='50'  left='50px' id='engrenagem'></a>
 </nav> 
 <div  id='bar' class='sobre'>
 <nav class='nav'>
-  <a id='atualiza'class='nav-link active'href='index2.php'>Atualizar Cadastro</a>
-  <a id='horario'class='nav-link active'  href='informar_hr.php'>Informar Disponibilidade de Horario</a>
+  <a id='atualiza'class='nav-link active'href='updatecadastroViews.php'>Atualizar Cadastro</a>
+  <a id='horario'class='nav-link active'  href='updatecomponentesView.php'>Informar Disponibilidade de Horario</a>
 </nav>
       </div>
-<br><br>
-<center> <h4>Disponibilidade de horário para atribuição de componentes curriculares</h4> </center>
-<br><br>
-<table style='background-color: white' class='table table-bordered'>
-  
-</div>
-  <thead>
-    <tr>
-   
-      <th  scope='col'>Matéria</th>
-      <th scope='col'>dia-Horario</th>
-      <th scope='col'>curso</th> 
-      <th scope='col'>Horas_Semanais</th>
-     
-     
-  
-
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-     
-      <td>ISO-Introdução a Sistemas Operacionais </td>
-      <td>2023-02-13 19:00:00 </td>
-      <td>Tec-info noturno</td>
-      <td>4</td>
-      <td> <select  style= 'width : 150px;' class='form-select' aria-label='Default select example'>
-      <option selected>Não Selecionado</option>
-  <option value='1'>Primário</option>
-  <option value='2'>Segundário</option>
-</select> </td>
-    </tr>
-    <tbody>
-    <tr>
-    
-      <td>IPW-Introdução a Programação web</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <th>
-      <select style= 'width : 150px;' class='form-select' aria-label='Default select example' width ='40'>
-  <option selected>Não Selecionado</option>
-  <option value='1'>Primário</option>
-  <option value='2'>Segundário</option>
-</select>   
-    </th>
-    </tr>
-   
-    
-  </tbody>
-</table>
-</label>
-<br><br><br>
-<button id='button' class='btn btn-primary btn-lg btn-block' type='submit'>Salvar</button>
 </body>
 </html>
+
