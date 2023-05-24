@@ -42,10 +42,9 @@
             $this->componenteModel->insert($dados);
             }
 
-        public function deleteComponente($idComponente, $idHorario){
-            $this->horarioModel->deleteHorario("IPW");
+        public function deleteComponente($id){
+            $this->horarioModel->deleteHorario($id);
             //$this->componenteModel->delete($idComponente);
-
             echo "aa";
         }
     }

@@ -145,7 +145,7 @@ DELIMITER $$
 
 CREATE PROCEDURE apaga_componente(in id CHAR(10))
 BEGIN
-	DELETE FROM horario WHERE componente_idComponentes = id;
+	  DELETE FROM horario WHERE componente_idComponentes = id;
     DELETE FROM componentes WHERE idComponentes = id;
 END;
 

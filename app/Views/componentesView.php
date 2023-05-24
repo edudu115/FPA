@@ -56,7 +56,7 @@
 </div>
   <thead>
     <tr>
-      <th scope="col">Sigra</th>
+      <th scope="col">Sigla</th>
       <th scope="col">Matéria</th>
       <th scope="col">Período</th>
       <th scope="col">Horas Semanais</th> 
@@ -87,7 +87,7 @@
       <option value='2'>Primário</option>
       <option value='3'>Segundário</option>
 </select> </td>";
-        echo "<td><a onclick='return confirmar()' class='btn btn-danger' href='".base_url('Componentes/deleteComponente/'.$componente->idComponentes.'/'.$componente->idHorario)."''>Remover</a></td>";
+        echo "<td><a onclick='return confirmar()' class='btn btn-danger' href='".base_url('Componentes/deleteComponente/'.$componente->idComponentes)."''>Remover</a></td>";
         echo "</tr>";
         echo "<input type='hidden' name='id_componente$i' value='$componente->idComponentes'";
         $i++;
