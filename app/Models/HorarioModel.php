@@ -12,6 +12,11 @@ class HorarioModel extends Model{
                                 "horaInicio",
                                 "horaFim"];
     protected $returnType = "object";
+
+    public function deleteHorario ($id)
+    {
+        $this->db->query("DELETE FROM horario WHERE componente_idCOmponentes = $id ");
+    }
 }
 
 ?>

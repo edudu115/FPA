@@ -12,17 +12,30 @@ class ComponentesModel extends Model{
                                 "cursos_idCurso", "periodo", "horasSemanais", "usuario_atribuidoPara"];
     protected $returnType = "object";
 
+    
+
     public function joinComponente()
     {
-        $query = $this->db->query("SELECT componentes.idComponentes, componentes.nomeMateria, componentes.periodo, componentes.cursos_idCurso, componentes.horasSemanais, horario.diaSemana, horario.horaInicio, horario.horaFim
+        $query = $this->db->query("SELECT componentes.idComponentes, componentes.nomeMateria, componentes.periodo, componentes.cursos_idCurso, componentes.horasSemanais,horario.idHorario, horario.diaSemana, horario.horaInicio, horario.horaFim
                                    FROM (componentes 
                                    INNER JOIN horario ON componentes.idComponentes = horario.componente_idComponentes)");
         return $query->getResult('object');
     }
 
-    public function atribuidoComponentes()
+    public function deleteComponente($id)
     {
-        $query = $this->db->query("dsd");
+        $query = $this->db->table('componentes')->select('nomeMateria, periodo, horasSemanais, usuario_atribuidoPara')->where('idComponentes', $id);
+
+        $this->db->table('horario')
+            ->setQueryAsData($query, 'componentes')
+            ->onConstraint($id)
+            ->where('componentes.idComponentes = horario.componente_idComponentes')
+            ->deleteBatch();
+    }
+
+    public function deletarComponentes($id)
+    {
+        $this->builder->delete(['id' => $id]);
     }
 }
 

@@ -141,3 +141,12 @@ insert into horario(componente_idComponentes, diaSemana, horaInicio, horaFim) va
 -- insert into atribuido(componentes_idComponentes, usuario_idUsuario) value('ISO',1);
 -- insert into atribuido(componentes_idComponentes, usuario_idUsuario) value('IPW',2);
 
+DELIMITER $$
+
+CREATE PROCEDURE apaga_componente(in id CHAR(10))
+BEGIN
+	DELETE FROM horario WHERE componente_idComponentes = id;
+    DELETE FROM componentes WHERE idComponentes = id;
+END;
+
+DELIMITER;

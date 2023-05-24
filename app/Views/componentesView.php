@@ -67,12 +67,12 @@
     </tr>
   </thead>
   <tbody>
-  <a class='btn btn-success' href="<?=base_url('Componentes/viewFormComponente')?>">Adicionar um componente</a>
-     <?php
+      <?php if($cargoUsuario == "c"): ?>
+        <a class='btn btn-success' href='<?=base_url('Componentes/viewFormComponente')?>'>Adicionar um componente</a>
+      <?php endif;
      $i = 0;
      foreach($retorna as $componente){
       echo "<tr>";
-      //echo "<input type='hidden' name='id_componente' value='$componente->idComponentes'";
         echo "<td>".$componente->nomeMateria."</td>";
         echo "<td>".$componente->periodo."</td>";
         echo "<td>".$componente->horasSemanais."</td>";
@@ -85,7 +85,7 @@
       <option value='2'>Primário</option>
       <option value='3'>Segundário</option>
 </select> </td>";
-        echo "<td><a onclick='return confirmar()' class='btn btn-danger' href='".base_url('Componentes/deleteComponente/'.$componente->idComponentes)."''>Remover</a></td>";
+        echo "<td><a onclick='return confirmar()' class='btn btn-danger' href='".base_url('Componentes/deleteComponente/'.$componente->idComponentes.'/'.$componente->idHorario)."''>Remover</a></td>";
         echo "</tr>";
         echo "<input type='hidden' name='id_componente$i' value='$componente->idComponentes'";
         $i++;

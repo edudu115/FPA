@@ -8,6 +8,8 @@
         private $horarioModel;
         public $session;
 
+        
+
         public function __construct(){
             $this->componenteModel = new \App\Models\ComponentesModel();
             $this->cursoModel = new \App\Models\CursosModel();
@@ -40,9 +42,11 @@
             $this->componenteModel->insert($dados);
             }
 
-        public function deleteComponente($id){
-            $this->componenteModel->delete(($id));
-            $this->response->redirect(base_url('Componentes/viewComponente'));
+        public function deleteComponente($idComponente, $idHorario){
+            $this->horarioModel->deleteHorario("IPW");
+            //$this->componenteModel->delete($idComponente);
+
+            echo "aa";
         }
     }
 
