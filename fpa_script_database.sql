@@ -149,4 +149,4 @@ BEGIN
     DELETE FROM componentes WHERE idComponentes = id;
 END;
 
-DELIMITER;
+DELIMITER ;

@@ -56,6 +56,7 @@
 </div>
   <thead>
     <tr>
+      <th scope="col">Sigra</th>
       <th scope="col">Matéria</th>
       <th scope="col">Período</th>
       <th scope="col">Horas Semanais</th> 
@@ -73,6 +74,7 @@
      $i = 0;
      foreach($retorna as $componente){
       echo "<tr>";
+        echo "<td>".$componente->idComponentes."</td>";
         echo "<td>".$componente->nomeMateria."</td>";
         echo "<td>".$componente->periodo."</td>";
         echo "<td>".$componente->horasSemanais."</td>";
