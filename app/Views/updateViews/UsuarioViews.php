@@ -129,18 +129,19 @@
   <div style='text-align:left'>
     <form class='form-inline my-2 my-lg-0'>
       <input  id='pes' class='form-control mr-sm-2' type='search' placeholder='Pesquisar' aria-label='Pesquisar'> 
- <button  id='pesq'  class='btn btn-outline-success my-2 my-sm-0' type='submit'>Pesquisar</button>
- <a href='login.php' <button  id='sair'  class='btn btn-outline-success my-2 my-sm-0' type='submit'>sair</button></a>
+</div>
+<button  id='pesq'  class='btn btn-outline-success my-2 my-sm-0' type='submit'>Pesquisar</button>
+ <a href='updateloginViews.php' <button  id='sair'  class='btn btn-outline-success my-2 my-sm-0' type='submit'>sair</button></a>
 </select>   
     </form>
-      </div>
-  <a href='UsuarioViews.php'><img class='mb-4' src='<?= base_url('user.jpeg') ?>' class='rounded-circle' width='50' height='50'  left='50px' id='imgs'></a>  
-  <a href='Alterar_Senha.php'><img class='mb-4' src='<?= base_url('user.engrenagem.png') ?>' class='rounded-circle' width='50' height='50'  left='50px' id='engrenagem'></a>
+  </div>
+  <a href='UsuarioViews.php'><img class='mb-4' src='<?= base_url('user.jpeg') ?>' class='rounded-circle' width='50' height='50'  left='50px' id='imgs'></a>
+  <a href='Alterar_SenhaViews.php'><img class='mb-4' src='<?= base_url('engrenagem.png') ?>' class='rounded-circle' width='50' height='50'  left='50px' id='engrenagem'></a>
 </nav> 
 <div  id='bar' class='sobre'>
 <nav class='nav'>
-  <a id='atualiza'class='nav-link active'href='index2.php'>Atualizar Cadastro</a>
-  <a id='horario'class='nav-link active'  href='informar_hr.php'>Informar Disponibilidade de Horario</a>
+  <a id='atualiza'class='nav-link active'href='updatecadastroViews.php'>Atualizar Cadastro</a>
+  <a id='horario'class='nav-link active'  href='updatecomponentesView.php'>Informar Disponibilidade de Horario</a>
 </nav>
       </div>
       <br>

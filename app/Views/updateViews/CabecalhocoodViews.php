@@ -65,11 +65,7 @@
           background-color: #bee6a3;
         }
        
-        #button{
-        
-        background-color: green;
-      
-      }
+    
 
         #nav{
           width: 1920px;
@@ -95,14 +91,26 @@
            left: 55%;
           color: black;
         }
-        
+
+        #inserir{
+          position: relative;
+          left:17%;
+          color: black;
+        }
+
+           
+        #Alterar{
+          position: relative;
+          left:12%;
+          color: black;
+        }
 
     </style>
 
   <body class='bg-green' >
 
   <nav id='nav' class='navbar navbar-expand-lg navbar-light bg-green >
-  <a  id='if' class='navbar-brand' href='#'> <img class='mb-4' src='<?= base_url('logo.png') ?>' alt='' width='500' height='90'  ></a>
+  <a  id='if' class='navbar-brand' href='#'> <img class='mb-4' src='<?= base_url('logo.png') ?>'  alt='' width='500' height='90'  ></a>
   <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#conteudoNavbarSuportado' aria-controls='conteudoNavbarSuportado' aria-expanded='false' aria-label='Alterna navegação'>
     <span class='navbar-toggler-icon'></span>
   </button>
@@ -123,63 +131,12 @@
 </nav> 
 <div  id='bar' class='sobre'>
 <nav class='nav'>
-  <a id='atualiza'class='nav-link active'href='updatecadastroViews.php'>Atualizar Cadastro</a>
+<a id='atualiza'class='nav-link active'href='updatecadastroViews.php'>Atualizar Cadastro</a>
   <a id='horario'class='nav-link active'  href='updatecomponentesView.php'>Informar Disponibilidade de Horario</a>
+  <a id='Alterar'class='nav-link active'  href='formComponentesViews.php'>Inserir Componentes</a>
+  <a id='inserir'class='nav-link active'  href='inserirProfessorViews.php'>Inserir Novo Professor</a>
 </nav>
       </div>
-<br><br>
-<center> <h4>Disponibilidade de horário para atribuição de componentes curriculares</h4> </center>
-<br><br>
-<table style='background-color: white' class='table table-bordered'>
-  
-</div>
-  <thead>
-    <tr>
-   
-      <th  scope='col'>Matéria</th>
-      <th scope='col'>dia-Horario</th>
-      <th scope='col'>curso</th> 
-      <th scope='col'>Horas_Semanais</th>
-     
-     
-  
-
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-     
-      <td>ISO-Introdução a Sistemas Operacionais </td>
-      <td>2023-02-13 19:00:00 </td>
-      <td>Tec-info noturno</td>
-      <td>4</td>
-      <td> <select  style= 'width : 150px;' class='form-select' aria-label='Default select example'>
-      <option selected>Não Selecionado</option>
-  <option value='1'>Primário</option>
-  <option value='2'>Segundário</option>
-</select> </td>
-    </tr>
-    <tbody>
-    <tr>
-    
-      <td>IPW-Introdução a Programação web</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <th>
-      <select style= 'width : 150px;' class='form-select' aria-label='Default select example' width ='40'>
-  <option selected>Não Selecionado</option>
-  <option value='1'>Primário</option>
-  <option value='2'>Segundário</option>
-</select>   
-    </th>
-    </tr>
-   
-    
-  </tbody>
-</table>
-</label>
-<br><br><br>
-<button id='button' class='btn btn-primary btn-lg btn-block' type='submit'>Salvar</button>
 </body>
 </html>
+
