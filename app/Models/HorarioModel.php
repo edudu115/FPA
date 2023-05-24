@@ -15,7 +15,11 @@ class HorarioModel extends Model{
 
     public function deleteHorario ($id)
     {
-        $this->db->callFunction('apaga_componente', $id);
+        $teste = "DELETE FROM horario WHERE componente_idComponentes = '".$id."';";
+        $this->db->query($teste);
+        //===
+        $teste = "DELETE FROM componentes WHERE idComponentes = '".$id."';";
+        $this->db->query($teste);
     }
 }
 ?>

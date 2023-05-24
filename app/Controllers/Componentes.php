@@ -40,12 +40,17 @@
                 'cursos_idCurso'=>$this->request->getPost('curso_idCurso')];
 
             $this->componenteModel->insert($dados);
+
+            $vetor = ["idComponente" => $this->request->getPost('idComponente')];
+            return view('nome', $vetor);
             }
 
         public function deleteComponente($id){
             $this->horarioModel->deleteHorario($id);
             //$this->componenteModel->delete($idComponente);
-            echo "aa";
+            //echo $id;
+
+            //$this->componenteModel->delete($id);
         }
     }
 
