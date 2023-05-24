@@ -124,8 +124,8 @@
 </nav> 
 <div  id='bar' class='sobre'>
 <nav class='nav'>
-  <a id='atualiza'class='nav-link active'href='index2.php'>Atualizar Cadastro</a>
-  <a id='horario'class='nav-link active'  href='informar_hr.php'>Informar Disponibilidade de Horario</a>
+  <a id='atualiza'class='nav-link active'href='updatecadastroViews.php'>Atualizar Cadastro</a>
+  <a id='horario'class='nav-link active'  href='updatecomponentesView.php'>Informar Disponibilidade de Horario</a>
 </nav>
       </div>
     <div class='container'>
