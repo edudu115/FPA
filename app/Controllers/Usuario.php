@@ -9,7 +9,7 @@
         public function __construct()
         {
             $this->userModel = new \App\Models\UsuarioModel;
-            $this->session = \Config\Services::session();
+            $this->session = session();
         }
 
         public function index()

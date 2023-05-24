@@ -1,3 +1,4 @@
+<?php $session = session(); ?>
 <!doctype html>
 <html lang="pt-br">
   <head>
@@ -49,7 +50,7 @@
               <div class="col-6">
               <div class="">
                 <label for="Cargo">Cargo</label>
-                <input type="text" class="form-control" id="cargo" name="cargo" disabled value="<?= $user->cargo=="c"? "Coordenador" : "Professor" ?>" >
+                <input type="text" class="form-control" id="cargo" name="cargo" disabled value="<?= $session->cargoUsuario=="c"? "Coordenador" : "Professor" ?>" >
               </div>
 
             <div class="mt-2">
