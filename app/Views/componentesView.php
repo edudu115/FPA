@@ -56,6 +56,7 @@
 </div>
   <thead>
     <tr>
+      <th scope="col">Sigla</th>
       <th scope="col">Matéria</th>
       <th scope="col">Período</th>
       <th scope="col">Horas Semanais</th> 
@@ -67,12 +68,13 @@
     </tr>
   </thead>
   <tbody>
-  <a class='btn btn-success' href="<?=base_url('Componentes/viewFormComponente')?>">Adicionar um componente</a>
-     <?php
+      <?php if($cargoUsuario == "c"): ?>
+        <a class='btn btn-success' href='<?=base_url('Componentes/viewFormComponente')?>'>Adicionar um componente</a>
+      <?php endif;
      $i = 0;
      foreach($retorna as $componente){
       echo "<tr>";
-      //echo "<input type='hidden' name='id_componente' value='$componente->idComponentes'";
+        echo "<td>".$componente->idComponentes."</td>";
         echo "<td>".$componente->nomeMateria."</td>";
         echo "<td>".$componente->periodo."</td>";
         echo "<td>".$componente->horasSemanais."</td>";

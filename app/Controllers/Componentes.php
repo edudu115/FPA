@@ -8,6 +8,8 @@
         private $horarioModel;
         public $session;
 
+        
+
         public function __construct(){
             $this->componenteModel = new \App\Models\ComponentesModel();
             $this->cursoModel = new \App\Models\CursosModel();
@@ -38,11 +40,17 @@
                 'cursos_idCurso'=>$this->request->getPost('curso_idCurso')];
 
             $this->componenteModel->insert($dados);
+
+            $vetor = ["idComponente" => $this->request->getPost('idComponente')];
+            return view('nome', $vetor);
             }
 
         public function deleteComponente($id){
-            $this->componenteModel->delete(($id));
-            $this->response->redirect(base_url('Componentes/viewComponente'));
+            $this->horarioModel->deleteHorario($id);
+            //$this->componenteModel->delete($idComponente);
+            //echo $id;
+
+            //$this->componenteModel->delete($id);
         }
     }
 

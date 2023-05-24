@@ -12,6 +12,14 @@
             $this->session = \Config\Services::session();
         }
 
+        public function viewPreferencia(){
+            $retorna = $this->preferenciaModel->selecPreferencia();
+            $dados = ['retorna'=> $retorna,
+                      'cargoUsuario' => $this->session->cargoUsuario,
+                      ];
+            return view('prefenciaView', $dados);
+        }
+
         public function savePreferencia()
         {
             $idUsuario = $this->session->idUsuario;
