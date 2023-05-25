@@ -9,7 +9,7 @@
         public function __construct()
         {
             $this->userModel = new \App\Models\UsuarioModel;
-            $this->session = session();
+            $this->session = \Config\Services::session();
         }
 
         public function index()
@@ -56,7 +56,7 @@
             ];
 
             $this->userModel->save($dados);
-            $this->response->redirect(base_url('Componentes/viewComponente/1'));
+            $this->response->redirect(base_url('Componentes/viewComponente'));
         }
 
     }

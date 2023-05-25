@@ -8,10 +8,9 @@ class HorarioModel extends Model{
     protected $table = "horario";
     protected $primaryKey = "idHorario";
     protected $useAutoIncrement = true;
-    protected $allowedFields =  ["componente_idComponentes",
-                                 "diaSemana",
-                                 "horaInicio",
-                                 "horaFim"];
+    protected $allowedFields =  ["diaSemana",
+                                "horaInicio",
+                                "horaFim"];
     protected $returnType = "object";
 
     public function deleteHorario ($id)
