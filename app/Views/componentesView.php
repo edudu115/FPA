@@ -49,6 +49,7 @@
 
   </div>
 </nav> 
+<div><?= $session->preferenciasSalvas ?></div>
 <br><br>
 <center> <h4>Disponibilidade de horário para atribuição de componentes curriculares</h4> </center>
 <br><br>
