@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="<?= base_url('Componentes/saveHorario')?>" method="post">
+    <form action="<?= base_url('Componentes/viewComponente/2')?>" method="post">
         <input type="hidden" name="id" value="<?= $idComponente  ?>">
         <label class="form-label" for="diaSemana">Dia da Semana</label>
                 <select name='diaSemana' id='diaSemana'>
