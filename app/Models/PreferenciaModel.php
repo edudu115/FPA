@@ -27,4 +27,4 @@ class PreferenciaModel extends Model{
     }
 }
 
-?>
+?>  

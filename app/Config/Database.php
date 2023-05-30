@@ -26,9 +26,9 @@ class Database extends Config
      */
     public array $default = [
         'DSN'      => '',
-        'hostname' => '127.0.0.1',
+        'hostname' => 'localhost',
         'username' => 'root',
-        'password' => 'root',
+        'password' => 'ro311280',
         'database' => 'fpa_database',
         'DBDriver' => 'MySQLi',
         'DBPrefix' => '',
@@ -41,7 +41,7 @@ class Database extends Config
         'compress' => false,
         'strictOn' => false,
         'failover' => [],
-        'port'     => 3307,
+        'port'     => 3306,
     ];
 
     /**
