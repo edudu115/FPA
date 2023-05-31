@@ -15,7 +15,7 @@ $this->section('corpo');
               <div class="col-6">
               <div class="">
                 <label for="Cargo">Cargo</label>
-                <input type="text" class="form-control" id="cargo" name="cargo" disabled value="<?= $session->cargoUsuario=="c"? "Coordenador" : "Professor" ?>" >
+                <input type="text" class="form-control" id="cargo" name="cargo" disabled value="<?= $session->get('usuario')['cargoUsuario']=="c"? "Coordenador" : "Professor" ?>" >
               </div>
 
             <div class="mt-2">
