@@ -132,21 +132,11 @@ insert into componentes(idComponentes, nomeMateria, cursos_idCurso, periodo, hor
 insert into componentes(idComponentes, nomeMateria, cursos_idCurso, periodo, horasSemanais) value('DAC', 'Desenho Assistido por Computador', 'TSI', 'Manhã', 4);
 
 -- HORARIO --
-insert into horario(componente_idComponentes, diaSemana, horaInicio, horaFim) value('ISO', 'quarta', '19:00', '22:35');
-insert into horario(componente_idComponentes, diaSemana, horaInicio, horaFim) value('IPW', 'terça', '19:00', '22:35');
-insert into horario(componente_idComponentes, diaSemana, horaInicio, horaFim) value('IPW', 'sexta', '19:00', '22:35');
-insert into horario(componente_idComponentes, diaSemana, horaInicio, horaFim) value('DAC', 'terça', '12:35', '14:15');
+insert into horario(componente_idComponentes, diaSemana, horaInicio, horaFim) value('ISO', 'Quarta-feira', '19:00', '22:35');
+insert into horario(componente_idComponentes, diaSemana, horaInicio, horaFim) value('IPW', 'Terça-feira', '19:00', '22:35');
+insert into horario(componente_idComponentes, diaSemana, horaInicio, horaFim) value('IPW', 'Sexta-feira', '19:00', '22:35');
+insert into horario(componente_idComponentes, diaSemana, horaInicio, horaFim) value('DAC', 'Terça-feira', '12:35', '14:15');
 
 -- ATRIBUIDO -- 
 -- insert into atribuido(componentes_idComponentes, usuario_idUsuario) value('ISO',1);
 -- insert into atribuido(componentes_idComponentes, usuario_idUsuario) value('IPW',2);
-
-DELIMITER $$
-
-CREATE PROCEDURE apaga_componente(in id CHAR(10))
-BEGIN
-	  DELETE FROM horario WHERE componente_idComponentes = id;
-    DELETE FROM componentes WHERE idComponentes = id;
-END;
-
-DELIMITER ;

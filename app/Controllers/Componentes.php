@@ -17,7 +17,19 @@
             $this->session = \Config\Services::session();
         }
         
-        public function viewComponente(){
+        public function viewComponente($i){
+
+            if($i == 2)
+            {
+                $dados2 = [
+                    'componente_idComponentes'=>$this->request->getPost('id'),
+                    'diaSemana'=>$this->request->getPost('diaSemana'),
+                    'horaInicio'=>$this->request->getPost('horaInicio'),
+                    'horaFim'=>$this->request->getPost('nomeMateria')
+                ];
+                $this->horarioModel->insert($dados2);
+            }
+
             $retorna = $this->componenteModel->joinComponente();
             $dados = ['retorna'=> $retorna,
                       'cargoUsuario' => $this->session->cargoUsuario,
@@ -41,16 +53,24 @@
 
             $this->componenteModel->insert($dados);
 
-            $vetor = ["idComponente" => $this->request->getPost('idComponente')];
-            return view('nome', $vetor);
+            $id = ["idComponente" => $this->request->getPost('idComponente')];
+            return view('form2ComponentesView', $id);
             }
+
+        public function saveHorario(){
+            $dados2 = [
+                'componente_idComponentes'=>$this->request->getPost('id'),
+                'diaSemana'=>$this->request->getPost('diaSemana'),
+                'horaInicio'=>$this->request->getPost('horaInicio'),
+                'horaFim'=>$this->request->getPost('nomeMateria')
+            ];
+            $this->horarioModel->insert($dados2);
+            return view('componentesView');
+        }
 
         public function deleteComponente($id){
             $this->horarioModel->deleteHorario($id);
-            //$this->componenteModel->delete($idComponente);
-            //echo $id;
-
-            //$this->componenteModel->delete($id);
+            $this->response->redirect(base_url('Componentes/viewComponente/1'));
         }
     }
 

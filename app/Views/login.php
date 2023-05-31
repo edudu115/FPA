@@ -8,11 +8,6 @@
      <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC' crossorigin='anonymous'>
 
     <style>
-
-   #button{
-        background-color: green;
-      
-      }
         body{
             background-color: #c2ddc1;
         }
@@ -38,7 +33,7 @@
       <center><input style= 'width : 350px;'type='password' id='inputPassword' name="senha" class='form-control' placeholder='Senha' required></center>
       <div class='checkbox mb-3'>
       </div>
-      <button id = "button" class='btn btn-lg btn-primary btn-block' type='submit'>Login</button>
+      <button class='btn btn-lg btn-primary btn-block' type='submit'>Login</button>
       <p class='mt-5 mb-3 text-muted'>&copy; 2023</p>
     </form>
   </body>

@@ -1,3 +1,4 @@
+<?php $session = session(); ?>
 <!doctype html>
 <html lang="pt-br">
   <head>
@@ -68,7 +69,7 @@
     </tr>
   </thead>
   <tbody>
-      <?php if($cargoUsuario == "c"): ?>
+      <?php if($session->cargoUsuario == "c"): ?>
         <a class='btn btn-success' href='<?=base_url('Componentes/viewFormComponente')?>'>Adicionar um componente</a>
       <?php endif;
      $i = 0;
