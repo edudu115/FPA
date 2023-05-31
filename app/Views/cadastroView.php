@@ -1,5 +1,6 @@
 <?php $this->extend('base');
 $this->section('corpo');
+$session = session();
 ?>
 
     <div class="container">

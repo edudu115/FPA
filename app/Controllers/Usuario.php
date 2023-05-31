@@ -24,17 +24,13 @@
 
             $retorno = $this->userModel->verificar_login($prontuario, $senha);
 
-            // PARA ACESSAR A SESSÃO: $this->session->chave;
-            // NESTE CASO: $this->session->cargo;
-
             if($retorno)
             {
                 $array = ['cargoUsuario' => $retorno[0]->cargo,
                           'idUsuario' => $retorno[0]->idUsuario,
                           'nomeUsuario' => $retorno[0]->nome];
-                $this->session->set($array);
-                //$this->session->set('usuario', $array);
-                //$session->get('usuario')['cargousuario'];
+                $this->session->set('usuario', $array);
+                //$this->session->get('usuario')['cargoUsuario'];
 
                 $dados = ["user" => $retorno[0]];
                 return view('cadastroView', $dados);
