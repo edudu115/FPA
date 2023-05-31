@@ -22,11 +22,6 @@
 
         public function savePreferencia()
         {
-
-            //session flashdata:
-            //$session->setFlashdata('item', 'value');
-
-            $this->session->setFlashdata('preferenciasSalvas', 1);
             $idUsuario = $this->session->idUsuario;
 
             $i = 0;
@@ -46,7 +41,6 @@
                 $i++;
                 $retorno = intval($this->request->getPost("preferencia".$i));
             }
-            $this->response->redirect(base_url('Componentes/viewComponente/1'));
         }
     }
 ?>
