@@ -17,9 +17,8 @@
             $this->session = \Config\Services::session();
         }
         
-        public function viewComponente($i){
-
-            if($i == 2)
+        public function viewComponente(){
+            if($this->session->existe_comp)
             {
                 $dados2 = [
                     'componente_idComponentes'=>$this->request->getPost('id'),
@@ -29,6 +28,9 @@
                 ];
                 $this->horarioModel->insert($dados2);
             }
+            // if(!empty($this->request->getPost('id'))){
+            //     echo $this->request->getPost('id');
+            // }
 
             $retorna = $this->componenteModel->joinComponente();
             $dados = ['retorna'=> $retorna,
@@ -44,6 +46,8 @@
         }
 
         public function saveComponente(){
+            $this->session->setFlashdata('existe_comp', 1);
+
             $dados = [
                 'idComponentes'=>$this->request->getPost('idComponente'),                                      
                 'nomeMateria'=>$this->request->getPost('nomeMateria'),
