@@ -7,16 +7,25 @@
     <title>Document</title>
 </head>
 <body>
+    <?php
+        var_dump($componente);
+
+        function checaSelecionado($componente, $value) {
+            if($value == $componente->periodo) {
+                echo "selected";
+            }
+        }
+    ?>
     <form action="<?= base_url('Componentes/saveComponente')?>" method="post">
         <label class="form-label" for="idComponente">Sigla da Matéria</label>
-            <input class="form-control" type="text" name="idComponente" id="idComponente" maxlength="5" value="<?= isset($componente) ? $componente->idComponente: "" ?>">
+            <input class="form-control" type="text" name="idComponente" id="idComponente" maxlength="5" value="<?= isset($componente) ? $componente->idComponentes: "" ?>">
         <label class="form-label" for="nomeMateria">Nome da Matéria</label>
             <input class="form-control" type="text" name="nomeMateria" id="nomeMateria" value="<?= isset($componente) ? $componente->nomeMateria: "" ?>">
         <label class="form-label" for="periodo">Período</label>
             <select name='periodo' id='periodo'>
-                <option value='Manhã'>Manhã</option>
-                <option value='Tarde'>Tarde</option>
-                <option value='Noite'>Noite</option>
+                <option value='Manhã' <?= isset($componente) ? checaSelecionado($componente, 'Manhã') : "" ?>>Manhã</option>
+                <option value='Tarde'<?= isset($componente) ? checaSelecionado($componente, 'Tarde') : "" ?>>Tarde</option>
+                <option value='Noite'<?= isset($componente) ? checaSelecionado($componente, 'Noite') : "" ?>>Noite</option>
             </select>
         <label class="form-label" for="horasSemanais">Horas Semanais</label>
             <input class="form-control" type="number" name="horasSemanais" id="horasSemanais" value="<?= isset($componente) ? $componente->horasSemanais: "" ?>">

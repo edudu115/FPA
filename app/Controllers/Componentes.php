@@ -55,7 +55,7 @@
                 'horasSemanais'=>$this->request->getPost('horasSemanais'),
                 'cursos_idCurso'=>$this->request->getPost('curso_idCurso')];
 
-            $this->componenteModel->insert($dados);
+            $this->componenteModel->save($dados);
 
             $id = ["idComponente" => $this->request->getPost('idComponente')];
             return view('form2ComponentesView', $id);
@@ -75,6 +75,10 @@
         public function deleteComponente($id){
             $this->horarioModel->deleteHorario($id);
             $this->response->redirect(base_url('Componentes/viewComponente/1'));
+        }
+
+        public function updateComponente($id) {
+            return view('formComponentesView', ['cursos'=>$this->cursoModel->find(), 'componente' => $this->componenteModel->find($id)]);
         }
     }
 
