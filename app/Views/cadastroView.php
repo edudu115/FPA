@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-<?php $this->extend('base');
-  $this->section('corpo');
-?>
-=======
 <?php $session = session(); ?>
 <!doctype html>
 <html lang="pt-br">
@@ -41,9 +36,7 @@
     </form>
   </div>
 </nav> 
->>>>>>> 1dc4e525343eb7f0aa97241f92a733e1e0ecc8f5
 
-  
     <div class="container">
       <div class="py-1 text-center">
 
@@ -145,6 +138,7 @@
         window.addEventListener('load', function() {
           
           var forms = document.getElementsByClassName('needs-validation');
+
         
           var validation = Array.prototype.filter.call(forms, function(form) {
             form.addEventListener('submit', function(event) {
@@ -158,4 +152,5 @@
         }, false);
       })();
     </script>
-    <?php $this->endSection(); ?>
+  </body>
+</html>
