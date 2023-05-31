@@ -25,9 +25,10 @@
                     'componente_idComponentes'=>$this->request->getPost('id'),
                     'diaSemana'=>$this->request->getPost('diaSemana'),
                     'horaInicio'=>$this->request->getPost('horaInicio'),
-                    'horaFim'=>$this->request->getPost('nomeMateria')
+                    'horaFim'=>$this->request->getPost('horaFim')
                 ];
-                $this->horarioModel->insert($dados2);
+                var_dump($dados2);
+                //$this->horarioModel->insert($dados2);
             }
 
             $retorna = $this->componenteModel->joinComponente();
@@ -62,7 +63,7 @@
                 'componente_idComponentes'=>$this->request->getPost('id'),
                 'diaSemana'=>$this->request->getPost('diaSemana'),
                 'horaInicio'=>$this->request->getPost('horaInicio'),
-                'horaFim'=>$this->request->getPost('nomeMateria')
+                'horaFim'=>$this->request->getPost('horaFim')
             ];
             $this->horarioModel->insert($dados2);
             return view('componentesView');
