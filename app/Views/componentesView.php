@@ -69,6 +69,11 @@
         <th scope="col">Horário de Início</th>
         <th scope="col">Horário de Fim</th>
         <th scope="col">Preferência</th>
+        <?php
+          if ($session->cargoUsuario == "c") {
+            echo '<th scope="col" colspan="2">Ações</th>';
+          }
+        ?>
       </tr>
     </thead>
     <tbody>
@@ -93,6 +98,7 @@
 </select> </td>";
         if ($session->cargoUsuario == "c") {
           echo "<td><a onclick='return confirmar()' class='btn btn-danger' href='" . base_url('Componentes/deleteComponente/' . $componente->idComponentes) . "''>Remover</a></td>";
+          echo "<td><a onclick='return confirmar()' class='btn btn-warning' href='" . base_url('Componentes/updateComponente/' . $componente->idComponentes) . "''>Atualizar</a></td>";
         }
         echo "</tr>";
         echo "<input type='hidden' name='id_componente$i' value='$componente->idComponentes'";
