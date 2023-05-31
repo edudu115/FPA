@@ -33,6 +33,8 @@
                           'idUsuario' => $retorno[0]->idUsuario,
                           'nomeUsuario' => $retorno[0]->nome];
                 $this->session->set($array);
+                //$this->session->set('usuario', $array);
+                //$session->get('usuario')['cargousuario'];
 
                 $dados = ["user" => $retorno[0]];
                 return view('cadastroView', $dados);
