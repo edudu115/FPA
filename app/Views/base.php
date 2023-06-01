@@ -93,6 +93,19 @@
         }
         
 
+        #inserir{
+          position: relative;
+          left:17%;
+          color: black;
+        }
+
+           
+        #Alterar{
+          position: relative;
+          left:12%;
+          color: black;
+        }
+
     </style>
 
   <body class='bg-green' >
@@ -121,6 +134,8 @@
 <nav class='nav'>
   <a id='atualiza'class='nav-link active'href='updatecadastroViews.php'>Atualizar Cadastro</a>
   <a id='horario'class='nav-link active'  href='updatecomponentesView.php'>Informar Disponibilidade de Horario</a>
+  <a id='Alterar'class='nav-link active'  href='formComponentesViews.php'>Inserir Componentes</a>
+  <a id='inserir'class='nav-link active'  href='inserirProfessorViews.php'>Inserir Novo Professor</a>
 </nav>
       </div>
       <?php $this->renderSection('corpo'); ?>
