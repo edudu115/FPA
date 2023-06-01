@@ -18,20 +18,6 @@
         }
         
         public function viewComponente(){
-            if($this->session->existe_comp)
-            {
-                $dados2 = [
-                    'componente_idComponentes'=>$this->request->getPost('id'),
-                    'diaSemana'=>$this->request->getPost('diaSemana'),
-                    'horaInicio'=>$this->request->getPost('horaInicio'),
-                    'horaFim'=>$this->request->getPost('nomeMateria')
-                ];
-                $this->horarioModel->insert($dados2);
-            }
-            // if(!empty($this->request->getPost('id'))){
-            //     echo $this->request->getPost('id');
-            // }
-
             $retorna = $this->componenteModel->joinComponente();
             $dados = ['retorna'=> $retorna,
                       'cargoUsuario' => $this->session->cargoUsuario,
@@ -53,32 +39,31 @@
                 'nomeMateria'=>$this->request->getPost('nomeMateria'),
                 'periodo'=>$this->request->getPost('periodo'),
                 'horasSemanais'=>$this->request->getPost('horasSemanais'),
-                'cursos_idCurso'=>$this->request->getPost('curso_idCurso')];
-
+                'cursos_idCurso'=>$this->request->getPost('curso_idCurso')
+            ];
             $this->componenteModel->save($dados);
 
-            $id = ["idComponente" => $this->request->getPost('idComponente')];
-            return view('form2ComponentesView', $id);
-            }
-
-        public function saveHorario(){
             $dados2 = [
-                'componente_idComponentes'=>$this->request->getPost('id'),
+                'componente_idComponentes'=>$this->request->getPost('idComponente'),
                 'diaSemana'=>$this->request->getPost('diaSemana'),
                 'horaInicio'=>$this->request->getPost('horaInicio'),
-                'horaFim'=>$this->request->getPost('nomeMateria')
+                'horaFim'=>$this->request->getPost('horaFim')
             ];
             $this->horarioModel->insert($dados2);
-            return view('componentesView');
+
+            $this->response->redirect(base_url('Componentes/viewComponente'));
         }
 
         public function deleteComponente($id){
             $this->horarioModel->deleteHorario($id);
-            $this->response->redirect(base_url('Componentes/viewComponente/1'));
+            $this->response->redirect(base_url('Componentes/viewComponente'));
         }
 
         public function updateComponente($id) {
-            return view('formComponentesView', ['cursos'=>$this->cursoModel->find(), 'componente' => $this->componenteModel->find($id)]);
+            $dados = ['cursos' => $this->cursoModel->find(),
+                      'componente' => $this->componenteModel->find($id),
+                      'horario' => $this->horarioModel->find($id)];
+            return view('formComponentesView', $dados);
         }
     }
 

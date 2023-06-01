@@ -8,8 +8,6 @@
 </head>
 <body>
     <?php
-        var_dump($componente);
-
         function checaSelecionado($componente, $value) {
             if($value == $componente->periodo) {
                 echo "selected";
@@ -37,6 +35,19 @@
             }
             echo "</select>";
         ?>
+                <label class="form-label" for="diaSemana">Dia da Semana</label>
+                <select name='diaSemana' id='diaSemana'>
+                    <option value='Segunda-feira'>Segunda-feira</option>
+                    <option value='Terça-feira'>Terça-feira</option>
+                    <option value='Quarta-feira'>Quarta-feira</option>
+                    <option value='Quinta-feira'>Quinta-feira</option>
+                    <option value='Sexta-feira'>Sexta-feira</option>
+                    <option value='Sábado'>Sábado</option>
+                </select>
+        <label class="form-label" for="horaInicio">Horário de Início</label>
+            <input class="form-control" type="time" name="horaInicio" id="horaInicio" value="<?= isset($horario) ? $horario->horaInicio: "" ?>">
+        <label class="form-label" for="horaFim">Horário de Fim</label>
+            <input class="form-control" type="time" name="horaFim" id="horaFim" value="<?= isset($horario) ? $horario->horaFim: "" ?>">
         <!-- <label class="form-label" for="nomeCurso">Nome do Curso</label>
         <input class="form-control" type="text" name="nomeCurso" id="nomeCurso" value=""> -->
         <button class="btn btn-primary">Salvar</button>
