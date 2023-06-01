@@ -1,4 +1,4 @@
-<?php $this->extend('base');
+<?php $this->extend('cadastroView');
 $this->section('corpo');
 $session = session();
 ?>
@@ -82,14 +82,6 @@ $session = session();
 
             </form>
             
-      <footer class="my-5 pt-5 text-muted text-center text-small">
-        <p class="mb-1">&copy; 2023  FPA- Sistema de Aula </p>
-        <ul class="list-inline">
-          <li class="list-inline-item"><a href="#">Privacidade</a></li>
-          <li class="list-inline-item"><a href="#">Termos</a></li>
-          <li class="list-inline-item"><a href="#">Suporte</a></li>
-        </ul>
-      </footer>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
