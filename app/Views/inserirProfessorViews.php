@@ -1,14 +1,20 @@
 <?php $this->extend('base');
 $this->section('corpo');
 ?>
+
+<style>
+ #nome{
+  left: 95%;
+ }
+  </style>
 <br><br>
  <center><h1>Inserir Novo Professor</h1></center> 
 <br><br>
-<form>
+<center><form>
   <div id ='form' class='form-row'>
 
   <div  class='form-group col-md-4'>
-      <label for='nome'>Nome</label>
+   <label  for='nome'>Nome</label>
       <input type='text' class='form-control' id='nome' placeholder='Nome'>
     </div>
 
@@ -28,7 +34,7 @@ $this->section('corpo');
             </div>
   </div>
   <br>
-  <button id='button' type='submit' class='btn btn-primary'>Entrar</button>
-</form>
+  <button id='button' type='submit' class='btn btn-primary'>Entrar</button></center>
+
 <?php $this->endSection(); ?>
 

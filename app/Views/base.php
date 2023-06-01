@@ -1,3 +1,4 @@
+<?php $session=session(); ?>
 <!doctype html>
 <html lang='pt-br'>
 
@@ -136,10 +137,15 @@
   </nav>
   <div id='bar' class='sobre'>
     <nav class='nav'>
-      <a id='atualiza' class='nav-link active' href='<?= base_url('Usuario/viewupdatecadastro') ?>'>Atualizar Cadastro</a>
-      <a id='horario' class='nav-link active' href='<?= base_url('Componentes/viewComponente') ?>'>Informar Disponibilidade de Horario</a>
+    <?php 
+    if($session->get('usuario')['cargoUsuario'] == 'c'):
+    ?>
       <a id='Alterar' class='nav-link active' href='<?= base_url('Componentes/viewFormComponente') ?>'>Inserir Componentes</a>
       <a id='inserir' class='nav-link active' href='<?= base_url('Usuario/viewProfessor') ?>'>Inserir Novo Professor</a>
+    <?php endif ?>
+      <a id='atualiza' class='nav-link active' href='<?= base_url('Usuario/viewupdatecadastro') ?>'>Atualizar Cadastro</a>
+      <a id='horario' class='nav-link active' href='<?= base_url('Componentes/viewComponente') ?>'>Informar Disponibilidade de Horario</a>
+
     </nav>
   </div>
   <?php $this->renderSection('corpo'); ?>
