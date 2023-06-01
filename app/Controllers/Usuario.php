@@ -22,6 +22,10 @@ class Usuario extends BaseController
     {
         return view("inserirProfessorViews.php");
     }
+    public function viewupdatecadastro()
+    {
+        return view("updatecadastroViews.php");
+    }
 
     public function logar()
     {
