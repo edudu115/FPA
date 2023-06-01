@@ -137,7 +137,7 @@
   <a id='inserir'class='nav-link active'  href='inserirProfessorViews.php'>Inserir Novo Professor</a>
 </nav>
       </div>
-      <?php $this->renderSection('corpo'); ?>
+      
 </body>
 </html>
 

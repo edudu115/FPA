@@ -1,4 +1,4 @@
-<?php $this->extend('cadastroView');
+<?php $this->extend('base');
 $this->section('corpo');
 $session = session();
 ?>
