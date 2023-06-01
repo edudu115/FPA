@@ -74,7 +74,7 @@ $session = session();
                  Idade é obrigatório.
                 </div>
               </div>
-              <button class="btn btn-primary btn-lg btn-block mt-1" type="submit">Salvar</button>
+              <button id='button' class="btn btn-primary btn-lg btn-block mt-1" type="submit">Salvar</button>
           </form>
         </div>
         <div class="col-3"></div>

@@ -99,6 +99,10 @@
           color: black;
         }
 
+        #button{
+
+       background-color: green;
+           }
            
         #Alterar{
           position: relative;
@@ -127,15 +131,15 @@
 </select>   
     </form>
   </div>
-  <a href='UsuarioViews.php'><img class='mb-4' src='<?= base_url('user.jpeg') ?>'class='rounded-circle' width='50' height='50'  left='50px' id='imgs'></a>
+  <a href='UsuarioViews.php'><img class='mb-4' src='<?= base_url('user.jpeg') ?>'class="rounded-circle" width='60' height='50'  left='50px' id='imgs'></a>
   <a href='Alterar_SenhaViews.php'><img class='mb-4' src='<?= base_url('engrenagem.png') ?>' class='rounded-circle' width='50' height='50'  left='50px' id='engrenagem'></a>
 </nav> 
 <div  id='bar' class='sobre'>
 <nav class='nav'>
-  <a id='atualiza'class='nav-link active'href='updatecadastroViews.php'>Atualizar Cadastro</a>
-  <a id='horario'class='nav-link active'  href='updatecomponentesView.php'>Informar Disponibilidade de Horario</a>
-  <a id='Alterar'class='nav-link active'  href='formComponentesViews.php'>Inserir Componentes</a>
-  <a id='inserir'class='nav-link active'  href='inserirProfessorViews.php'>Inserir Novo Professor</a>
+  <a id='atualiza'class='nav-link active'href='<?= base_url('Componentes/viewupdatecadastro')?>'>Atualizar Cadastro</a>
+  <a id='horario'class='nav-link active'  href='<?= base_url('Componentes/viewComponente')?>'>Informar Disponibilidade de Horario</a>
+  <a id='Alterar'class='nav-link active'  href='<?= base_url('Componentes/viewFormComponente')?>'>Inserir Componentes</a>
+  <a id='inserir'class='nav-link active'  href='<?= base_url('Componentes/viewProfessor')?>'>Inserir Novo Professor</a>
 </nav>
       </div>
       <?php $this->renderSection('corpo'); ?>
