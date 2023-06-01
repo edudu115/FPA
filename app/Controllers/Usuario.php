@@ -41,7 +41,7 @@
             }
         }
 
-        public function updateUsuario()
+        public function saveUsuario()
         {
             $dados = [
                 "idUsuario" => $this->request->getPost('id'),
@@ -58,5 +58,3 @@
         }
 
     }
-
-?>
