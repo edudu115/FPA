@@ -54,7 +54,7 @@
             ];
 
             $this->userModel->save($dados);
-            $this->response->redirect(base_url('Componentes/viewComponente/1'));
+            $this->response->redirect(base_url('Componentes/viewComponente'));
         }
 
     }
