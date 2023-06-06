@@ -81,23 +81,16 @@
     background-color: #005914;
   }
 
-  #atualiza {
-    position: relative;
-    left: 80%;
-    color: black;
-
-  }
-
   #horario {
     position: relative;
-    left: 55%;
+    left: 58%;
     color: black;
   }
 
 
   #inserir {
     position: relative;
-    left: 17%;
+    left: 50%;
     color: black;
   }
 
@@ -108,7 +101,7 @@
 
   #Alterar {
     position: relative;
-    left: 12%;
+    left: 45%;
     color: black;
   }
 </style>
@@ -132,8 +125,8 @@
       </select>
       </form>
     </div>
-    <a href='UsuarioViews.php'><img class='mb-4' src='<?= base_url('user.jpeg') ?>' class="rounded-circle" width='60' height='50' left='50px' id='imgs'></a>
-    <a href='Alterar_SenhaViews.php'><img class='mb-4' src='<?= base_url('engrenagem.png') ?>' class='rounded-circle' width='50' height='50' left='50px' id='engrenagem'></a>
+    <a href='<?= base_url('Usuario/viewupdatecadastro') ?>' ><img class='mb-4' src='<?= base_url('user.jpeg') ?>' class="rounded-circle" width='60' height='50' left='50px' id='imgs'></a>
+    <a href='<?= base_url('Componentes/viewSenhas') ?>' ><img class='mb-4' src='<?= base_url('engrenagem.png') ?>' class='rounded-circle' width='50' height='50' left='50px' id='engrenagem'></a>
   </nav>
   <div id='bar' class='sobre'>
     <nav class='nav'>
@@ -143,9 +136,7 @@
         <a id='Alterar' class='nav-link active' href='<?= base_url('Componentes/viewFormComponente') ?>'>Inserir Componentes</a>
         <a id='inserir' class='nav-link active' href='<?= base_url('Usuario/viewProfessor') ?>'>Inserir Novo Professor</a>
       <?php endif ?>
-      <a id='atualiza' class='nav-link active' href='<?= base_url('Usuario/viewupdatecadastro') ?>'>Atualizar Cadastro</a>
       <a id='horario' class='nav-link active' href='<?= base_url('Componentes/viewComponente') ?>'>Informar Disponibilidade de Horario</a>
-
     </nav>
   </div>
   <?php $this->renderSection('corpo'); ?>
