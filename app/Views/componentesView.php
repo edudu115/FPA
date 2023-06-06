@@ -98,10 +98,11 @@
 </select> </td>";
         if ($session->get('usuario')['cargoUsuario'] == "c") {
           echo "<td><a onclick='return confirmar()' class='btn btn-danger' href='" . base_url('Componentes/deleteComponente/' . $componente->idComponentes) . "''>Remover</a></td>";
-          echo "<td><a class='btn btn-warning' href='" . base_url('Componentes/updateComponente/' . $componente->idComponentes) . "''>Atualizar</a></td>";
+          echo "<td><a class='btn btn-warning' href='" . base_url('Componentes/updateComponente/' . $componente->idComponentes . "/" . $componente->idHorario) . "''>Atualizar</a></td>";
         }
         echo "</tr>";
         echo "<input type='hidden' name='id_componente$i' value='$componente->idComponentes'";
+        echo "<input type='hidden' name='idHorario' value='$componente->idHorario'";
         $i++;
       }
       ?>

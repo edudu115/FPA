@@ -32,8 +32,6 @@
         }
 
         public function saveComponente(){
-            $this->session->setFlashdata('existe_comp', 1);
-
             $dados = [
                 'idComponentes'=>$this->request->getPost('idComponente'),                                      
                 'nomeMateria'=>$this->request->getPost('nomeMateria'),
@@ -44,12 +42,13 @@
             $this->componenteModel->save($dados);
 
             $dados2 = [
+                'idHorario' => $this->request->getPost('idHorario'),
                 'componente_idComponentes'=>$this->request->getPost('idComponente'),
                 'diaSemana'=>$this->request->getPost('diaSemana'),
                 'horaInicio'=>$this->request->getPost('horaInicio'),
                 'horaFim'=>$this->request->getPost('horaFim')
             ];
-            $this->horarioModel->insert($dados2);
+            $this->horarioModel->save($dados2);
 
             $this->response->redirect(base_url('Componentes/viewComponente'));
         }
@@ -59,10 +58,11 @@
             $this->response->redirect(base_url('Componentes/viewComponente'));
         }
 
-        public function updateComponente($id) {
+        public function updateComponente($id, $idHorario) {
             $dados = ['cursos' => $this->cursoModel->find(),
                       'componente' => $this->componenteModel->find($id),
-                      'horario' => $this->horarioModel->find($id)];
+                      'horario' => $this->horarioModel->find($idHorario)];
+
             return view('formComponentesView', $dados);
         }
     }
