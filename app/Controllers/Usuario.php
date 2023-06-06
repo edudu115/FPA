@@ -65,4 +65,11 @@ class Usuario extends BaseController
         $this->userModel->save($dados);
         $this->response->redirect(base_url('Componentes/viewComponente'));
     }
+
+    public function logoutUsuario()
+    {
+        session_destroy();
+
+        $this->response->redirect(base_url());
+    }
 }
