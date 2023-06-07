@@ -126,7 +126,7 @@
       </form>
     </div>
     <a href='<?= base_url('Usuario/viewupdatecadastro') ?>' ><img class='mb-4' src='<?= base_url('user.jpeg') ?>' class="rounded-circle" width='60' height='50' left='50px' id='imgs'></a>
-    <a href='<?= base_url('Componentes/viewSenhas') ?>' ><img class='mb-4' src='<?= base_url('engrenagem.png') ?>' class='rounded-circle' width='50' height='50' left='50px' id='engrenagem'></a>
+    <a href='<?= base_url('Usuario/alterarSenha') ?>' ><img class='mb-4' src='<?= base_url('engrenagem.png') ?>' class='rounded-circle' width='50' height='50' left='50px' id='engrenagem'></a>
   </nav>
   <div id='bar' class='sobre'>
     <nav class='nav'>

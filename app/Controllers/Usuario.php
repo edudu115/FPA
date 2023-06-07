@@ -80,6 +80,11 @@ class Usuario extends BaseController
         $this->response->redirect(base_url('Usuario/viewProfessor'));
     }
 
+    public function alterarSenha()
+    {
+        return view('Alterar_SenhaViews');
+    }
+
     public function logoutUsuario()
     {
         session_destroy();
