@@ -1,5 +1,6 @@
 <?php $this->extend('base');
 $this->section('corpo');
+$session = \Config\Services::session();
 ?>
 
 <style>
@@ -10,31 +11,34 @@ $this->section('corpo');
 <br><br>
  <center><h1>Inserir Novo Professor</h1></center> 
 <br><br>
-<center><form>
+<center>
+  <form method="POST" action="<?=base_url('Usuario/addUsuario')?>">
   <div id ='form' class='form-row'>
-
-  <div  class='form-group col-md-4'>
-   <label  for='nome'>Nome</label>
-      <input type='text' class='form-control' id='nome' placeholder='Nome'>
-    </div>
+    <?php if($session->usuarioAdicionado){
+       echo "<h3 class='p-3 mb-2 bg-success text-white'>Usuário adicionado com sucesso!</h3>"; 
+    } ?>
+    <div  class='form-group col-md-4'>
+      <label  for='nome'>Nome</label>
+      <input type='text' class='form-control' id='nome' name='nome' placeholder='Nome'>
+  </div>
 
     <div class='form-group col-md-4'>
       <label for='prontuario'>Prontuario</label>
-      <input type='password' class='form-control' id='prontuario' placeholder='Prontuario'>
+      <input type='text' class='form-control' id='prontuario' name='prontuario' placeholder='Prontuario'>
     </div>
  
     <div class='form-group col-md-4'>
       <label for='Senha'>Senha</label>
-      <input type='password' class='form-control' id='senha' placeholder='Senha'>
+      <input type='password' class='form-control' id='senha' name='senha' placeholder='Senha'>
     </div>
 
     <div class='form-group col-md-4'>
                 <label>CPF</label>
-                <input type='text' class='form-control'>
+                <input type='text' class='form-control' name='cpf' placeholder='CPF'>
             </div>
   </div>
   <br>
-  <button id='button' type='submit' class='btn btn-primary'>Entrar</button></center>
-
+  <button id='button' type='submit' class='btn btn-primary'>Adicionar</button></center>
+</form>
 <?php $this->endSection(); ?>
 
