@@ -111,6 +111,9 @@
   </label>
   <br><br><br>
   <input class="btn btn-primary btn-lg btn-block" type="submit" value="Salvar">
+      <?php if ($session->get('usuario')['cargoUsuario'] == "c") : ?>
+        <a class='btn btn-success btn-lg btn-block' href='<?= base_url('Preferencia/viewPreferencia') ?>'>Preferencias atribuidas</a>
+      <?php endif; ?>
   </form>
 </body>
 

@@ -32,5 +32,6 @@
                 ?>
         </tbody>
     </table>
+    <a class='btn btn-success btn-lg btn-block' href='<?= base_url('Componentes/viewFormComponente') ?>'>Gerar horário</a>
 </body>
 </html>
