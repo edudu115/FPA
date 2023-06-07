@@ -10,7 +10,7 @@ $session = session();
     <p class="lead"></p>
   </div>
   <form class="needs-validation" action="<?= base_url('Usuario/saveUsuario') ?>" method="POST">
-    <input type="hidden" name="id" value="<?= $user->idUsuario ?>">
+    <input type="hidden" name="id" value="<?= $session->get('usuario')['idUsuario'] ?>">
     <div class="row">
       <div class="col-3"></div>
       <div class="col-6">

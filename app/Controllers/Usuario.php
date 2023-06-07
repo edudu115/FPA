@@ -47,6 +47,7 @@ class Usuario extends BaseController
             $dados = ["user" => $retorno[0]];
             return view('cadastroView', $dados);
         } else {
+            $this->session->setFlashdata('loginError',true);
             $this->response->redirect(base_url());
         }
     }

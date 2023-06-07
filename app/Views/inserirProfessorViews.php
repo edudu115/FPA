@@ -14,9 +14,9 @@ $session = \Config\Services::session();
 <center>
   <form method="POST" action="<?=base_url('Usuario/addUsuario')?>">
   <div id ='form' class='form-row'>
-    <?php if($session->usuarioAdicionado){
-       echo "<h3 class='p-3 mb-2 bg-success text-white'>Usuário adicionado com sucesso!</h3>"; 
-    } ?>
+    <?php if($session->usuarioAdicionado): ?>
+      <h3 class='p-3 mb-2 bg-success text-white'>Usuário adicionado com sucesso!</h3>
+    <?php endif ?>
     <div  class='form-group col-md-4'>
       <label  for='nome'>Nome</label>
       <input type='text' class='form-control' id='nome' name='nome' placeholder='Nome'>

@@ -1,4 +1,4 @@
-<?php $session = session(); ?>
+<?php $session = \Config\Services::session(); ?>
 <!doctype html>
 <html lang='pt-br'>
 
