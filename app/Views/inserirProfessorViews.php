@@ -38,7 +38,7 @@ $session = \Config\Services::session();
             </div>
   </div>
   <br>
-  <button id='button' type='submit' class='btn btn-primary'>Entrar</button></center>
+  <button id='button' type='submit' class='btn btn-primary'>Adicionar</button></center>
 </form>
 <?php $this->endSection(); ?>
 
