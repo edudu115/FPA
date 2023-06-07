@@ -22,9 +22,10 @@ class Usuario extends BaseController
     {
         return view("inserirProfessorViews.php");
     }
+
     public function viewupdatecadastro()
     {
-        return view("updatecadastroViews.php");
+        return view("cadastroView.php");
     }
 
     public function logar()
@@ -66,10 +67,21 @@ class Usuario extends BaseController
         $this->response->redirect(base_url('Componentes/viewComponente'));
     }
 
+    public function addUsuario()
+    {
+        $dados = ['nome' => $this->request->getPost('nome'),
+                  'prontuario' => $this->request->getPost('prontuario'),
+                  'senha' => $this->request->getPost('senha'),
+                  'cpf' => $this->request->getPost('cpf')];
+
+        $this->userModel->insert($dados);
+        $this->session->setFlashdata('usuarioAdicionado',true);
+        $this->response->redirect(base_url('Usuario/viewProfessor'));
+    }
+
     public function logoutUsuario()
     {
         session_destroy();
-
         $this->response->redirect(base_url());
     }
 }
