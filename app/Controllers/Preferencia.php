@@ -22,7 +22,7 @@
 
         public function savePreferencia()
         {
-            $idUsuario = $this->session->idUsuario;
+            $idUsuario = $this->session->get('usuario')['idUsuario'];
 
             $i = 0;
             $retorno = intval($this->request->getPost("preferencia".$i));
