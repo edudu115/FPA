@@ -18,7 +18,12 @@ $session = session();
           <label for="Cargo">Cargo</label>
           <input type="text" class="form-control" id="cargo" name="cargo" disabled value="<?= $session->get('usuario')['cargoUsuario'] == "c" ? "Coordenador" : "Professor" ?>">
         </div>
-
+        <div class="mt-2">
+          <label for="tempoCampus">Tempo de Campus</label>
+          <input type="number" class="form-control" id="tempoCampus" name="tempoCampus" placeholder="" value="" required>
+          <div class="invalid-feedback">
+            É obrigatório inserir um tempo de Campus.
+          </div>
         <div class="mt-2">
           <label for="tempoExp">Tempo de Experiencia</label>
           <input type="number" class="form-control" id="tempoExp" name="tempoExp" placeholder="" value="" required>
@@ -26,12 +31,6 @@ $session = session();
             É obrigatório inserir tempo de Experiencia.
           </div>
         </div>
-        <div class="mt-2">
-          <label for="tempoCampus">Tempo de Campus</label>
-          <input type="number" class="form-control" id="tempoCampus" name="tempoCampus" placeholder="" value="" required>
-          <div class="invalid-feedback">
-            É obrigatório inserir um tempo de Campus.
-          </div>
         </div>
         <div class="mt-2">
           <label for="TempoProfissional">Tempo Profissional</label>

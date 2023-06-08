@@ -21,8 +21,9 @@ class PreferenciaModel extends Model{
         return $query->getResult('object');
     }
 
-    public function countPreferencia($materia){
-        $query = $this->db->query("SELECT componentes_idComponentes, COUNT(usuario_idUsuario) AS quantidade_professor, prioridade FROM preferencia WHERE componentes_idComponentes = $materia ");
+    public function repeticaoPreferencia($materia){
+        $query = $this->db->query("SELECT componentes_idComponentes, usuario_idUsuario, prioridade FROM preferencia 
+                                    WHERE componentes_idComponentes = '".$materia."' ");
         return $query->getResult('object');
     }
 }
