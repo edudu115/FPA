@@ -1,19 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <table style="background-color: white" class="table table-bordered">
+<?php $this->extend('base');
+$this->section('corpo');
+$session = session();
+?>
+
+
+<style>
+
+#la{
+    width: 50px;
+    
+   
+}
+#le{
+    width: 50px;
+   
+   
+}
+#lu{
+    width: 50px;
+   
+}
+
+#button{
+
+    background-color: green;
+}
+</style>
+
+
+
+<br><br>
+   <table style="background-color: white" class="table table-bordered">
         <thead>
             <tr>
-                <th scope="col">Nome do professor</th>
-                <th scope="col">Nome da Matéria</th>
-                <th scope="col">Prioridade</th>
-            </tr>
+                <th id='la' scope="col">Nome do professor</th>
+                <th id='le'  scope="col">Nome da Matéria</th>
+                <th id='lu' scope="col">Prioridade</th>
+                 </tr> 
         </thead>
         <tbody>
                 <?php
@@ -24,14 +47,13 @@
                     echo "<td>".$preferencia->nome."</td>";
                     echo "<td>".$preferencia->nomeMateria."</td>";
                     if($preferencia->prioridade == "1"){
-                        echo "<td>Primária<td>";
+                        echo "<td>Primária</td>";
                     }else{
-                        echo "<td>Secundário<td>";
+                        echo "<td>Secundário</td>";
                     }
                 }
                 ?>
         </tbody>
     </table>
-    <a class='btn btn-success btn-lg btn-block' href='<?= base_url('Componentes/viewFormComponente') ?>'>Gerar horário</a>
-</body>
-</html>
+    <a id="button" class='btn btn-success btn-lg btn-block' href='<?= base_url('Componentes/viewFormComponente') ?>'>Gerar horário</a>
+    <?php $this->endSection(); ?>
