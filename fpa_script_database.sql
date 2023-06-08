@@ -121,23 +121,3 @@ insert into cursos(idCurso, nomeCUrso) value
          ('TM', 'Técnico Mecatrônica'),
          ('TSI', 'Tecnólogo para Sistema da Internet'),
          ('LM', 'Licenciatura em Matemática');
-         
--- USUARIO --
-insert into usuario(nome, prontuario, senha, cpf, cargo) value('João','12345','12345','6789','c');
-insert into usuario(nome, prontuario, senha, cpf, cargo) value('Andre','345678','12345','12345','p');
-insert into usuario(nome, prontuario, senha, cpf, cargo) value('Moana','67890','67890','67890','p');
-
--- COMPONENTE --
-insert into componentes(idComponentes, nomeMateria, cursos_idCurso, periodo, horasSemanais) value('ISO', 'Introdução a Sistemas Operacionais', 'TSI', 'Noite', 4);
-insert into componentes(idComponentes, nomeMateria, cursos_idCurso, periodo, horasSemanais) value('IPW', 'Introdução a Programção Web', 'TI', 'Tarde', 8);
-insert into componentes(idComponentes, nomeMateria, cursos_idCurso, periodo, horasSemanais) value('DAC', 'Desenho Assistido por Computador', 'TSI', 'Manhã', 4);
-
--- HORARIO --
-insert into horario(componente_idComponentes, diaSemana, horaInicio, horaFim) value('ISO', 'Quarta-feira', '19:00', '22:35');
-insert into horario(componente_idComponentes, diaSemana, horaInicio, horaFim) value('IPW', 'Terça-feira', '19:00', '22:35');
-insert into horario(componente_idComponentes, diaSemana, horaInicio, horaFim) value('IPW', 'Sexta-feira', '19:00', '22:35');
-insert into horario(componente_idComponentes, diaSemana, horaInicio, horaFim) value('DAC', 'Terça-feira', '12:35', '14:15');
-
--- ATRIBUIDO -- 
--- insert into atribuido(componentes_idComponentes, usuario_idUsuario) value('ISO',1);
--- insert into atribuido(componentes_idComponentes, usuario_idUsuario) value('IPW',2);
