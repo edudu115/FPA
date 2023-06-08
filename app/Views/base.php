@@ -116,11 +116,11 @@
 
     <div class='collapse navbar-collapse' id='conteudoNavbarSuportado'>
 
-      <div style='text-align:left'>
+       <!-- <div style='text-align:left'>
         <form class='form-inline my-2 my-lg-0'>
           <input id='pes' class='form-control mr-sm-2' type='search' placeholder='Pesquisar' aria-label='Pesquisar'>
       </div>
-      <button id='pesq' class='btn btn-outline-success my-2 my-sm-0' type='submit'>Pesquisar</button>
+      <button id='pesq' class='btn btn-outline-success my-2 my-sm-0' type='submit'>Pesquisar</button> -->
       <a href='<?= base_url('Usuario/logoutUsuario') ?>' <button id='sair' class='btn btn-outline-success my-2 my-sm-0' type='submit'>sair</button></a>
       </select>
       </form>
