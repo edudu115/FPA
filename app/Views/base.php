@@ -66,7 +66,6 @@
     top: 33%;
     background-color: #bee6a3;
   }
-
   #horario {
     position: relative;
     left: 58%;
@@ -99,19 +98,19 @@
   }
 
   @media (max-width:768px){
-  .bar{
+  #bar{
     display:block;
   }
-  .bar.active .bar:nth-child(2){
+  #bar.active .nav-link:active:nth-child(2){
     opacity: 0;
   }
-  .bar.active .bar:nth-child(1){
+  #bar.active .nav-link:active:nth-child(1){
     transform: translateY(-8px) rotate(-45deg); 
   }
-  .bar.active .bar:nth-child(3){
+  #bar.active .nav-link:active:nth-child(3){
      transform: translateY(-8px) rotate(-45deg);
   }
-  #nav {
+  #conteudoNavbarSuportado {
     position:fixed;
     left:-100%;
     top: 70px;
@@ -124,10 +123,10 @@
     transition: 0.3s;
     
   }
-.nav-item{
-   margin: 16px 0;
+.btn btn-outline-success my-2 my-sm-0{
+   margin: 10px 0;
 }
-.nav.active{
+#conteudoNavbarSuportado.active{
   left: 0;
 }
   }
@@ -152,8 +151,8 @@
       </select>
       </form>
     </div>
-    <a href='<?= base_url('Usuario/viewupdatecadastro') ?>' ><img class='mb-4' src='<?= base_url('user.jpeg') ?>' class="rounded-circle" width='60' height='50' left='50px' id='imgs'></a>
-    <a href='<?= base_url('Usuario/alterarSenha') ?>' ><img class='mb-4' src='<?= base_url('engrenagem.png') ?>' class='rounded-circle' width='50' height='50' left='50px' id='engrenagem'></a>
+    <a href='<?= base_url('Usuario/viewupdatecadastro') ?>' ><img class='mb-4' src='<?= base_url('user.jpeg') ?>' class='btn btn-outline-success my-2 my-sm-0' width='60' height='50' left='50px' id='imgs'></a>
+    <a href='<?= base_url('Usuario/alterarSenha') ?>' ><img class='mb-4' src='<?= base_url('engrenagem.png') ?>' class='btn btn-outline-success my-2 my-sm-0' width='50' height='50' left='50px' id='engrenagem'></a>
   </nav>
   <div id='bar' class='sobre'>
     <nav class='nav'>
