@@ -67,26 +67,19 @@
     background-color: #bee6a3;
   }
 
-
-
-  #nav {
-    width: 1920px;
-    line-height: 20px;
-    background-color: #033506;
-  }
-
-  #bar {
-    width: 1920px;
-    line-height: 15px;
-    background-color: #005914;
-  }
-
   #horario {
     position: relative;
     left: 58%;
     color: black;
   }
+#nav{
+  background-color: #033506;
+}
 
+#bar {
+    
+    background-color: #005914;
+  }
 
   #inserir {
     position: relative;
@@ -104,12 +97,46 @@
     left: 45%;
     color: black;
   }
+
+  @media (max-width:768px){
+  .bar{
+    display:block;
+  }
+  .bar.active .bar:nth-child(2){
+    opacity: 0;
+  }
+  .bar.active .bar:nth-child(1){
+    transform: translateY(-8px) rotate(-45deg); 
+  }
+  .bar.active .bar:nth-child(3){
+     transform: translateY(-8px) rotate(-45deg);
+  }
+  #nav {
+    position:fixed;
+    left:-100%;
+    top: 70px;
+    gap: 0;
+    border-radius: 0 0 20px 20px;
+    background-color:  #033506;
+    text-align: center;
+    flex-direction: column;
+    width: 100%;
+    transition: 0.3s;
+    
+  }
+.nav-item{
+   margin: 16px 0;
+}
+.nav.active{
+  left: 0;
+}
+  }
 </style>
 
 <body class='bg-green'>
 
   <nav id='nav' class='navbar navbar-expand-lg navbar-light bg-green >
-  <a  id=' if' class='navbar-brand' href='#'><img class='mb-4' src='<?= base_url('logo.png') ?>' alt='' width='500' height='90'></a>
+  <a  id='if' class='navbar-brand' href='#'><img class='mb-4' src='<?= base_url('logo.png') ?>' alt='' width='500' height='90'></a>
     <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#conteudoNavbarSuportado' aria-controls='conteudoNavbarSuportado' aria-expanded='false' aria-label='Alterna navegação'>
       <span class='navbar-toggler-icon'></span>
     </button>
@@ -139,6 +166,7 @@
       <a id='horario' class='nav-link active' href='<?= base_url('Componentes/viewComponente') ?>'>Informar Disponibilidade de Horario</a>
     </nav>
   </div>
+  <script src="<?= base_url('/script.js') ?>"></script>
   <?php $this->renderSection('corpo'); ?>
 </body>
 
