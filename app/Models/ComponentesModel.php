@@ -37,6 +37,12 @@ class ComponentesModel extends Model{
     {
         $this->builder->delete(['id' => $id]);
     }
+
+    public function findId()
+    {
+        $query = $this->db->query("SELECT idComponentes FROM componentes;");
+        return $query->getResult('object');
+    }
 }
 
 

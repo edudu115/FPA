@@ -21,9 +21,10 @@ class PreferenciaModel extends Model{
         return $query->getResult('object');
     }
 
-    public function repeticaoPreferencia($materia){
+    public function repeticaoPreferencia($materia, $prioridade){
         $query = $this->db->query("SELECT componentes_idComponentes, usuario_idUsuario, prioridade FROM preferencia 
-                                    WHERE componentes_idComponentes = '".$materia."' ");
+                                    WHERE componentes_idComponentes = '".$materia."' 
+                                    AND prioridade = '".$prioridade."';");
         return $query->getResult('object');
     }
 }

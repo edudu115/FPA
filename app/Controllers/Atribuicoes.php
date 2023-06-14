@@ -52,39 +52,100 @@
 
 //=======================================================================
     
+
 //=======================================================================
-//COMPARANDO E DECIDINDO QUAL USUARIO FICARÁ COM O COMPONENTE
-        public function comparacoes()
+//CASO MAIS DE UMA PESSOA MARCOU COMO PRIMÁRIO
+        public function preferenciasPrimaria($idComponente)
         {
-            $componente = $this->componenteModel->find();
-            $preferencias = $this->preferenciaModel->find();
-            $i = 0;
-            foreach($preferencias as $preferencia)//percorrendo a tabela de preferencias
+            $preferencias = $this->preferenciaModel->repeticaoPreferencia($idComponente, 1);
+
+            if(sizeof($preferencias) >= 1)
             {
-                $idPreferencia = $preferencia->componentes_idComponentes;
-                $idUsuario = $preferencia->usuario_idUsuario;
-                if($this->componentePreferencial($idPreferencia)) //existe alguem usuario com preferencia nessa materia
+                if(sizeof($preferencias) == 1) //caso haja apenas um primário
                 {
-
-                    if(sizeof($this->preferenciaModel->repeticaoPreferencia($idPreferencia)) > 1) //existe mais de um usuario com preferencias na mesma materia
+                    $idUsuario = $preferencias[0]->usuario_idUsuario;
+                    $this->atribuidoPara($idComponente, $idUsuario);
+                }
+                
+                if(sizeof($preferencias) > 1)//caso haja mais de um primario
+                {
+                    $auxiliar = [-1, -1];
+                    foreach($preferencias as $preferencia)
                     {
-
-                        $materias = $this->preferenciaModel->repeticaoPreferencia($idPreferencia);
-                        foreach($materias as $materia)
+                        $usuario = $preferencia->usuario_idUsuario;
+                        $usuarioDados = $this->usuarioModel->desempateUsuario($usuario);
+                        if($usuarioDados[0]->tempoCampus >= $auxiliar[0])
                         {
-                            var_dump($materia);
-                            echo "<br><br>";
-                            // if($materia->prioridade == 1)
-                            // {
-                            //     echo "$idUsuario marcou a materia $idPreferencia como $materia->prioridade <br>";
-                            // }
+                            if($usuarioDados[0]->tempoCampus == $auxiliar[1])
+                            {
+                                echo "bla";
+                            }
+
+                            $auxiliar = [$usuarioDados[0]->idUsuario, $usuarioDados[0]->tempoCampus, $usuarioDados[0]->tempoExp, $usuarioDados[0]->tempoProfissional, 
+                                        $usuarioDados[0]->tempoInstituicao, $usuarioDados[0]->nivelCarreira, $usuarioDados[0]->idade];
                         }
 
                     }
-
+                    //echo "$id ---- $auxiliar[0]";
+                    print_r($auxiliar);
                 }
             }
         }
+//=======================================================================
+
+
+//=======================================================================
+//CASO MAIS DE UMA PESSOA MARCOU COMO SECUNDÁRIO
+public function preferenciasSecundaria($idComponente)
+{
+    $preferencia = $this->preferenciaModel->repeticaoPreferencia($idComponente, 2);
+
+    if(sizeof($preferencia) > 1)
+    {
+        echo "Mais de um secundário";
+    }
+    else
+    {
+        echo "menos de um secundário";
+    }
+}
+//=======================================================================
+
+
+//=======================================================================
+//COMPARANDO E DECIDINDO QUAL USUARIO FICARÁ COM O COMPONENTE
+        // public function comparacoes()
+        // {
+        //     $componentes = $this->componenteModel->findId();
+        //     $preferencias = $this->preferenciaModel->find();
+        //     foreach($componentes as $preferencia)//percorrendo a tabela de preferencias
+        //     {
+        //         $idPreferencia = $preferencia;
+        //         //$idUsuario = $preferencia->usuario_idUsuario;
+        //         echo $idPreferencia->idComponentes . "<br>";
+        //         if($this->componentePreferencial($idPreferencia)) //existe alguem usuario com preferencia nessa materia
+        //         {
+
+        //             if(sizeof($this->preferenciaModel->repeticaoPreferencia($idPreferencia)) > 1) //existe mais de um usuario com preferencias na mesma materia
+        //             {
+
+        //                 $materias = $this->preferenciaModel->repeticaoPreferencia($idPreferencia);
+        //                 print_r($materias);
+        //                 // foreach($materias as $materia)
+        //                 // {
+        //                 //     var_dump($materia);
+        //                 //     echo "<br><br>";
+        //                 //     // if($materia->prioridade == 1)
+        //                 //     // {
+        //                 //         echo "$idUsuario marcou a materia $idPreferencia como $materia->prioridade <br><br>";
+        //                 //     // }
+        //                 // }
+
+        //             }
+
+        //         }
+        //     }
+        // }
 //=======================================================================
 
     }
