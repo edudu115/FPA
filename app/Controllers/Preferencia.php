@@ -41,6 +41,7 @@
                 $i++;
                 $retorno = intval($this->request->getPost("preferencia".$i));
             }
+            return redirect()->back();
         }
     }
 ?>
