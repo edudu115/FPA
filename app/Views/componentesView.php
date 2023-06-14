@@ -69,7 +69,6 @@ $session = session();
       <input class="btn btn-primary btn-lg btn-block" type="submit" value="Salvar">
       <?php if ($session->get('usuario')['cargoUsuario'] == "c") : ?>
       <?php endif; ?>
-      </form>
     </div>
       
   <br>
@@ -125,4 +124,5 @@ $session = session();
           ?>
       </tbody>
   </table>  
+  </form>
   <?php $this->endSection(); ?>
