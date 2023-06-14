@@ -69,25 +69,66 @@
                 
                 if(sizeof($preferencias) > 1)//caso haja mais de um primario
                 {
-                    $auxiliar = [-1, -1];
+                    $auxiliar = ['idUsuario' => 0,'tempoCampus' => -1,
+                                 'tempoExp' => -1,'tempoProfissional' => -1,
+                                 'tempoInstituicao' => -1, 
+                                 'nivelCarreira' => -1 , 'idade' => -1];
                     foreach($preferencias as $preferencia)
                     {
                         $usuario = $preferencia->usuario_idUsuario;
                         $usuarioDados = $this->usuarioModel->desempateUsuario($usuario);
-                        if($usuarioDados[0]->tempoCampus >= $auxiliar[0])
-                        {
-                            if($usuarioDados[0]->tempoCampus == $auxiliar[1])
-                            {
-                                echo "bla";
-                            }
 
-                            $auxiliar = [$usuarioDados[0]->idUsuario, $usuarioDados[0]->tempoCampus, $usuarioDados[0]->tempoExp, $usuarioDados[0]->tempoProfissional, 
-                                        $usuarioDados[0]->tempoInstituicao, $usuarioDados[0]->nivelCarreira, $usuarioDados[0]->idade];
+                        if($usuarioDados[0]['tempoCampus'] > $auxiliar['tempoCampus'])//caso o tempoCampus do usuario sejam diferentes 
+                        {
+                            $auxiliar = $usuarioDados[0];
                         }
 
+                        elseif($usuarioDados[0]['tempoCampus'] == $auxiliar['tempoCampus'])//caso o tempoCampus do usuario sejam iguais
+                        {
+                            if($usuarioDados[0]['tempoExp'] > $auxiliar['tempoExp'])//caso o tempoExp sejam diferentes
+                            {
+                                $auxiliar = $usuarioDados[0];
+                            }
+
+                            elseif($usuarioDados[0]['tempoExp'] == $auxiliar['tempoExp'])//caso o tempoExp sejam iguais
+                            {
+                                if($usuarioDados[0]['tempoProfissional'] > $auxiliar['tempoProfissional'])//caso o tempoProfissional sejam diferentes
+                                {
+                                    $auxiliar = $usuarioDados[0];
+                                }
+                                
+                                elseif($usuarioDados[0]['tempoProfissional'] == $auxiliar['tempoProfissional'])//caso o tempoProfissional sejam iguais
+                                {
+                                    if($usuarioDados[0]['tempoInstituicao'] > $auxiliar['tempoInstituicao'])//caso o tempoInstituicao sejam diferentes
+                                    {
+                                        $auxiliar = $usuarioDados[0];
+                                    }
+
+                                    elseif($usuarioDados[0]['tempoInstituicao'] == $auxiliar['tempoInstituicao'])//caso o tempoInstituicao sejam iguais
+                                    {
+                                        if($usuarioDados[0]['nivelCarreira'] > $auxiliar['nivelCarreira'])//caso o nivelCarreira sejam diferentes
+                                        {
+                                            $auxiliar = $usuarioDados[0];
+                                        }
+                                        elseif($usuarioDados[0]['nivelCarreira'] == $auxiliar['nivelCarreira'])//caso o nivelCarreira sejam iguais
+                                        {
+                                            if($usuarioDados[0]['idade'] > $auxiliar['idade'])//caso a idade sejam diferentes
+                                            {
+                                                $auxiliar = $usuarioDados[0];
+                                            }
+                                            elseif($usuarioDados[0]['idade'] == $auxiliar['idade'])//caso a idade sejam iguais
+                                            {
+                                                echo "todos os atributos são iguais";
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
-                    //echo "$id ---- $auxiliar[0]";
                     print_r($auxiliar);
+                    echo "<br><br>";
+                    //print_r($usuarioDados[0]);
                 }
             }
         }
