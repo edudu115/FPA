@@ -145,7 +145,7 @@
 
     <a type="button" class="btn btn-outline-dark"> <a href='<?= base_url('Usuario/alterarSenha') ?>' ><img  src='<?= base_url('engrenagem.png') ?>' width='30px' id='engrenagem'></a> 
 
-    <a href='<?= base_url('Usuario/logoutUsuario') ?>' ><button id='sair' class='btn btn-outline-success my-2 my-sm-0' width=' type='submit'>sair</button></a>
+    <a href='<?= base_url('Usuario/logoutUsuario') ?>' ><button id='sair' class='btn btn-outline-success my-2 my-sm-0' width='30px' type='submit'>sair</button></a>
 
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
