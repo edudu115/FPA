@@ -87,7 +87,6 @@
   }
 
   #button {
-
     background-color: green;
   }
 
@@ -98,7 +97,7 @@
   }
 
   @media (max-width:768px){
-  #bar{
+  #navbarSupportedContent{
     display:block;
   }
   #bar.active .nav-link:active:nth-child(2){
@@ -135,38 +134,38 @@
 <body class='bg-green'>
 
   <nav id='nav' class='navbar navbar-expand-lg navbar-light bg-green >
-  <a  id='if' class='navbar-brand' href='#'><img class='mb-4' src='<?= base_url('logo.png') ?>' alt='' width='500' height='90'></a>
-    <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#conteudoNavbarSuportado' aria-controls='conteudoNavbarSuportado' aria-expanded='false' aria-label='Alterna navegação'>
-      <span class='navbar-toggler-icon'></span>
+  <div class="container-fluid">
+  <a  id='if' class='navbar-brand' href='#'><img class='mb-4' src='<?= base_url('logo.png') ?>' alt='' width='50%'></a>
+
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class='collapse navbar-collapse' id='conteudoNavbarSuportado'>
+    <a type="button" class="btn btn-outline-dark"> <a href='<?= base_url('Usuario/viewupdatecadastro') ?>' ><img ' src='<?= base_url('user.jpeg') ?>' width='30px' id='imgs'> </a>
 
-       <!-- <div style='text-align:left'>
-        <form class='form-inline my-2 my-lg-0'>
-          <input id='pes' class='form-control mr-sm-2' type='search' placeholder='Pesquisar' aria-label='Pesquisar'>
-      </div>
-      <button id='pesq' class='btn btn-outline-success my-2 my-sm-0' type='submit'>Pesquisar</button> -->
-      <a href='<?= base_url('Usuario/logoutUsuario') ?>' <button id='sair' class='btn btn-outline-success my-2 my-sm-0' type='submit'>sair</button></a>
-      </select>
-      </form>
-    </div>
-    <a href='<?= base_url('Usuario/viewupdatecadastro') ?>' ><img class='mb-4' src='<?= base_url('user.jpeg') ?>' class='btn btn-outline-success my-2 my-sm-0' width='60' height='50' left='50px' id='imgs'></a>
-    <a href='<?= base_url('Usuario/alterarSenha') ?>' ><img class='mb-4' src='<?= base_url('engrenagem.png') ?>' class='btn btn-outline-success my-2 my-sm-0' width='50' height='50' left='50px' id='engrenagem'></a>
-  </nav>
-  <div id='bar' class='sobre'>
-    <nav class='nav'>
+    <a type="button" class="btn btn-outline-dark"> <a href='<?= base_url('Usuario/alterarSenha') ?>' ><img  src='<?= base_url('engrenagem.png') ?>' width='30px' id='engrenagem'></a> 
+
+    <a href='<?= base_url('Usuario/logoutUsuario') ?>' ><button id='sair' class='btn btn-outline-success my-2 my-sm-0' width=' type='submit'>sair</button></a>
+
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <?php
       if ($session->get('usuario')['cargoUsuario'] == 'c') :
       ?>
-        <a id='Alterar' class='nav-link active' href='<?= base_url('Componentes/viewFormComponente') ?>'>Inserir Componentes</a>
-        <a id='inserir' class='nav-link active' href='<?= base_url('Usuario/viewProfessor') ?>'>Inserir Novo Professor</a>
+      <a id='Alterar' class='nav-link active' class="dropdown-item" href='<?= base_url('Componentes/viewFormComponente') ?>'>Inserir Componentes</a>
+      <a id='inserir' class='nav-link active' class="dropdown-item" href='<?= base_url('Usuario/viewProfessor') ?>'>Inserir Novo Professor</a>
       <?php endif ?>
-      <a id='horario' class='nav-link active' href='<?= base_url('Componentes/viewComponente') ?>'>Informar Disponibilidade de Horario</a>
-    </nav>
-  </div>
+      <a id='horario' class='nav-link active' class="dropdown-item" href='<?= base_url('Componentes/viewComponente') ?>'>Informar Disponibilidade de Horario</a>
+    </div>
+
+</nav>
+  
+
   <script src="<?= base_url('/script.js') ?>"></script>
   <?php $this->renderSection('corpo'); ?>
+
 </body>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 
 </html>
