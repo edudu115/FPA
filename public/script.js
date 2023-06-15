@@ -1,5 +1,5 @@
-const bar = document.querySelector(".bar");
-const nav = document.querySelector(".nav");
+const bar = document.querySelector("#bar");
+const nav = document.querySelector("#conteudoNavbarSuportado");
 
 console.log("exito")
 
