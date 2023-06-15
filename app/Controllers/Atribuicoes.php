@@ -30,7 +30,7 @@
 
 //=======================================================================
 //VERIFICAR SE ALGUÉM MARCOU O COMPONENTE COMO PREFERENCIAL
-        private function componentePreferencial($idComponente)
+        public function componentePreferencial($idComponente)
         {
             $preferencias = $this->preferenciaModel->find();
             
@@ -45,19 +45,18 @@
                     $teste = true;
             }
             if($teste)
-                return true;
+                echo 'true';
             else
-                return false;
+                echo 'false';
         }
-
 //=======================================================================
     
 
 //=======================================================================
-//CASO MAIS DE UMA PESSOA MARCOU COMO PRIMÁRIO
-        public function preferenciasPrimaria($idComponente)
+//CASO MAIS DE UMA PESSOA MARCOU COMO PRIMÁRIO OU SECUNDÁRIO
+        public function preferenciasIguais($idComponente, $prioridade)
         {
-            $preferencias = $this->preferenciaModel->repeticaoPreferencia($idComponente, 1);
+            $preferencias = $this->preferenciaModel->repeticaoPreferencia($idComponente, $prioridade);
 
             if(sizeof($preferencias) >= 1)
             {
@@ -126,68 +125,10 @@
                             }
                         }
                     }
-                    print_r($auxiliar);
-                    echo "<br><br>";
-                    //print_r($usuarioDados[0]);
+                    $this->atribuidoPara($idComponente, $auxiliar['idUsuario']);
                 }
             }
         }
 //=======================================================================
-
-
-//=======================================================================
-//CASO MAIS DE UMA PESSOA MARCOU COMO SECUNDÁRIO
-public function preferenciasSecundaria($idComponente)
-{
-    $preferencia = $this->preferenciaModel->repeticaoPreferencia($idComponente, 2);
-
-    if(sizeof($preferencia) > 1)
-    {
-        echo "Mais de um secundário";
-    }
-    else
-    {
-        echo "menos de um secundário";
-    }
-}
-//=======================================================================
-
-
-//=======================================================================
-//COMPARANDO E DECIDINDO QUAL USUARIO FICARÁ COM O COMPONENTE
-        // public function comparacoes()
-        // {
-        //     $componentes = $this->componenteModel->findId();
-        //     $preferencias = $this->preferenciaModel->find();
-        //     foreach($componentes as $preferencia)//percorrendo a tabela de preferencias
-        //     {
-        //         $idPreferencia = $preferencia;
-        //         //$idUsuario = $preferencia->usuario_idUsuario;
-        //         echo $idPreferencia->idComponentes . "<br>";
-        //         if($this->componentePreferencial($idPreferencia)) //existe alguem usuario com preferencia nessa materia
-        //         {
-
-        //             if(sizeof($this->preferenciaModel->repeticaoPreferencia($idPreferencia)) > 1) //existe mais de um usuario com preferencias na mesma materia
-        //             {
-
-        //                 $materias = $this->preferenciaModel->repeticaoPreferencia($idPreferencia);
-        //                 print_r($materias);
-        //                 // foreach($materias as $materia)
-        //                 // {
-        //                 //     var_dump($materia);
-        //                 //     echo "<br><br>";
-        //                 //     // if($materia->prioridade == 1)
-        //                 //     // {
-        //                 //         echo "$idUsuario marcou a materia $idPreferencia como $materia->prioridade <br><br>";
-        //                 //     // }
-        //                 // }
-
-        //             }
-
-        //         }
-        //     }
-        // }
-//=======================================================================
-
     }
 ?>
