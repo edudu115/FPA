@@ -18,7 +18,7 @@ class PreferenciaModel extends Model
 
     public function selecPreferencia()
     {
-        $query = $this->db->query("SELECT u.nome, c.nomeMateria, p.prioridade
+        $query = $this->db->query("SELECT u.nome,c.idComponentes, c.nomeMateria, p.prioridade
                                    FROM ((preferencia p 
                                    INNER JOIN usuario u ON u.idUsuario = p.usuario_idUsuario)
                                    INNER JOIN componentes c ON c.idComponentes = p.componentes_idComponentes);");
@@ -33,11 +33,20 @@ class PreferenciaModel extends Model
         return $query->getResult('object');
     }
 
-    public function contMateria($idMateria)
+    public function contMateria()
     {
         $query = $this->db->query("SELECT COUNT(usuario_idUsuario) AS quantidade_preferem, componentes_idComponentes, prioridade
                                    FROM preferencia
                                    GROUP BY prioridade, componentes_idComponentes;");
+        return $query->getResult('object');
+    }
+
+    public function SelectAtribuidoPara()
+    {
+        $query = $this->db->query("SELECT u.nome, comp.idComponentes AS sigla ,comp.nomeMateria, c.nomeCurso 
+                                   FROM((componentes comp
+                                   INNER JOIN usuario u ON u.idUsuario = comp.usuario_atribuidoPara)
+                                   INNER JOIN cursos c ON c.idCurso = comp.cursos_idCurso)");
         return $query->getResult('object');
     }
 }
