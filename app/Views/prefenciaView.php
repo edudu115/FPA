@@ -42,8 +42,8 @@ $session = session();
             ?>
         </tbody>
     </table>
-</div>
-<div class="container">
+
+
     <table style="background-color: white" class="table table-hover">
         <thead>
             <tr>
@@ -68,7 +68,6 @@ $session = session();
             ?>
         </tbody>
     </table>
-
 </div>
 
 <a id="button" class='btn btn-success btn-lg btn-block' href='<?= base_url('Atribuicoes/') ?>'>Gerar horário</a>

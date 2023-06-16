@@ -38,13 +38,13 @@
   #engrenagem {
     position: absolute;
     left: 90%;
-    top: 29%;
+    top: 33%;
   }
 
   #imgs {
     position: absolute;
     left: 85%;
-    top: 29%;
+    top: 33%;
 
   }
 
@@ -54,10 +54,7 @@
   }
 
   #inform {
-    position: absolute;
-    right: 65%;
-    top: 33%;
-
+    color: black;
   }
    #atribuir{
     color: black;
@@ -66,6 +63,7 @@
    #materia{
     color: black;
    }
+   
   #sair {
     position: absolute;
     left: 95%;
@@ -73,8 +71,7 @@
     background-color: #bee6a3;
   }
   #horario {
-    position: relative;
-    left: 58%;
+   
     color: black;
   }
 #nav{
@@ -82,13 +79,14 @@
 }
 
 #bar {
-    
-    background-color: #005914;
+  width: 1920px;
+  line-height: 10px;
+  background-color: #005914;
+  position: absolute;
+  top: 80%;
   }
 
   #inserir {
-    position: relative;
-    left: 50%;
     color: black;
   }
 
@@ -97,8 +95,6 @@
   }
 
   #Alterar {
-    position: relative;
-    left: 45%;
     color: black;
   }
 
@@ -147,28 +143,28 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <a type="button" class="btn btn-outline-green"> <a href='<?= base_url('Usuario/viewupdatecadastro') ?>' ><img ' src='<?= base_url('user.jpeg') ?>' width='30px' id='imgs'> </a>
+    <a type="button" class="btn btn-outline-green"> <a href='<?= base_url('Usuario/viewupdatecadastro') ?>' ><img ' src='<?= base_url('user.jpeg') ?>' width='40px' id='imgs'> </a>
 
-    <a type="button" class="btn btn-outline-green"> <a href='<?= base_url('Usuario/alterarSenha') ?>' ><img  src='<?= base_url('engrenagem.png') ?>' width='30px' id='engrenagem'></a> 
+    <a type="button" class="btn btn-outline-green"> <a href='<?= base_url('Usuario/alterarSenha') ?>' ><img  src='<?= base_url('engrenagem.png') ?>' width='40px' id='engrenagem'></a> 
 
     <a href='<?= base_url('Usuario/logoutUsuario') ?>' ><button id='sair' class='btn btn-outline-success my-2 my-sm-0' width='30px' type='submit'>sair</button></a>
 
-
+    <div id='bar' class='sobre'>
+    <nav class='nav'>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <a id='horario' class='nav-link active' class="dropdown-item" href='<?= base_url('Componentes/viewComponente') ?>'>Informar Disponibilidade de Horario</a>
       <?php
       if ($session->get('usuario')['cargoUsuario'] == 'c') :
       ?>
       <a id='Alterar' class='nav-link active' class="dropdown-item" href='<?= base_url('Componentes/viewFormComponente') ?>'>Inserir Componentes</a>
       <a id='inserir' class='nav-link active' class="dropdown-item" href='<?= base_url('Usuario/viewProfessor') ?>'>Inserir Novo Professor</a>
-      <a id='Atribuir' class='nav-link active' class="dropdown-item" href='<?= base_url('preferencia/viewAtribuido') ?>'>Atribuição de Aulas</a>
-      <a id='materia' class='nav-link active' class="dropdown-item" href='<?= base_url('preferencia/viewPreferencia') ?>'>Matéria</a>
+      <a id='materia' class='nav-link active' class="dropdown-item" href='<?= base_url('preferencia/viewPreferencia') ?>'>Lista de Prioridades</a>
+      <a id='atribuir' class='nav-link active' class="dropdown-item" href='<?= base_url('preferencia/viewAtribuido') ?>'>Aulas Atribuidas</a>
       <?php endif ?>
-      <a id='horario' class='nav-link active' class="dropdown-item" href='<?= base_url('Componentes/viewComponente') ?>'>Informar Disponibilidade de Horario</a>
     </div>
-
 </nav>
-  
-
+      </div>
+      </nav>
   <script src="<?= base_url('/script.js') ?>"></script>
   <?php $this->renderSection('corpo'); ?>
 
