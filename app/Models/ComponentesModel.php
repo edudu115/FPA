@@ -40,7 +40,7 @@ class ComponentesModel extends Model{
 
     public function findId()
     {
-        $query = $this->db->query("SELECT idComponentes FROM componentes;");
+        $query = $this->db->query("SELECT idComponentes, usuario_atribuidoPara FROM componentes;");
         return $query->getResult('object');
     }
 }
