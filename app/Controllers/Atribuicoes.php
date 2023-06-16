@@ -8,12 +8,14 @@
         private $componenteModel;
         private $preferenciaModel;
         private $usuarioModel;
+        private $horarioModel;
 
         public function __construct()
         {
             $this->componenteModel = new \App\Models\ComponentesModel();
             $this->preferenciaModel = new \App\Models\PreferenciaModel();
             $this->usuarioModel = new \App\Models\UsuarioModel();
+            $this->horarioModel = new \App\Models\HorarioModel();
         }
 
 //=======================================================================
@@ -30,7 +32,7 @@
 
 //=======================================================================
 //VERIFICAR SE ALGUÉM MARCOU O COMPONENTE COMO PREFERENCIAL
-        public function componentePreferencial($idComponente)
+        private function componentePreferencial($idComponente)
         {
             $preferencias = $this->preferenciaModel->find();
             
@@ -45,16 +47,16 @@
                     $teste = true;
             }
             if($teste)
-                echo 'true';
+                return true;
             else
-                echo 'false';
+                return false;
         }
 //=======================================================================
     
 
 //=======================================================================
 //CASO MAIS DE UMA PESSOA MARCOU COMO PRIMÁRIO OU SECUNDÁRIO
-        public function preferenciasIguais($idComponente, $prioridade)
+        private function preferenciasIguais($idComponente, $prioridade)
         {
             $preferencias = $this->preferenciaModel->repeticaoPreferencia($idComponente, $prioridade);
 
@@ -125,10 +127,38 @@
                             }
                         }
                     }
-                    $this->atribuidoPara($idComponente, $auxiliar['idUsuario']);
+                    return $auxiliar['idUsuario'];
                 }
             }
         }
 //=======================================================================
+
+
+//=======================================================================
+//VERIFICAÇÃO DO HORÁRIO
+        public function atribuicaoHorario()
+        {
+            $componentes = $this->componenteModel->findId();
+            foreach($componentes as $componente)
+            {
+                $auxiliar = $this->preferenciasIguais($componente, 1);
+            }
+        }
+//=======================================================================
+
+
+//=======================================================================
+//FUNÇÃO PRINCIPAL
+        public function atribuicao()
+        {
+            $componentes = $this->componenteModel->findId();
+            
+            foreach($componentes as $componente)
+            {
+                echo $this->preferenciasIguais($componente->idComponentes, 1) . "<br>";
+            }
+        }
+//=======================================================================
+
     }
 ?>
