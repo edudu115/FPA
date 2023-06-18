@@ -24,5 +24,11 @@ class HorarioModel extends Model{
         $this->db->query($teste);
     }
 
+    public function horarioComponente($idComponente)
+    {
+        $query = $this->db->query("SELECT * FROM horario WHERE componente_idComponentes = '".$idComponente."';");
+        return $query->getResult('object');
+    }
+
 }
 ?>

@@ -38,9 +38,11 @@ class ComponentesModel extends Model{
         $this->builder->delete(['id' => $id]);
     }
 
-    public function findId()
+    public function findId($idUsuario)
     {
-        $query = $this->db->query("SELECT idComponentes, usuario_atribuidoPara FROM componentes;");
+        $query = $this->db->query("SELECT idComponentes, usuario_atribuidoPara FROM componentes 
+                                   WHERE usuario_atribuidoPara = '".$idUsuario."'
+                                   ORDER BY idCOmponentes ASC;");
         return $query->getResult('object');
     }
 }

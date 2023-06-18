@@ -32,7 +32,7 @@
 
 //=======================================================================
 //VERIFICAR SE ALGUÉM MARCOU O COMPONENTE COMO PREFERENCIAL
-        private function componentePreferencial($idComponente)
+        private function componentePreferencial($idComponente, $prioridade)
         {
             $preferencias = $this->preferenciaModel->find();
             
@@ -40,10 +40,11 @@
             $i = 0;
             foreach($preferencias as $preferencia)
             {
+                $prioridadeFixa = $preferencia->prioridade;
                 $preferencia = $preferencia->componentes_idComponentes;
                 $i++;
 
-                if($preferencia == $idComponente)        
+                if($preferencia == $idComponente and $prioridadeFixa == $prioridade)        
                     $teste = true;
             }
             if($teste)
@@ -65,7 +66,7 @@
                 if(sizeof($preferencias) == 1) //caso haja apenas um primário
                 {
                     $idUsuario = $preferencias[0]->usuario_idUsuario;
-                    $this->atribuidoPara($idComponente, $idUsuario);
+                    $auxiliar['idUsuario'] = $idUsuario;
                 }
                 
                 if(sizeof($preferencias) > 1)//caso haja mais de um primario
@@ -127,21 +128,47 @@
                             }
                         }
                     }
-                    return $auxiliar['idUsuario'];
                 }
             }
+            return $auxiliar['idUsuario'];
         }
 //=======================================================================
 
 
 //=======================================================================
 //VERIFICAÇÃO DO HORÁRIO
-        public function atribuicaoHorario()
+        public function atribuicaoHorario($idComponente, $prioridade)
         {
-            $componentes = $this->componenteModel->findId();
-            foreach($componentes as $componente)
+            $horarioFixo = $this->horarioModel->horarioComponente($idComponente);
+            $horarioFixo = ['idComponente' => $horarioFixo[0]->componente_idComponentes,
+                           'diaSemana' => $horarioFixo[0]->diaSemana,
+                           'horaInicio' => $horarioFixo[0]->horaInicio];
+
+            if($this->componentePreferencial($idComponente, $prioridade) == true)//se alguém marcou o componente como preferencial
             {
-                $auxiliar = $this->preferenciasIguais($componente, 1);
+                $auxiliar = $this->preferenciasIguais($idComponente, $prioridade);
+
+                if(sizeof($this->componenteModel->findId($auxiliar))>=1)//se o o usuario ja foi atribuido para alguma outra materia
+                {
+                    $atribuidoPara = $this->componenteModel->findId($auxiliar);
+                    foreach($atribuidoPara as $horarioUser)
+                    {
+                        $horario = $this->horarioModel->horarioComponente($horarioUser->idComponentes);
+                        $horario = ['idComponente' => $horario[0]->componente_idComponentes,
+                                    'diaSemana' => $horario[0]->diaSemana,
+                                    'horaInicio' => $horario[0]->horaInicio];
+                        if($horarioFixo['diaSemana'] == $horario['diaSemana'] and 
+                           $horarioFixo['horaInicio'] == $horario['horaInicio'])
+                        {
+                            return false;//horarios se repetem;
+                        }
+                    }
+                }
+                return $auxiliar;//horario livre
+            }
+            else
+            {
+                return false;//ninguém marcou o componente como preferencial
             }
         }
 //=======================================================================
@@ -151,14 +178,9 @@
 //FUNÇÃO PRINCIPAL
         public function atribuicao()
         {
-            $componentes = $this->componenteModel->findId();
-            
-            foreach($componentes as $componente)
-            {
-                echo $this->preferenciasIguais($componente->idComponentes, 1) . "<br>";
-            }
+            $teste = $this->atribuicaoHorario("ISO", 1);
+            var_dump ($teste);
         }
 //=======================================================================
-
     }
 ?>
