@@ -32,6 +32,9 @@ $session = session();
   }
 </script>
 <style>
+  #button{
+    background-color: green;
+  }
   body {
     background-color: #c2ddc1;
   }
@@ -67,7 +70,7 @@ $session = session();
     <div style='text-align:left'>
       <form class="form-inline my-2 my-lg-0" action="<?= base_url('Preferencia/savePreferencia') ?>" method="POST"> 
       <input class="form-control mr-sm-2" id="searchbar" onkeyup="search_materia()" type="text" placeholder="Pesquisar por Matéria ...">
-      <button type="button" value="Salvar" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Salvar</button>
+      <button id="button" type="button" value="Salvar" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Salvar</button>
       <?php if ($session->get('usuario')['cargoUsuario'] == "c") : ?>
       <?php endif; ?>
     </div>
@@ -83,8 +86,8 @@ $session = session();
           Deseja salvar suas preferencias  ?
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-        <button type="submit" value="Salvar" class="btn btn-primary">Salvar</button>
+        <button id="button" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+        <button id="button" type="submit" value="Salvar" class="btn btn-primary">Salvar</button>
 
       </div>
     </div>
