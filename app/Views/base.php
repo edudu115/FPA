@@ -76,14 +76,14 @@
   }
 #nav{
   background-color: #033506;
+  position: absolute;
 }
 
 #bar {
   width: 1920px;
   line-height: 10px;
   background-color: #005914;
-  position: absolute;
-  top: 80%;
+  position: relative;
   }
 
   #inserir {
