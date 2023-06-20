@@ -59,6 +59,7 @@ $session = session();
     margin-left: 90px;
    }
 
+   @media (min-width: 768px) and (max-width: 1199.98px) { }
 </style>
 
   <br><br>
@@ -96,7 +97,10 @@ $session = session();
 
 
 
+
   <br>
+
+  <div class="container-fluid">
 
   <table style="background-color: white" class="table table-bordered" class="list">
 
@@ -148,9 +152,10 @@ $session = session();
             }
           ?>
       </tbody>
-  </table>  
+  </table> 
+  </div> 
   </form>
-
+  
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 
   <?php $this->endSection(); ?>
