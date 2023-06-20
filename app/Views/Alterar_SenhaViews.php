@@ -1,4 +1,3 @@
-
 <?php $this->extend('base');
 $this->section('corpo');
 $session = session();
@@ -90,4 +89,4 @@ $session = session();
             this.classList.toggle('bi-eye');
         });
     </script>
-    <?php $this->endSection(); ?>
+   <?php $this->endSection(); ?>
