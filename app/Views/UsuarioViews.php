@@ -4,9 +4,10 @@ $session = session();
 ?>
       <br>
       <div id='container' class='container'>
-       
+      <br><br>
+<br/> <br/>
       <div class='py-5 text-center'>
-      <h1>Perfil Usuario</h1>  <img src='imgs/user.jpeg' class='rounded-circle' width='95' height='95'  left='9px' id='user'>
+      <h4>Perfil Usuario</h4>  <img src='imgs/user.jpeg' class='rounded-circle' width='95' height='95'  left='9px' id='user'>
   <p class='lead'></p>
       </div>
           <form class='needs-validation' novalidate> 

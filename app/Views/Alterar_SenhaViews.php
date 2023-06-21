@@ -34,10 +34,12 @@ $session = session();
 </head>
   
 <body>
+<br><br>
+<br/> <br/>
     <div class='text-center'>
     <img class='mb-4' src='<?= base_url('senha.jpeg') ?>' class='rounded-circle' width='90' height='95'  left='50px' id='user'>
     <br><br>
-       <h1>Alteração de senha</h1>
+       <h4>Alteração de senha</h4>
        <br><br>
         <form>
         

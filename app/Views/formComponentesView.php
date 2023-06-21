@@ -19,8 +19,10 @@ $session = session();
         }
     }
     ?>
+    <br><br>
+<br/> <br/>
     <br>
-    <center><h1>Inserir Componentes</h1></center> 
+    <center><h1>Inserir Componente</h1></center> 
     <br>
     <center>
         <div class='container'>

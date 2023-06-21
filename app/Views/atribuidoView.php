@@ -56,7 +56,8 @@ $session = session();
 
 <body class='text-center'>
     <br /> <br />
-
+    <br><br>
+<br/> <br/>
     <center>
         <h1 class="display-4">Tabela de Atribuição de Aulas</h1>
     </center>

@@ -30,8 +30,9 @@ $this->section('corpo');
 
     <div class="container">
       <div class="py-5 text-center">
-
-        <h1>Formulário de Cadastro</h1>
+      <br><br>
+<br/> <br/>
+        <h4>Formulário de Cadastro</h4>
         <p class="lead"></p>
       </div>
     
