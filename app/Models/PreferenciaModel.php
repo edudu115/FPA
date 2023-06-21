@@ -49,4 +49,11 @@ class PreferenciaModel extends Model
                                    INNER JOIN cursos c ON c.idCurso = comp.cursos_idCurso)");
         return $query->getResult('object');
     }
+
+    public function deletePreferencia($componente, $usuario)
+    {
+        $teste = "DELETE FROM preferencia WHERE componentes_idComponentes = '".$componente."'
+                  AND usuario_idUsuario = ".$usuario.";";
+        $this->db->query($teste);
+    }
 }
