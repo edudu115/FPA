@@ -35,6 +35,18 @@ class Preferencia extends BaseController
         return view('atribuidoView', $dados);
     }
 
+    public function viewPreferenciaClient()
+    {
+        $idUsuario = $this->session->get("usuario")["idUsuario"];
+        $retorna = $this->preferenciaModel->selecPreferenciaPessoal($idUsuario);
+
+        $dados = [
+            'retorna' => $retorna
+        ];
+
+        return view('preferenciaViewClient', $dados);
+    }
+
     public function savePreferencia()
     {
         $idUsuario = $this->session->get('usuario')['idUsuario'];
