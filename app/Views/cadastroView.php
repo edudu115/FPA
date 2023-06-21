@@ -5,7 +5,9 @@ $session = session();
 
 <div class="container">
   <div class="py-1 text-center">
-
+  <br><br>
+<br/> <br/>
+<br/>
     <h1>Formulário de Cadastro</h1>
     <p class="lead"></p>
   </div>

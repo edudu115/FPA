@@ -101,7 +101,8 @@
 </style>
 
 <body class='bg-green'>
-
+<br/> <br/>
+<br/><br/></br>   <br/> <br/>
   <nav id='nav' class='navbar navbar-expand-lg navbar-light bg-green >
   <a  id=' if' class='navbar-brand' href='#'> <img class='mb-4' src='<?= base_url('logo.png') ?>' alt='' width='500' height='90'></a>
     <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#conteudoNavbarSuportado' aria-controls='conteudoNavbarSuportado' aria-expanded='false' aria-label='Alterna navegação'>
@@ -130,8 +131,10 @@
   </div>
   <div class='container'>
     <div class='py-5 text-center'>
-
-      <h1>Formulário de Cadastro</h1>
+    <br><br>
+<br/> <br/><br><br>
+<br/>
+      <h4>Formulário de Cadastro</h4>
       <p class='lead'></p>
     </div>
 

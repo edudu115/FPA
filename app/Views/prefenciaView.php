@@ -23,6 +23,10 @@ $session = session();
     #button {
 
         background-color: green;
+        position: absolute;
+        top: 45%;
+        left: 1%;
+
     }
     #searchbar{
      margin-left: 5%;
@@ -44,14 +48,27 @@ $session = session();
     font-size:  1.5em;
     margin-left: 90px;
    }
+
+   #prioridade{
+    margin:1rem;
+   }
+   #materia{
+    margin:1rem;
+   }
+   #container{
+    max-width: 1674px;
+    display:flex;
+    justify-content: space-between;
+   }
 </style>
 
 <br><br>
-
+<br/> <br/>
+<br/><br/></br>
 <input class="form-control mr-sm-2" id="searchbar" onkeyup="search_materia()" type="text" placeholder="Pesquisar por Professor ...">
-
-<div class="container">
-    <table style="background-color: white" class="table table-hover table-sm" class="list">
+<br><br><br>
+<div id= "container" class="container">
+    <table id="materia" style="background-color: white" class="table table-hover table-sm" class="list">
         <thead>
             <tr>
                 <th scope="col">Nome do professor</th>
@@ -82,7 +99,7 @@ $session = session();
     </table>
 
 
-    <table style="background-color: white" class="table table-hover">
+    <table id="prioridade" style="background-color: white" class="table table-hover">
         <thead>
             <tr>
                 <th scope=" col">Sigla</th>

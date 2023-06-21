@@ -8,7 +8,8 @@ $session = \Config\Services::session();
   left: 95%;
  }
   </style>
-<br><br>
+<br><br><br><br>
+<br/>
  <center><h1>Inserir Novo Professor</h1></center> 
 <br><br>
 <center>
