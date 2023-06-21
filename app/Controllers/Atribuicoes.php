@@ -32,7 +32,7 @@
 
 //=======================================================================
 //VERIFICAR SE ALGUÉM MARCOU O COMPONENTE COMO PREFERENCIAL
-        private function componentePreferencial($idComponente, $prioridade)
+        public function componentePreferencial($idComponente, $prioridade)
         {
             $preferencias = $this->preferenciaModel->find();
             
@@ -54,9 +54,10 @@
         }
 //=======================================================================
     
+
 //=======================================================================
 //verificando se  o preofessor tem o horario livre
-        private function checaProfessor($componente, $usuario)
+        public function checaHorario($componente, $usuario)
         {
             $user = $this->componenteModel->findId($usuario);
 
@@ -82,20 +83,21 @@
         }
 //=======================================================================
 
+
 //=======================================================================
 //CASO MAIS DE UMA PESSOA MARCOU COMO PRIMÁRIO OU SECUNDÁRIO
         public function preferenciasIguais($idComponente, $prioridade)
         {
             $preferencias = $this->preferenciaModel->repeticaoPreferencia($idComponente, $prioridade);
 
-            foreach($preferencias as $preferencia)
+            if(sizeof($preferencias) >= 1)
             {
-                $usuario = $preferencia->usuario_idUsuario;
-                $usuarioDados = $this->usuarioModel->desempateUsuario($usuario);
-
-                if($this->checaProfessor($idComponente, $usuario))
+                foreach($preferencias as $preferencia)
                 {
-                    if(sizeof($preferencias) >= 1)
+                    $usuario = $preferencia->usuario_idUsuario;
+                    $usuarioDados = $this->usuarioModel->desempateUsuario($usuario);
+
+                    if($this->checaHorario($idComponente, $usuario))
                     {
                         if(sizeof($preferencias) == 1) //caso haja apenas um primário
                         {
@@ -110,57 +112,57 @@
                                         'tempoInstituicao' => -1, 
                                         'nivelCarreira' => -1 , 'idade' => -1];
 
-                                if($usuarioDados[0]['tempoCampus'] > $auxiliar['tempoCampus'])//caso o tempoCampus do usuario sejam diferentes 
+                            if($usuarioDados[0]['tempoCampus'] > $auxiliar['tempoCampus'])//caso o tempoCampus do usuario sejam diferentes 
+                            {
+                                $auxiliar = $usuarioDados[0];
+                            }
+
+                            elseif($usuarioDados[0]['tempoCampus'] == $auxiliar['tempoCampus'])//caso o tempoCampus do usuario sejam iguais
+                            {
+                                if($usuarioDados[0]['tempoExp'] > $auxiliar['tempoExp'])//caso o tempoExp sejam diferentes
                                 {
                                     $auxiliar = $usuarioDados[0];
                                 }
 
-                                elseif($usuarioDados[0]['tempoCampus'] == $auxiliar['tempoCampus'])//caso o tempoCampus do usuario sejam iguais
+                                elseif($usuarioDados[0]['tempoExp'] == $auxiliar['tempoExp'])//caso o tempoExp sejam iguais
                                 {
-                                    if($usuarioDados[0]['tempoExp'] > $auxiliar['tempoExp'])//caso o tempoExp sejam diferentes
+                                    if($usuarioDados[0]['tempoProfissional'] > $auxiliar['tempoProfissional'])//caso o tempoProfissional sejam diferentes
                                     {
                                         $auxiliar = $usuarioDados[0];
                                     }
-
-                                    elseif($usuarioDados[0]['tempoExp'] == $auxiliar['tempoExp'])//caso o tempoExp sejam iguais
+                                    
+                                    elseif($usuarioDados[0]['tempoProfissional'] == $auxiliar['tempoProfissional'])//caso o tempoProfissional sejam iguais
                                     {
-                                        if($usuarioDados[0]['tempoProfissional'] > $auxiliar['tempoProfissional'])//caso o tempoProfissional sejam diferentes
+                                        if($usuarioDados[0]['tempoInstituicao'] > $auxiliar['tempoInstituicao'])//caso o tempoInstituicao sejam diferentes
                                         {
                                             $auxiliar = $usuarioDados[0];
                                         }
-                                        
-                                        elseif($usuarioDados[0]['tempoProfissional'] == $auxiliar['tempoProfissional'])//caso o tempoProfissional sejam iguais
+
+                                        elseif($usuarioDados[0]['tempoInstituicao'] == $auxiliar['tempoInstituicao'])//caso o tempoInstituicao sejam iguais
                                         {
-                                            if($usuarioDados[0]['tempoInstituicao'] > $auxiliar['tempoInstituicao'])//caso o tempoInstituicao sejam diferentes
+                                            if($usuarioDados[0]['nivelCarreira'] > $auxiliar['nivelCarreira'])//caso o nivelCarreira sejam diferentes
                                             {
                                                 $auxiliar = $usuarioDados[0];
                                             }
-
-                                            elseif($usuarioDados[0]['tempoInstituicao'] == $auxiliar['tempoInstituicao'])//caso o tempoInstituicao sejam iguais
+                                            elseif($usuarioDados[0]['nivelCarreira'] == $auxiliar['nivelCarreira'])//caso o nivelCarreira sejam iguais
                                             {
-                                                if($usuarioDados[0]['nivelCarreira'] > $auxiliar['nivelCarreira'])//caso o nivelCarreira sejam diferentes
+                                                if($usuarioDados[0]['idade'] > $auxiliar['idade'])//caso a idade sejam diferentes
                                                 {
                                                     $auxiliar = $usuarioDados[0];
                                                 }
-                                                elseif($usuarioDados[0]['nivelCarreira'] == $auxiliar['nivelCarreira'])//caso o nivelCarreira sejam iguais
+                                                elseif($usuarioDados[0]['idade'] == $auxiliar['idade'])//caso a idade sejam iguais
                                                 {
-                                                    if($usuarioDados[0]['idade'] > $auxiliar['idade'])//caso a idade sejam diferentes
-                                                    {
-                                                        $auxiliar = $usuarioDados[0];
-                                                    }
-                                                    elseif($usuarioDados[0]['idade'] == $auxiliar['idade'])//caso a idade sejam iguais
-                                                    {
-                                                        echo "todos os atributos são iguais";
-                                                    }
+                                                    echo "todos os atributos são iguais";
                                                 }
                                             }
                                         }
                                     }
                                 }
                             }
+                        }
                     }
-                    return $auxiliar['idUsuario'];
                 }
+                return $auxiliar['idUsuario'];
             }
         }
 //=======================================================================
@@ -212,40 +214,31 @@
         public function atribuicao()
         {
             $componentes = $this->componenteModel->find();
+            foreach($componentes as $componente) //limpando a coluna atribuido para
+            {
+                $dados = ['idComponentes' => $componente->idComponentes,
+                          'usuario_atribuidoPara' => null ];
+                $this->componenteModel->save($dados);
+            }
+
             foreach($componentes as $componente)
             {
-                var_dump($componente->idComponentes);
+                $componente = $componente->idComponentes;
 
-                // $candidato = $this->preferenciasIguais($componente->idComponentes, 1);
-                // echo "$candidato para $componente->idComponentes <br>";
-                // $componente = $componente->idComponentes;
-                // //var_dump($this->componentePreferencial($componente, 1));
-
-                // if($this->componentePreferencial($componente, 1))
-                // {
-                //     
-                //     $this->atribuidoPara($componente, $candidato);
-                // }
-                // elseif($this->componentePreferencial($componente, 2))
-                // {
-                //     $candidato = $this->preferenciasIguais($componente, 2);
-                //     $this->atribuidoPara($componente, $candidato);
-                // }
-                for($i = 1; $i <= 2; $i++)
+                if($this->componentePreferencial($componente, 1))
                 {
-                    $componente = $componente->idComponentes;
-                    if($this->componentePreferencial($componente, $i))
-                    {
-                        $candidato = $this->preferenciasIguais($componente, 1);
-                        $this->atribuidoPara($componente, $candidato);
-                    }
+                    $candidato = $this->preferenciasIguais($componente, 1);;
+                    $this->atribuidoPara($componente, $candidato);
+                }
+                elseif($this->componentePreferencial($componente, 2))
+                {
+                    $candidato = $this->preferenciasIguais($componente, 2);
+                    $this->atribuidoPara($componente, $candidato);
                 }
             }
+            return redirect()->back();
         }
 
 //=======================================================================
     }
-
-
-
 ?>
