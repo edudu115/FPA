@@ -36,16 +36,13 @@
   }
 
   #engrenagem {
-    position: absolute;
-    left: 90%;
+    position: relative;
     top: 33%;
   }
 
   #imgs {
-    position: absolute;
-    left: 85%;
+    position: relative;
     top: 33%;
-
   }
 
   body {
@@ -59,44 +56,67 @@
    #atribuir{
     color: black;
    }
+   #atribuir:hover{
+  cursor: pointer;
+  color:white;
+}
 
    #materia{
     color: black;
    }
+   #materia:hover{
+  cursor: pointer;
+  color:white;
+}
    
   #sair {
-    position: absolute;
-    left: 95%;
+    position: relative;
+    left: 20px;
     top: 33%;
+    width: 50px;
     background-color: #bee6a3;
   }
   #horario {
-   
     color: black;
   }
+  #horario:hover{
+  cursor: pointer;
+  color:white;
+}
 #nav{
   background-color: #033506;
-  position: absolute;
 }
 
 #bar {
-  width: 1920px;
+  left: 15px;
+  border-radius: 5px;
   line-height: 10px;
   background-color: #005914;
   position: relative;
-  }
+}
 
   #inserir {
-    color: black;
+  color: black;   
+  right: 88%;
+  left: 88%;
   }
+  #inserir:hover{
+  cursor: pointer;
+  color:white;
+}
 
   #button {
     background-color: green;
+    
   }
 
   #Alterar {
     color: black;
   }
+  #Alterar:hover{
+  cursor: pointer;
+  color:white;
+}
 
   @media (max-width:768px){
   #navbarSupportedContent{
@@ -143,27 +163,22 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <a type="button" class="btn btn-outline-green"> <a href='<?= base_url('Usuario/viewupdatecadastro') ?>' ><img ' src='<?= base_url('user.jpeg') ?>' width='40px' id='imgs'> </a>
-
-    <a type="button" class="btn btn-outline-green"> <a href='<?= base_url('Usuario/alterarSenha') ?>' ><img  src='<?= base_url('engrenagem.png') ?>' width='40px' id='engrenagem'></a> 
-
-    <a href='<?= base_url('Usuario/logoutUsuario') ?>' ><button id='sair' class='btn btn-outline-success my-2 my-sm-0' width='30px' type='submit'>sair</button></a>
-
-    <div id='bar' class='sobre'>
-    <nav class='nav'>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <a id='horario' class='nav-link active' class="dropdown-item" href='<?= base_url('Componentes/viewComponente') ?>'>Informar Disponibilidade de Horario</a>
-      <?php
-      if ($session->get('usuario')['cargoUsuario'] == 'c') :
-      ?>
-      <a id='Alterar' class='nav-link active' class="dropdown-item" href='<?= base_url('Componentes/viewFormComponente') ?>'>Inserir Componentes</a>
-      <a id='inserir' class='nav-link active' class="dropdown-item" href='<?= base_url('Usuario/viewProfessor') ?>'>Inserir Novo Professor</a>
-      <a id='materia' class='nav-link active' class="dropdown-item" href='<?= base_url('preferencia/viewPreferencia') ?>'>Lista de Prioridades</a>
-      <a id='atribuir' class='nav-link active' class="dropdown-item" href='<?= base_url('preferencia/viewAtribuido') ?>'>Aulas Atribuidas</a>
-      <?php endif ?>
-    </div>
-</nav>
+  <div id='bar'>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <a id='horario' class='nav-link active' class="dropdown-item" href='<?= base_url('Componentes/viewComponente') ?>'>Informar Disponibilidade de Horario</a>
+          <?php
+            if ($session->get('usuario')['cargoUsuario'] == 'c') :
+          ?>
+        <a id='Alterar' class='nav-link active' class="dropdown-item" href='<?= base_url('Componentes/viewFormComponente') ?>'>Inserir Componentes</a>
+        <a id='inserir' class='nav-link active' class="dropdown-item" href='<?= base_url('Usuario/viewProfessor') ?>'>Inserir Novo Professor</a>
+        <a id='materia' class='nav-link active' class="dropdown-item" href='<?= base_url('preferencia/viewPreferencia') ?>'>Lista de Prioridades</a>
+        <a id='atribuir' class='nav-link active' class="dropdown-item" href='<?= base_url('preferencia/viewAtribuido') ?>'>Aulas Atribuidas</a>
+          <?php endif ?>
       </div>
+  </div>
+    <a type="button" class="btn btn-outline-green"> <a href='<?= base_url('Usuario/viewupdatecadastro') ?>' ><img ' src='<?= base_url('user.jpeg') ?>' width='40px' id='imgs'> </a> </a>
+    <a type="button" class="btn btn-outline-green"> <a href='<?= base_url('Usuario/alterarSenha') ?>' ><img  src='<?= base_url('engrenagem.png') ?>' width='40px' id='engrenagem'></a> </a>
+    <a href='<?= base_url('Usuario/logoutUsuario') ?>' ><button id='sair' class='btn btn-outline-success my-2 my-sm-0' type='submit'>sair</button></a> 
       </nav>
   <script src="<?= base_url('/script.js') ?>"></script>
   <?php $this->renderSection('corpo'); ?>
