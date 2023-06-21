@@ -24,7 +24,8 @@ $session = session();
 
         background-color: green;
         position: absolute;
-        top: 28%;
+        top: 45%;
+        left: 1%;
 
     }
     #searchbar{
@@ -62,7 +63,8 @@ $session = session();
 </style>
 
 <br><br>
-
+<br/> <br/>
+<br/><br/></br>
 <input class="form-control mr-sm-2" id="searchbar" onkeyup="search_materia()" type="text" placeholder="Pesquisar por Professor ...">
 <br><br><br>
 <div id= "container" class="container">
