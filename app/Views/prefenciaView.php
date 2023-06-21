@@ -125,6 +125,6 @@ $session = session();
     </table>
 </div>
 
-<a id="button" class='btn btn-success btn-lg btn-block' href='<?= base_url('Atribuicoes/') ?>'>Gerar horário</a>
+<a id="button" class='btn btn-success btn-lg btn-block' href='<?= base_url('Atribuicoes/atribuicao') ?>'>Gerar horário</a>
 
 <?php $this->endSection(); ?>
