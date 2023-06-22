@@ -48,22 +48,16 @@ $session = session();
                 <label>Digite a senha atual</label>
                 <input type='password' 
                     name='senhaAtual' id='password' />
-                <i class='bi bi-eye-slash' 
-                    id='togglePassword'></i>
             </p>
             <p>
                 <label>Nova senha</label>
                 <input type='password' 
                     name='senha1' id='password' />
-                <i class='bi bi-eye-slash' 
-                    id='togglePassword'></i>
             </p>
             <p>
                 <label>Confirme a senha</label>
                 <input type='password' 
                     name='senha2' id='password' />
-                <i class='bi bi-eye-slash' 
-                    id='togglePassword'></i>
             </p>
   
             <button type='submit' id='submit' 
