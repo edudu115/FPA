@@ -5,11 +5,15 @@ namespace App\Controllers;
 class Usuario extends BaseController
 {
     private $userModel;
+    private $preferenciaModel;
+    private $componenteModel;
     private $session;
 
     public function __construct()
     {
         $this->userModel = new \App\Models\UsuarioModel;
+        $this->preferenciaModel = new \App\Models\PreferenciaModel();
+        $this->componenteModel = new \App\Models\ComponentesModel();
         $this->session = session();
     }
 
@@ -90,4 +94,31 @@ class Usuario extends BaseController
         session_destroy();
         $this->response->redirect(base_url());
     }
+
+
+    public function viewAtribuido()
+    {
+        $cargoUsuario = $this->session->get('usuario')['cargoUsuario'];
+        if($cargoUsuario == 'c')
+        {
+            $retorna = $this->preferenciaModel->SelectAtribuidoPara();
+            $dados = [
+                'retorna' => $retorna,
+                'cargoUsuario' => $this->session->cargoUsuario,
+            ];
+            return view('atribuidoView', $dados);
+        }
+        else
+        {
+            $idUsuario = $this->session->get('usuario')['idUsuario'];
+            $retorna = $this->preferenciaModel->SelectAtribuidoParaProf($idUsuario);
+            $dados = [
+                'retorna' => $retorna,
+                'cargoUsuario' => $this->session->cargoUsuario,
+            ];
+            return view('atribuidoView', $dados);
+        }
+
+    }
+
 }

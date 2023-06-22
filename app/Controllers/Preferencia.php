@@ -25,15 +25,6 @@ class Preferencia extends BaseController
         return view('prefenciaView', $dados);
     }
 
-    public function viewAtribuido()
-    {
-        $retorna = $this->preferenciaModel->SelectAtribuidoPara();
-        $dados = [
-            'retorna' => $retorna,
-            'cargoUsuario' => $this->session->cargoUsuario,
-        ];
-        return view('atribuidoView', $dados);
-    }
 
     public function viewPreferenciaClient()
     {
