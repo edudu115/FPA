@@ -25,6 +25,16 @@ class PreferenciaModel extends Model
         return $query->getResult('object');
     }
 
+    public function selecPreferenciaPessoal($idUsuario)
+    {
+        $query = $this->db->query("SELECT u.nome,c.idComponentes, c.nomeMateria, p.prioridade
+                                   FROM ((preferencia p 
+                                   INNER JOIN usuario u ON u.idUsuario = p.usuario_idUsuario)
+                                   INNER JOIN componentes c ON c.idComponentes = p.componentes_idComponentes)
+                                   WHERE u.idUsuario = ' " . $idUsuario . " ';");
+        return $query->getResult('object');
+    }
+
     public function repeticaoPreferencia($materia, $prioridade)
     {
         $query = $this->db->query("SELECT componentes_idComponentes, usuario_idUsuario, prioridade FROM preferencia 
@@ -50,10 +60,11 @@ class PreferenciaModel extends Model
         return $query->getResult('object');
     }
 
+
     public function deletePreferencia($componente, $usuario)
     {
-        $teste = "DELETE FROM preferencia WHERE componentes_idComponentes = '".$componente."'
-                  AND usuario_idUsuario = ".$usuario.";";
+        $teste = "DELETE FROM preferencia WHERE componentes_idComponentes = '" . $componente . "'
+                  AND usuario_idUsuario = " . $usuario . ";";
         $this->db->query($teste);
     }
 }
