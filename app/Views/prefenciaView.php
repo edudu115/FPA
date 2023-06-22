@@ -67,7 +67,9 @@ $session = session();
     width: 35px;
    }
 </style>
-<br/><br/>  
+<br/><br/>
+<center> <h1> Lista de Prioridades </h1></center>
+<br/>
 <input class="form-control mr-sm-2" id="searchbar" onkeyup="search_materia()" type="text" placeholder="Pesquisar por Professor ...">
 <br>    
 <a id="button" class='btn btn-success btn-lg btn-block' href='<?= base_url('Atribuicoes/atribuicao') ?>'>Gerar horário</a>
