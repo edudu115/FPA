@@ -34,33 +34,34 @@ $session = session();
 </head>
   
 <body>
-<br><br>
-<br/> <br/>
+<br>
     <div class='text-center'>
     <img class='mb-4' src='<?= base_url('senha.jpeg') ?>' class='rounded-circle' width='90' height='95'  left='50px' id='user'>
     <br><br>
        <h4>Alteração de senha</h4>
-       <br><br>
-        <form>
+       
+        <form action="<?= base_url("Usuario/formSenha") ?>" method="POST">
         
+        <h5><?= $session->senhaAlterada ?></h5>
+        <br>
             <p>
                 <label>Digite a senha atual</label>
                 <input type='password' 
-                    name='password' id='password' />
+                    name='senhaAtual' id='password' />
                 <i class='bi bi-eye-slash' 
                     id='togglePassword'></i>
             </p>
             <p>
                 <label>Nova senha</label>
                 <input type='password' 
-                    name='password' id='password' />
+                    name='senha1' id='password' />
                 <i class='bi bi-eye-slash' 
                     id='togglePassword'></i>
             </p>
             <p>
                 <label>Confirme a senha</label>
                 <input type='password' 
-                    name='password' id='password' />
+                    name='senha2' id='password' />
                 <i class='bi bi-eye-slash' 
                     id='togglePassword'></i>
             </p>

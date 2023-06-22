@@ -118,7 +118,33 @@ class Usuario extends BaseController
             ];
             return view('atribuidoView', $dados);
         }
+    }
 
+    public function formSenha()
+    {
+        $idUsuario = $this->session->get('usuario')['idUsuario'];
+        $senhaAtual = $this->request->getPost("senhaAtual");
+        $pass = $this->userModel->find($idUsuario);
+        $pass = $pass->senha;
+
+        if($pass == $senhaAtual)
+        {
+            $senha1 = $this->request->getPost("senha1");
+            $senha2 = $this->request->getPost("senha2");
+            if($senha1 == $senha2)
+            {
+                $dados = ["idUsuario" => $idUsuario,
+                          "senha" => $senha1];
+                $this->userModel->save($dados);
+                $this->session->setFlashdata('senhaAlterada', '<h5 class="text-success"> Senha alterada com sucesso! </h5>');
+                $this->response->redirect(base_url('Usuario/alterarSenha'));
+            }
+        }
+        else
+        {
+            $this->session->setFlashdata('senhaAlterada', '<h5 class="text-danger"> Dados incorretos </h5>');
+            $this->response->redirect(base_url('Usuario/alterarSenha'));
+        }
     }
 
 }
