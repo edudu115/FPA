@@ -61,12 +61,9 @@ $session = session();
 
    @media (min-width: 768px) and (max-width: 1199.98px) { }
 </style>
-
-  <br><br> <br><br>
-<br/> <br/>
-
+  <br><br> 
   <center>
-    <h4>Disponibilidade de horário para atribuição de componentes curriculares</h4>
+    <h1>Disponibilidade de horário para atribuição de componentes curriculares</h1>
   </center>
   
   <br>

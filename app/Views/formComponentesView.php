@@ -20,8 +20,6 @@ $session = session();
     }
     ?>
     <br><br>
-<br/> <br/>
-    <br>
     <center><h1>Inserir Componente</h1></center> 
     <br>
     <center>
@@ -32,7 +30,7 @@ $session = session();
                         <label for="idComponente">Sigla da Matéria</label>
                         <input class="form-control" type="text" name="idComponente" id="idComponente" maxlength="5" value="<?= isset($componente) ? $componente->idComponentes : "" ?>">
                     </div>
-                    <div id='materia' class="form-group col-md-4">
+                    <div  class="form-group col-md-4">
                         <label for="nomeMateria">Nome da Matéria</label>
                         <input class="form-control" type="text" name="nomeMateria" id="nomeMateria" value="<?= isset($componente) ? $componente->nomeMateria : "" ?>">
                     </div>
