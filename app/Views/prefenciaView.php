@@ -23,7 +23,7 @@ $session = session();
     #button {
 
         background-color: green;
-        position: absolute;
+        position: relative;
         top: 45%;
         left: 1%;
 
@@ -43,6 +43,10 @@ $session = session();
    input[type=text]:focus {
      width: 30%;
    }
+
+   table{
+    border-radius: 5px;
+   }
  
   #list{
     font-size:  1.5em;
@@ -51,24 +55,25 @@ $session = session();
 
    #prioridade{
     margin:1rem;
+     width: 850px;
    }
-   #materia{
-    margin:1rem;
-   }
+  
    #container{
-    max-width: 1674px;
+    max-width: 1500px;
     display:flex;
     justify-content: space-between;
    }
+   #th{
+    width: 35px;
+   }
 </style>
-
-<br><br>
-<br/> <br/>
-<br/><br/></br>
+<br/><br/>  
 <input class="form-control mr-sm-2" id="searchbar" onkeyup="search_materia()" type="text" placeholder="Pesquisar por Professor ...">
-<br><br><br>
+<br>    
+<a id="button" class='btn btn-success btn-lg btn-block' href='<?= base_url('Atribuicoes/atribuicao') ?>'>Gerar horário</a>
+<br><br>
 <div id= "container" class="container">
-    <table id="materia" style="background-color: white" class="table table-hover table-sm" class="list">
+    <table class="table table-hover table-md" style="background-color: white"  >
         <thead>
             <tr>
                 <th scope="col">Nome do professor</th>
@@ -97,14 +102,12 @@ $session = session();
             ?>
         </tbody>
     </table>
-
-
-    <table id="prioridade" style="background-color: white" class="table table-hover">
+    <table id="prioridade" style="background-color: white"  class="table table-hover">
         <thead>
             <tr>
-                <th scope=" col">Sigla</th>
-                <th scope="col">Quantidade Selecionada</th>
-                <th scope="col">Prioridade</th>
+                <th id= "th" scope=" col">Sigla</th>
+             <th  id= "th" scope="row">Quantidade Selecionada  </th>
+                <th id= "th" scope="row">Prioridade</th>
             </tr>
         </thead>
         <tbody>
@@ -123,8 +126,7 @@ $session = session();
             ?>
         </tbody>
     </table>
-</div>
+</div> 
 
-<a id="button" class='btn btn-success btn-lg btn-block' href='<?= base_url('Atribuicoes/atribuicao') ?>'>Gerar horário</a>
 
 <?php $this->endSection(); ?>
