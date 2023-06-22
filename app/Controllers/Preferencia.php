@@ -59,7 +59,7 @@ class Preferencia extends BaseController
             $i++;
             $retorno = intval($this->request->getPost("preferencia" . $i));
         }
-        return redirect()->back();
+        $this->response->redirect(base_url('Componentes/viewComponente'));
     }
 
     public function deletePreferencia($idComponente)
@@ -70,6 +70,6 @@ class Preferencia extends BaseController
             'deletar' => $deletar,
             'idComponente' => $idComponente
         ];
-        return redirect()->back();
+        $this->response->redirect(base_url('Preferencia/viewPreferenciaClient'));
     }
 }
