@@ -15,42 +15,27 @@
 #if {
     position: absolute;
     left: 15px;
-    top: 10%;
+    top: 2%;
   }
-
-
-#pes {
-    position: absolute;
-    left: 62%;
-    top: 36%;
-    width: 240px;
-    height: 40px;
-  }
-
-#pesq {
-    position: absolute;
-    left: 75%;
-    top: 36%;
-    background-color: #bee6a3;
-
-  }
-
 #sair {
-    left: 90%;
-    top: 33%;
-    width: 50px;
-    background-color: #bee6a3;
+  position: relative;
+  top: 29%;
+  width: 50px;
+  left: 90%;
+  background-color: #bee6a3;
   }
 #engrenagem {
-    left: 80%;
-    top: 33%;
-    width: 40px;
-  }
+  position: relative;
+  left: 80%;
+  top: 29%;
+  width: 40px;
+}
 
 #imgs {
-    left: 77%;
-    top: 33%;
-    width: 40px;
+  position: relative;
+  left: 70%;
+  top: 29%;
+  width: 40px;
   }
 
 body {
@@ -64,7 +49,7 @@ body {
 #atribuir{
   position: relative;
     color: black;
-    left: 25%;
+    left: 8%;
    }
 #atribuir:hover{
   cursor: pointer;
@@ -94,19 +79,29 @@ body {
   background-color: #033506;
   line-height: 100px;
 }
+#preferencia{
+  position: relative;
+  color: black;   
+  left: 5%;
+}
+#preferencia:hover{
+  cursor: pointer;
+  color:white;
+}
 
 #bar {
-  width: 100%;
-  top: 60px;
-  line-height: 25px;
+  width: 70%;
+  left: 26%;
+  top: 80%;
+  line-height: 23px;
   background-color: #005914;
-  position: relative;
+  position:absolute;
 }
 
 #inserir {
   position: relative;
   color: black;   
-  left: 14%;
+  left: 17%;
   }
 #inserir:hover{
   cursor: pointer;
@@ -120,7 +115,7 @@ body {
 
 #Alterar {
     position: relative;
-    left: 8%;
+    left: 12%;
     color: black;
   }
 #Alterar:hover{
@@ -132,35 +127,74 @@ body {
    margin: 10px 0;
 }
 
-  
+@media (max-width:768px){
+  #bar{
+    display:block;
+  }
+  #bar.active .nav-link:active:nth-child(2){
+    opacity: 0;
+  }
+  #bar.active .nav-link:active:nth-child(1){
+    transform: translateY(-8px) rotate(-45deg); 
+  }
+  #bar.active .nav-link:active:nth-child(3){
+     transform: translateY(-8px) rotate(-45deg);
+  }
+  #conteudoNavbarSuportado {
+    position:fixed;
+    left:-100%;
+    top: 70px;
+    gap: 0;
+    border-radius: 0 0 20px 20px;
+    background-color:  #033506;
+    text-align: center;
+    flex-direction: column;
+    width: 100%;
+    transition: 0.3s;
+    
+  }
+.btn btn-outline-success my-2 my-sm-0{
+   margin: 10px 0;
+}
+#conteudoNavbarSuportado.active{
+  left: 0;
+}
+  }
+
+  #novo{
+    left: 90%;
+  }
 </style>
 
 <body class='bg-green'>
 
   <nav id='nav' class='navbar navbar-expand-lg navbar-light bg-green' >
-  <a  id='if' class='navbar-brand' href='#'><img class='mb-4' src='<?= base_url('logo.png') ?>' top='70px' width='80%' ></a>
+  <a  id='if' class='navbar-brand' href='#'><img class='mb-4' src='<?= base_url('logo.png') ?>' ></a>
 
   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+    
 
   <div id='bar'>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <a id='horario' class='nav-link active' class="dropdown-item" href='<?= base_url('Componentes/viewComponente') ?>'>Informar Disponibilidade de Horario</a>
+        <a id='preferencia' class='nav-link active' class="dropdown-item" href='<?= base_url('preferencia/viewPreferenciaClient') ?>'>Preferencias</a>
+        <a id='atribuir' class='nav-link active' class="dropdown-item" href='<?= base_url('Usuario/viewAtribuido') ?>'>Aulas Atribuidas</a>
+
           <?php
             if ($session->get('usuario')['cargoUsuario'] == 'c') :
           ?>
         <a id='Alterar' class='nav-link active' class="dropdown-item" href='<?= base_url('Componentes/viewFormComponente') ?>'>Inserir Componentes</a> 
         <a id='inserir' class='nav-link active' class="dropdown-item" href='<?= base_url('Usuario/viewProfessor') ?>'>Inserir Novo Professor</a>
         <a id='materia' class='nav-link active' class="dropdown-item" href='<?= base_url('preferencia/viewPreferencia') ?>'>Lista de Prioridades</a>
-        <a id='atribuir' class='nav-link active' class="dropdown-item" href='<?= base_url('preferencia/viewAtribuido') ?>'>Aulas Atribuidas</a>
           <?php endif ?>
       </div>
   </div>
 
-      <a type="button" class="btn btn-outline-green"> <a href='<?= base_url('Usuario/viewupdatecadastro') ?>' ><img ' src='<?= base_url('user.jpeg') ?>'  id='imgs'> </a> </a>
-      <a type="button" class="btn btn-outline-green"> <a href='<?= base_url('Usuario/alterarSenha') ?>' ><img  src='<?= base_url('engrenagem.png') ?>' id='engrenagem'></a> </a>
-      <a href='<?= base_url('Usuario/logoutUsuario') ?>' ><button id='sair' class='btn btn-outline-success my-2 my-sm-0' type='submit'>sair</button></a> 
+        <a type="button" class="btn btn-outline-green"> <a href='<?= base_url('Usuario/viewupdatecadastro') ?>' ><img ' src='<?= base_url('user.jpeg') ?>'  id='imgs'> </a> </a>
+        <a type="button" class="btn btn-outline-green"> <a href='<?= base_url('Usuario/alterarSenha') ?>' ><img  src='<?= base_url('engrenagem.png') ?>' id='engrenagem'></a> </a>
+        <a href='<?= base_url('Usuario/logoutUsuario') ?>' ><button id='sair' class='btn btn-outline-success my-2 my-sm-0' type='submit'>sair</button></a> 
     
     </nav>
   <script src="<?= base_url('/script.js') ?>"></script>
