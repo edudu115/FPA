@@ -168,46 +168,6 @@
 //=======================================================================
 
 
-//=======================================================================
-//VERIFICAÇÃO DO HORÁRIO
-        // public function atribuicaoHorario($idComponente, $prioridade)
-        // {
-        //     $horarioFixo = $this->horarioModel->horarioComponente($idComponente);
-        //     $horarioFixo = ['idComponente' => $horarioFixo[0]->componente_idComponentes,
-        //                    'diaSemana' => $horarioFixo[0]->diaSemana,
-        //                    'horaInicio' => $horarioFixo[0]->horaInicio];
-
-        //     if($this->componentePreferencial($idComponente, $prioridade) == true)//se alguém marcou o componente como preferencial
-        //     {
-        //         $auxiliar = $this->preferenciasIguais($idComponente, $prioridade);
-
-        //         if(sizeof($this->componenteModel->findId($auxiliar))>=1)//se o o usuario ja foi atribuido para alguma outra materia
-        //         {
-        //             $atribuidoPara = $this->componenteModel->findId($auxiliar);
-        //             foreach($atribuidoPara as $horarioUser)
-        //             {
-        //                 $horario = $this->horarioModel->horarioComponente($horarioUser->idComponentes);
-        //                 $horario = ['idComponente' => $horario[0]->componente_idComponentes,
-        //                             'diaSemana' => $horario[0]->diaSemana,
-        //                             'horaInicio' => $horario[0]->horaInicio];
-
-        //                 if($horarioFixo['diaSemana'] == $horario['diaSemana'] and 
-        //                    $horarioFixo['horaInicio'] == $horario['horaInicio'])
-        //                 {
-        //                     $this->preferenciaModel->deletePreferencia($idComponente, $auxiliar);
-        //                     return false;//horarios se repetem;
-        //                 }
-        //             }
-        //         }
-        //         return $auxiliar;//horario livre
-        //     }
-        //     else
-        //     {
-        //         return false;//ninguém marcou o componente como preferencial
-        //     }
-        // }
-//=======================================================================
-
 
 //=======================================================================
 //FUNÇÃO PRINCIPAL

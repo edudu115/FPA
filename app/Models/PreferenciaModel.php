@@ -60,6 +60,16 @@ class PreferenciaModel extends Model
         return $query->getResult('object');
     }
 
+    public function SelectAtribuidoParaProf($id)
+    {
+        $query = $this->db->query("SELECT u.nome, comp.idComponentes AS sigla ,comp.nomeMateria, c.nomeCurso 
+                                   FROM((componentes comp
+                                   INNER JOIN usuario u ON u.idUsuario = comp.usuario_atribuidoPara)
+                                   INNER JOIN cursos c ON c.idCurso = comp.cursos_idCurso)
+                                   WHERE u.idUsuario = ".$id);
+        return $query->getResult('object');
+    }
+
 
     public function deletePreferencia($componente, $usuario)
     {
