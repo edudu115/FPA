@@ -92,6 +92,11 @@
 
             if(sizeof($preferencias) >= 1)
             {
+                $auxiliar = ['idUsuario' => 0,'tempoCampus' => -1,
+                'tempoExp' => -1,'tempoProfissional' => -1,
+                'tempoInstituicao' => -1, 
+                'nivelCarreira' => -1 , 'idade' => -1];
+
                 foreach($preferencias as $preferencia)
                 {
                     $usuario = $preferencia->usuario_idUsuario;
@@ -107,10 +112,6 @@
                         
                         if(sizeof($preferencias) > 1)//caso haja mais de um primario
                         {
-                            $auxiliar = ['idUsuario' => 0,'tempoCampus' => -1,
-                                        'tempoExp' => -1,'tempoProfissional' => -1,
-                                        'tempoInstituicao' => -1, 
-                                        'nivelCarreira' => -1 , 'idade' => -1];
 
                             if($usuarioDados[0]['tempoCampus'] > $auxiliar['tempoCampus'])//caso o tempoCampus do usuario sejam diferentes 
                             {
@@ -189,6 +190,7 @@
                 {
                     $candidato = $this->preferenciasIguais($componente, 1);;
                     $this->atribuidoPara($componente, $candidato);
+                    echo "$candidato <br>";
                 }
                 elseif($this->componentePreferencial($componente, 2))
                 {
