@@ -61,4 +61,15 @@ class Preferencia extends BaseController
         }
         return redirect()->back();
     }
+
+    public function deletePreferencia($idComponente)
+    {
+        $idUsuario = $this->session->get("usuario")["idUsuario"];
+        $deletar = $this->preferenciaModel->deletePreferencia($idComponente, $idUsuario);
+        $dados = [
+            'deletar' => $deletar,
+            'idComponente' => $idComponente
+        ];
+        return redirect()->back();
+    }
 }

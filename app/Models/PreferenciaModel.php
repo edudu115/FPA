@@ -66,15 +66,14 @@ class PreferenciaModel extends Model
                                    FROM((componentes comp
                                    INNER JOIN usuario u ON u.idUsuario = comp.usuario_atribuidoPara)
                                    INNER JOIN cursos c ON c.idCurso = comp.cursos_idCurso)
-                                   WHERE u.idUsuario = ".$id);
+                                   WHERE u.idUsuario = " . $id);
         return $query->getResult('object');
     }
 
 
     public function deletePreferencia($componente, $usuario)
     {
-        $teste = "DELETE FROM preferencia WHERE componentes_idComponentes = '" . $componente . "'
-                  AND usuario_idUsuario = " . $usuario . ";";
-        $this->db->query($teste);
+        $this->db->query("DELETE FROM preferencia WHERE componentes_idComponentes = '" . $componente . "'
+                          AND usuario_idUsuario = " . $usuario . ";");
     }
 }

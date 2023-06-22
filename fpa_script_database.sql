@@ -125,7 +125,7 @@ insert into cursos(idCurso, nomeCUrso) value
 -- Insert de USUARIOS
 insert into usuario(nome, prontuario, senha, cpf, cargo, tempoCampus, tempoExp, tempoProfissional, tempoInstituicao, nivelCarreira, idade) value('Ricardo','123456','12345','12345','c', 6, 7, 10, 8, 3, 35);
 insert into usuario(nome, prontuario, senha, cpf, cargo, tempoCampus, tempoExp, tempoProfissional, tempoInstituicao, nivelCarreira, idade) value('Eduardo Júnior','1990501','12345','12345','p', 5, 6, 7, 4, 6, 20);
-insert into usuario(nome, prontuario, senha, cpf, cargo, tempoCampus, tempoExp, tempoProfissional, tempoInstituicao, nivelCarreira, idade) value('Gustavo Vasconselos','3005674','12345','12345','p', 4, 5, 9, 5, 8, 19);
+insert into usuario(nome, prontuario, senha, cpf, cargo, tempoCampus, tempoExp, tempoProfissional, tempoInstituicao, nivelCarreira, idade) value('Gustavo Vasconcelos','3005674','12345','12345','p', 4, 5, 9, 5, 8, 19);
 insert into usuario(nome, prontuario, senha, cpf, cargo, tempoCampus, tempoExp, tempoProfissional, tempoInstituicao, nivelCarreira, idade) value('Érica Thalia','30919X','12345','12345','p', 2, 5, 7, 4, 6, 18);
 insert into usuario(nome, prontuario, senha, cpf, cargo, tempoCampus, tempoExp, tempoProfissional, tempoInstituicao, nivelCarreira, idade) value('Lucas Donadi','3003159','12345','12345','p', 4, 8, 9, 6, 7, 24);
 

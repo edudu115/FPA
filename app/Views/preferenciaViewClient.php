@@ -46,6 +46,7 @@ $session = session();
                 <th scope="col">Sigla</th>
                 <th scope="col">Nome da Matéria</th>
                 <th scope="col">Prioridade</th>
+                <th scope="col">Deletar Preferencia</th>
             </tr>
         </thead>
         <tbody>
@@ -61,6 +62,7 @@ $session = session();
                 } else {
                     echo "<td>Secundário</td>";
                 }
+                echo "<td><a class='btn btn-danger' href='" . base_url('Preferencia/deletePreferencia/' . $preferencia->idComponentes) . "'>Deletar</a></td>";
                 echo "</tr>";
             }
             echo "<br />";
