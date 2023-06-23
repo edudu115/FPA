@@ -8,7 +8,7 @@ $session = session();
   <br /><br />
 
   <div class='card w-50 border-dark mb-3'>
-    <div class="py-1 text-center">
+    <div class="text-center">
       <br><br>
       <h1>Formulário de Cadastro</h1>
       <p class="lead"></p>
@@ -22,6 +22,7 @@ $session = session();
             <label for="Cargo">Cargo</label>
             <input type="text" class="form-control" id="cargo" name="cargo" disabled value="<?= $session->get('usuario')['cargoUsuario'] == "c" ? "Coordenador" : "Professor" ?>">
           </div>
+
           <div class="mt-2">
             <label for="tempoCampus">Tempo de Campus</label>
             <input type="number" class="form-control" id="tempoCampus" name="tempoCampus" placeholder="" value="" required>
@@ -36,6 +37,7 @@ $session = session();
               </div>
             </div>
           </div>
+
           <div class="mt-2">
             <label for="TempoProfissional">Tempo Profissional</label>
             <input type="number" class="form-control" id="tempoProfissional" name="tempoProfissional" placeholder="" value="" required>
@@ -43,6 +45,7 @@ $session = session();
               É obrigatório inserir tempo Profissional
             </div>
           </div>
+
           <div class="mt-2">
             <label for="tempoInstituicao">Tempo de Instituição</label>
             <input type="number" class="form-control" id="tempoInstituicao" name="tempoInstituicao" placeholder="" value="" required>
@@ -50,6 +53,7 @@ $session = session();
               É obrigatório inserir tempo de Instituição
             </div>
           </div>
+          <br />
           <div class="mt-3 input-group">
             <div class="input-group-prepend">
               <label class="input-group-text" for="nivelCarreira">Nivel de Carreira</label>
@@ -70,6 +74,7 @@ $session = session();
               <option value="13">TITULAR</option>
             </select>
           </div>
+
           <div class="mt-2">
             <label for="idade">Idade</label>
             <input type="number" class="form-control" id="idade" name="idade" placeholder="" required>
@@ -77,16 +82,14 @@ $session = session();
               Idade é obrigatório.
             </div>
           </div>
+
+          <br />
           <button id='button' class="btn btn-primary btn-lg btn-block mt-1" type="submit">Salvar</button>
           <br />
+        </div>
     </form>
   </div>
-  <div class="col-3"></div>
-  </div>
-
   </form>
-
-  </div>
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script>
