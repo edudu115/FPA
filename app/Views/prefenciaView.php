@@ -20,14 +20,6 @@ $session = session();
 
   </script>
 <style>
-    #button {
-
-        background-color: green;
-        position: relative;
-        top: 45%;
-        left: 1%;
-
-    }
     #searchbar{
      margin-left: 5%;
      padding:15px;
@@ -46,6 +38,7 @@ $session = session();
 
    table{
     border-radius: 5px;
+    
    }
  
   #list{
@@ -70,10 +63,12 @@ $session = session();
 <br/><br/>
 <center> <h1> Lista de Prioridades </h1></center>
 <br/>
-<input class="form-control mr-sm-2" id="searchbar" onkeyup="search_materia()" type="text" placeholder="Pesquisar por Professor ...">
-<br>    
-<a id="button" class='btn btn-success btn-lg btn-block' href='<?= base_url('Atribuicoes/atribuicao') ?>'>Gerar horário</a>
-<br><br>
+<div class="container-fluid">
+    <input class="form-control mr-sm-2" id="searchbar" onkeyup="search_materia()" type="text" placeholder="Pesquisar por Professor ...">
+    <br />
+    <button class="btn btn-warning"><a style="text-decoration: none; color: black;" href='<?= base_url('Atribuicoes/atribuicao') ?>'>Gerar horário</a></button>
+</div>
+<br>
 <div id= "container" class="container">
     <table class="table table-hover table-md" style="background-color: white"  >
         <thead>

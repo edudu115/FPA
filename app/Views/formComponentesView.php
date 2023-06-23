@@ -2,14 +2,7 @@
 $this->section('corpo');
 $session = session();
 ?>
-<style>
 
-#button{
-
-    background-color: green;
-}
-
-    </style>
 <body>
     <?php
     function checaSelecionado($componente, $value)
@@ -78,7 +71,7 @@ $session = session();
                 </div>
                 <input type="hidden" name="idHorario" value="<?= isset($horario) ? $horario->idHorario : "" ?>">
                 <br />
-                <button id="button"class="btn btn-primary">Salvar</button>
+                <button type="button" class="btn btn-success">Salvar</button>
 
             </form>
         </div>

@@ -22,12 +22,6 @@ $session = session();
             background-color: #c2ddc1;
             
         }
-
-        #submit{
-        
-        background-color: green;
-      
-      }
           
         
     </style>
@@ -61,7 +55,7 @@ $session = session();
             </p>
   
             <button type='submit' id='submit' 
-                class='btn btn-primary'>
+                class='btn btn-success'>
                 Confirmar 
             </button>
         </form>

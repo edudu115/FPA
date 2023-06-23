@@ -89,11 +89,8 @@ $session = session();
   </div>
 </div>
 
-
-
-
   <br>
-
+  
   <div class="container-fluid">
 
   <table style="background-color: white" class="table table-sm table-hover table-bordered " class="list">
