@@ -1,9 +1,7 @@
-<?php $this->extend('base');
+<?php $this->extend('Navbar/index.php');
 $this->section('corpo');
 $session = session();
 ?>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-
   <title></title>
 </head>
   <script>
@@ -34,9 +32,6 @@ $session = session();
 <style>
   #button{
     background-color: green;
-  }
-  body {
-    background-color: #c2ddc1;
   }
   #searchbar{
      margin-left: 5%;
@@ -101,7 +96,7 @@ $session = session();
 
   <div class="container-fluid">
 
-  <table style="background-color: white" class="table table-bordered" class="list">
+  <table style="background-color: white" class="table table-sm table-hover table-bordered " class="list">
 
       <thead>
         <tr>
@@ -127,7 +122,7 @@ $session = session();
             $i = 0;
             foreach ($retorna as $componente) {
               echo "<tr class='componentes'>";
-              echo "<td>" . $componente->idComponentes . "</td>";
+              echo "<th scope='row'>" . $componente->idComponentes . "</th>";
               echo "<td>" . $componente->nomeMateria . "</td>";
               echo "<td>" . $componente->periodo . "</td>";
               echo "<td>" . $componente->horasSemanais . "</td>";
@@ -138,7 +133,7 @@ $session = session();
               echo "<td> <select  style= 'width : 150px;' class='form-select' aria-label='Default select example' name='preferencia" . $i . "'>
                 <option selected value='1'>Não Selecionado</option>
                 <option value='2'>Primário</option>
-                <option value='3'>Segundário</option>
+                <option value='3'>Secundário</option>
                 </select> </td>";
             if ($session->get('usuario')['cargoUsuario'] == "c") {
                 echo "<td><a onclick='return confirmar()' class='btn btn-danger' href='" . base_url('Componentes/deleteComponente/' . $componente->idComponentes) . "''>Remover</a></td>";
@@ -155,6 +150,5 @@ $session = session();
   </div> 
   </form>
   
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-
   <?php $this->endSection(); ?>
+  </body>

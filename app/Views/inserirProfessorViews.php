@@ -1,4 +1,4 @@
-<?php $this->extend('base');
+<?php $this->extend('Navbar/index.php');
 $this->section('corpo');
 $session = \Config\Services::session();
 ?>
@@ -18,7 +18,7 @@ $session = \Config\Services::session();
       <h3 class='p-3 mb-2 bg-success text-white'>Usuário adicionado com sucesso!</h3>
     <?php endif ?>
     <div  class='form-group col-md-4'>
-      <label  for='nome'>Nome</label>
+      <label for='nome'>Nome</label>
       <input type='text' class='form-control' id='nome' name='nome' placeholder='Nome'>
   </div>
 
@@ -38,7 +38,8 @@ $session = \Config\Services::session();
             </div>
   </div>
   <br>
-  <button id='button' type='submit' class='btn btn-primary'>Adicionar</button></center>
+  <button id='button' type='submit' class='btn btn-primary'>Adicionar</button>
 </form>
+</center>
 <?php $this->endSection(); ?>
 

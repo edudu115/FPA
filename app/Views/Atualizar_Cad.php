@@ -1,4 +1,4 @@
-<?php $this->extend('base');
+<?php $this->extend('Navbar/index.php');
 $this->section('corpo');
 ?>
 
