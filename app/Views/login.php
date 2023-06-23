@@ -32,7 +32,7 @@
 <body class='text-center'>
   <form class='form-signin' method="POST" action="<?= base_url('Usuario/logar') ?>">
     <br><br><br>
-    <img class='mb-4' src='<?= base_url('ifsp.png') ?>' alt='' width='110' height='110'>
+    <img class='mb-4' src='<?= base_url('ifsp.png') ?>' alt='' width='110' height='130'>
     <h1 class='h3 mb-3 font-weight-normal'>Faça login</h1>
     <label for='inputEmail' class='sr-only'>Prontuário</label>
     <center> <input style='width : 350px;' type='text' id='inputEmail' name="prontuario" class='form-control' placeholder='Prontuário' required autofocus></center>
