@@ -15,9 +15,7 @@ $session = session();
     <br><br>
     <center>
         <h1>Inserir Componente</h1>
-    </center>
-    <br>
-    <center>
+        <br>
         <div class='container'>
             <form action="<?= base_url('Componentes/saveComponente') ?>" method="post">
                 <div class="form-row">
