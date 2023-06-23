@@ -5,7 +5,7 @@ $session = session();
 
 <div class="container">
   <div class="py-1 text-center">
-  <br><br>
+    <br><br>
     <h1>Formulário de Cadastro</h1>
     <p class="lead"></p>
   </div>
@@ -24,13 +24,13 @@ $session = session();
           <div class="invalid-feedback">
             É obrigatório inserir um tempo de Campus.
           </div>
-        <div class="mt-2">
-          <label for="tempoExp">Tempo de Experiencia</label>
-          <input type="number" class="form-control" id="tempoExp" name="tempoExp" placeholder="" value="" required>
-          <div class="invalid-feedback">
-            É obrigatório inserir tempo de Experiencia.
+          <div class="mt-2">
+            <label for="tempoExp">Tempo de Experiencia</label>
+            <input type="number" class="form-control" id="tempoExp" name="tempoExp" placeholder="" value="" required>
+            <div class="invalid-feedback">
+              É obrigatório inserir tempo de Experiencia.
+            </div>
           </div>
-        </div>
         </div>
         <div class="mt-2">
           <label for="TempoProfissional">Tempo Profissional</label>

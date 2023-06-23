@@ -4,15 +4,16 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class ComponentesModel extends Model{
+class ComponentesModel extends Model
+{
     protected $table = "componentes";
     protected $primaryKey = "idComponentes";
     protected $useAutoIncrement = false;
-    protected $allowedFields = ["idComponentes", "nomeMateria",
-                                "cursos_idCurso", "periodo", "horasSemanais", "usuario_atribuidoPara"];
+    protected $allowedFields = [
+        "idComponentes", "nomeMateria",
+        "cursos_idCurso", "periodo", "horasSemanais", "usuario_atribuidoPara"
+    ];
     protected $returnType = "object";
-
-    
 
     public function joinComponente()
     {
@@ -42,11 +43,8 @@ class ComponentesModel extends Model{
     public function findId($idUsuario)
     {
         $query = $this->db->query("SELECT idComponentes, usuario_atribuidoPara FROM componentes 
-                                   WHERE usuario_atribuidoPara = '".$idUsuario."'
+                                   WHERE usuario_atribuidoPara = '" . $idUsuario . "'
                                    ORDER BY idCOmponentes ASC;");
         return $query->getResult('object');
     }
 }
-
-
-?>

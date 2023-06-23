@@ -2,75 +2,75 @@
 $this->section('corpo');
 $session = session();
 ?>
-  <script>
+<script>
     function search_materia() {
-    let input = document.getElementById('searchbar').value
-    input=input.toLowerCase();
-    let x = document.getElementsByClassName('componentes');
+        let input = document.getElementById('searchbar').value
+        input = input.toLowerCase();
+        let x = document.getElementsByClassName('componentes');
 
-    for (i = 0; i < x.length; i++) { 
-        if (!x[i].textContent.toLowerCase().includes(input)) {
-            x[i].style.display="none";
+        for (i = 0; i < x.length; i++) {
+            if (!x[i].textContent.toLowerCase().includes(input)) {
+                x[i].style.display = "none";
+            } else {
+                x[i].style.display = "";
+            }
         }
-        else {
-          x[i].style.display="";
-        }
-    } 
-}
-
-  </script>
+    }
+</script>
 <style>
-    #searchbar{
-     margin-left: 5%;
-     padding:15px;
-     border-radius: 10px;
-   }
- 
-   input[type=text] {
-      width: 18%;
-      -webkit-transition: width 0.15s ease-in-out;
-      transition: width 0.15s ease-in-out;
-   }
- 
-   input[type=text]:focus {
-     width: 30%;
-   }
+    #searchbar {
+        margin-left: 5%;
+        padding: 15px;
+        border-radius: 10px;
+    }
 
-   table{
-    border-radius: 5px;
-    
-   }
- 
-  #list{
-    font-size:  1.5em;
-    margin-left: 90px;
-   }
+    input[type=text] {
+        width: 18%;
+        -webkit-transition: width 0.15s ease-in-out;
+        transition: width 0.15s ease-in-out;
+    }
 
-   #prioridade{
-    margin:1rem;
-     width: 850px;
-   }
-  
-   #container{
-    max-width: 1500px;
-    display:flex;
-    justify-content: space-between;
-   }
-   #th{
-    width: 35px;
-   }
+    input[type=text]:focus {
+        width: 30%;
+    }
+
+    table {
+        border-radius: 5px;
+    }
+
+    #list {
+        font-size: 1.5em;
+        margin-left: 90px;
+    }
+
+    #prioridade {
+        margin: 1rem;
+        width: 850px;
+    }
+
+    #container {
+        max-width: 1500px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    #th {
+        width: 35px;
+    }
 </style>
-<br/><br/>
-<center> <h1> Lista de Prioridades </h1></center>
-<br/>
+<br /><br />
+<center>
+    <h1> Lista de Prioridades </h1>
+</center>
+<br />
 <div class="container-fluid">
     <input class="form-control mr-sm-2" id="searchbar" onkeyup="search_materia()" type="text" placeholder="Pesquisar por Professor ...">
     <br />
     <button class="btn btn-warning"><a style="text-decoration: none; color: black;" href='<?= base_url('Atribuicoes/atribuicao') ?>'>Gerar horário</a></button>
 </div>
 <br>
-<div id= "container" class="container">
-    <table class="table table-hover table-md" style="background-color: white"  >
+<div id="container" class="container">
+    <table class="table table-hover table-md" style="background-color: white">
         <thead>
             <tr>
                 <th scope="col">Nome do professor</th>
@@ -99,12 +99,12 @@ $session = session();
             ?>
         </tbody>
     </table>
-    <table id="prioridade" style="background-color: white"  class="table table-hover">
+    <table id="prioridade" style="background-color: white" class="table table-hover">
         <thead>
             <tr>
-                <th id= "th" scope=" col">Sigla</th>
-             <th  id= "th" scope="row">Quantidade Selecionada  </th>
-                <th id= "th" scope="row">Prioridade</th>
+                <th id="th" scope=" col">Sigla</th>
+                <th id="th" scope="row">Quantidade Selecionada </th>
+                <th id="th" scope="row">Prioridade</th>
             </tr>
         </thead>
         <tbody>
@@ -123,7 +123,7 @@ $session = session();
             ?>
         </tbody>
     </table>
-</div> 
+</div>
 
 
 <?php $this->endSection(); ?>

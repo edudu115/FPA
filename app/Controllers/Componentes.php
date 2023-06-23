@@ -8,8 +8,6 @@
         private $horarioModel;
         public $session;
 
-        
-
         public function __construct(){
             $this->componenteModel = new \App\Models\ComponentesModel();
             $this->cursoModel = new \App\Models\CursosModel();
@@ -66,5 +64,3 @@
             return view('formComponentesView', $dados);
         }
     }
-
-?>

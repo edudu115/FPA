@@ -80,13 +80,9 @@ $session = session();
   </div>
 </div>
 
-
-
-
-<br>
+<br />
 
 <div class="container-fluid">
-
   <table style="background-color: white" class="table table-sm table-hover">
 
     <thead>
@@ -107,6 +103,7 @@ $session = session();
         ?>
       </tr>
     </thead>
+
     <tbody class="materia">
       <?php if ($session->get('usuario')['cargoUsuario'] == "c") : ?>
       <?php endif;
@@ -137,6 +134,7 @@ $session = session();
       }
       ?>
     </tbody>
+
   </table>
 </div>
 </form>

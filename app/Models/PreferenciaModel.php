@@ -70,7 +70,6 @@ class PreferenciaModel extends Model
         return $query->getResult('object');
     }
 
-
     public function deletePreferencia($componente, $usuario)
     {
         $this->db->query("DELETE FROM preferencia WHERE componentes_idComponentes = '" . $componente . "'

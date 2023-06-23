@@ -2,130 +2,132 @@
 $this->section('corpo');
 ?>
 
-  <body class="bg-green">
+<body class="bg-green">
 
-   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#"> <img class='mb-4' src='<?= base_url('ifsp.png') ?>' alt='' width='90' height='90'></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#"> <img class='mb-4' src='<?= base_url('ifsp.png') ?>' alt='' width='90' height='90'></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-  <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Atualizar Cadastro  <span class="sr-only"></span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="informar_hr.php">Informar Disponibilidade de Horario </a>
-      </li>
-    </ul>
-  <div style='text-align:left'>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar"> 
-</div>
-<button class="btn btn-outline-success my-2 my-sm-0" type= "submit">Pesquisar  </button>
-    </form>
-  </div>
-</nav> 
+    <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Atualizar Cadastro <span class="sr-only"></span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="informar_hr.php">Informar Disponibilidade de Horario </a>
+        </li>
+      </ul>
+      <div style='text-align:left'>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar">
+      </div>
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar </button>
+      </form>
+    </div>
+  </nav>
 
-    <div class="container">
-      <div class="py-5 text-center">
+  <div class="container">
+    <div class="py-5 text-center">
       <br><br>
-<br/> <br/>
-        <h4>Formulário de Cadastro</h4>
-        <p class="lead"></p>
-      </div>
-    
-          <form class="needs-validation" novalidate>
-            <div class="row">
-              <div class="col-md-6 mb-3">
-                <label for="Cargo">Cargo</label>
-                <input type="text" class="form-control" id="cargo" placeholder="" value="" required>
-                <div class="invalid-feedback">
-                  É obrigatório inserir um Cargo válido.                    
-                </div>
-              </div>
-              <div class="col-md-6 mb-3">
-                <label for="tempoCampus">Tempo de Campus</label>
-                <input type="text" class="form-control" id="tempoCampus" placeholder="" value="" required>
-                <div class="invalid-feedback">
-                  É obrigatório inserir um tempo de Campus.
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 mb-3">
-                <label for="tempoExp">Tempo de Experiencia</label>
-                <input type="text" class="form-control" id="tempoExp placeholder="  value="" required>
-                <div class="invalid-feedback">
-                  É obrigatório inserir tempo de Experiencia.
-                </div>
-            <div class="col-md-6 mb-3">
-                <label for="TempoProfissional">Tempo Profissional</label>
-                <input type="text" class="form-control" id="TempoProfissional" placeholder="" value="" required>
-                <div class="invalid-feedback">
-                  É obrigatório inserir tempo  Profissional
-                </div>
-              </div>
-            <div class="col-md-6 mb-3">
-                <label for="tempoInstituicao">Tempo de Instituição</label>
-                <input type="text" class="form-control" id="tempoInstituicao" placeholder="" value="" required>
-                <div class="invalid-feedback">
-                  É obrigatório inserir tempo de Instituição
-                </div>
-              </div>
-            <div class="col-md-6 mb-3">
-                <label for="nivelCarreira">Nivel de Carreira</label>
-                <input type="text" class="form-control" id="nivelCarreira" placeholder="" value="" required>
-                <div class="invalid-feedback">
-                  É obrigatório inserir Nivel de Carreira
-                </div>
-              </div>
-            <div class="col-md-6 mb-3">
-                <label for="idade">Idade</label>
-                <input type="text" class="form-control" id="idade" placeholder="" required>
-                <div class="invalid-feedback">
-                 Idade é obrigatório.
-                </div>
-              </div>
-              <button class="btn btn-primary btn-lg btn-block" type="submit">Salvar</button>
-          </form>
-      </div>
-            </form>
-            
-      <footer class="my-5 pt-5 text-muted text-center text-small">
-        <p class="mb-1">&copy; 2023  FPA- Sistema de Aula </p>
-        <ul class="list-inline">
-          <li class="list-inline-item"><a href="#">Privacidade</a></li>
-          <li class="list-inline-item"><a href="#">Termos</a></li>
-          <li class="list-inline-item"><a href="#">Suporte</a></li>
-        </ul>
-      </footer>
+      <br /> <br />
+      <h4>Formulário de Cadastro</h4>
+      <p class="lead"></p>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-    <script src="../../assets/js/vendor/popper.min.js"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
-    <script src="../../assets/js/vendor/holder.min.js"></script>
-    <script>
-      (function() {
-        'use strict';
+    <form class="needs-validation" novalidate>
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label for="Cargo">Cargo</label>
+          <input type="text" class="form-control" id="cargo" placeholder="" value="" required>
+          <div class="invalid-feedback">
+            É obrigatório inserir um Cargo válido.
+          </div>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="tempoCampus">Tempo de Campus</label>
+          <input type="text" class="form-control" id="tempoCampus" placeholder="" value="" required>
+          <div class="invalid-feedback">
+            É obrigatório inserir um tempo de Campus.
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="tempoExp">Tempo de Experiencia</label>
+        <input type="text" class="form-control" id="tempoExp placeholder=" value="" required>
+        <div class="invalid-feedback">
+          É obrigatório inserir tempo de Experiencia.
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="TempoProfissional">Tempo Profissional</label>
+          <input type="text" class="form-control" id="TempoProfissional" placeholder="" value="" required>
+          <div class="invalid-feedback">
+            É obrigatório inserir tempo Profissional
+          </div>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="tempoInstituicao">Tempo de Instituição</label>
+          <input type="text" class="form-control" id="tempoInstituicao" placeholder="" value="" required>
+          <div class="invalid-feedback">
+            É obrigatório inserir tempo de Instituição
+          </div>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="nivelCarreira">Nivel de Carreira</label>
+          <input type="text" class="form-control" id="nivelCarreira" placeholder="" value="" required>
+          <div class="invalid-feedback">
+            É obrigatório inserir Nivel de Carreira
+          </div>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="idade">Idade</label>
+          <input type="text" class="form-control" id="idade" placeholder="" required>
+          <div class="invalid-feedback">
+            Idade é obrigatório.
+          </div>
+        </div>
+        <button class="btn btn-primary btn-lg btn-block" type="submit">Salvar</button>
+    </form>
+  </div>
+  </form>
 
-        window.addEventListener('load', function() {
-          
-          var forms = document.getElementsByClassName('needs-validation');
+  <footer class="my-5 pt-5 text-muted text-center text-small">
+    <p class="mb-1">&copy; 2023 FPA- Sistema de Aula </p>
+    <ul class="list-inline">
+      <li class="list-inline-item"><a href="#">Privacidade</a></li>
+      <li class="list-inline-item"><a href="#">Termos</a></li>
+      <li class="list-inline-item"><a href="#">Suporte</a></li>
+    </ul>
+  </footer>
+  </div>
 
-        
-          var validation = Array.prototype.filter.call(forms, function(form) {
-            form.addEventListener('submit', function(event) {
-              if (form.checkValidity() === false) {
-                event.preventDefault();
-                event.stopPropagation();
-              }
-              form.classList.add('was-validated');
-            }, false);
-          });
-        }, false);
-      })();
-    </script>
-    <?php $this->endSection(); ?>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script>
+    window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')
+  </script>
+  <script src="../../assets/js/vendor/popper.min.js"></script>
+  <script src="../../dist/js/bootstrap.min.js"></script>
+  <script src="../../assets/js/vendor/holder.min.js"></script>
+  <script>
+    (function() {
+      'use strict';
+
+      window.addEventListener('load', function() {
+
+        var forms = document.getElementsByClassName('needs-validation');
+
+
+        var validation = Array.prototype.filter.call(forms, function(form) {
+          form.addEventListener('submit', function(event) {
+            if (form.checkValidity() === false) {
+              event.preventDefault();
+              event.stopPropagation();
+            }
+            form.classList.add('was-validated');
+          }, false);
+        });
+      }, false);
+    })();
+  </script>
+  <?php $this->endSection(); ?>

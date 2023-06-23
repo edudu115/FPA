@@ -51,7 +51,7 @@ class Usuario extends BaseController
             $dados = ["user" => $retorno[0]];
             return view('cadastroView', $dados);
         } else {
-            $this->session->setFlashdata('loginError',true);
+            $this->session->setFlashdata('loginError', true);
             $this->response->redirect(base_url());
         }
     }
@@ -74,13 +74,15 @@ class Usuario extends BaseController
 
     public function addUsuario()
     {
-        $dados = ['nome' => $this->request->getPost('nome'),
-                  'prontuario' => $this->request->getPost('prontuario'),
-                  'senha' => $this->request->getPost('senha'),
-                  'cpf' => $this->request->getPost('cpf')];
+        $dados = [
+            'nome' => $this->request->getPost('nome'),
+            'prontuario' => $this->request->getPost('prontuario'),
+            'senha' => $this->request->getPost('senha'),
+            'cpf' => $this->request->getPost('cpf')
+        ];
 
         $this->userModel->insert($dados);
-        $this->session->setFlashdata('usuarioAdicionado',true);
+        $this->session->setFlashdata('usuarioAdicionado', true);
         $this->response->redirect(base_url('Usuario/viewProfessor'));
     }
 
@@ -95,21 +97,17 @@ class Usuario extends BaseController
         $this->response->redirect(base_url());
     }
 
-
     public function viewAtribuido()
     {
         $cargoUsuario = $this->session->get('usuario')['cargoUsuario'];
-        if($cargoUsuario == 'c')
-        {
+        if ($cargoUsuario == 'c') {
             $retorna = $this->preferenciaModel->SelectAtribuidoPara();
             $dados = [
                 'retorna' => $retorna,
                 'cargoUsuario' => $this->session->cargoUsuario,
             ];
             return view('atribuidoView', $dados);
-        }
-        else
-        {
+        } else {
             $idUsuario = $this->session->get('usuario')['idUsuario'];
             $retorna = $this->preferenciaModel->SelectAtribuidoParaProf($idUsuario);
             $dados = [
@@ -127,24 +125,21 @@ class Usuario extends BaseController
         $pass = $this->userModel->find($idUsuario);
         $pass = $pass->senha;
 
-        if($pass == $senhaAtual)
-        {
+        if ($pass == $senhaAtual) {
             $senha1 = $this->request->getPost("senha1");
             $senha2 = $this->request->getPost("senha2");
-            if($senha1 == $senha2)
-            {
-                $dados = ["idUsuario" => $idUsuario,
-                          "senha" => $senha1];
+            if ($senha1 == $senha2) {
+                $dados = [
+                    "idUsuario" => $idUsuario,
+                    "senha" => $senha1
+                ];
                 $this->userModel->save($dados);
                 $this->session->setFlashdata('senhaAlterada', '<h5 class="text-success"> Senha alterada com sucesso! </h5>');
                 $this->response->redirect(base_url('Usuario/alterarSenha'));
             }
-        }
-        else
-        {
+        } else {
             $this->session->setFlashdata('senhaAlterada', '<h5 class="text-danger"> Dados incorretos </h5>');
             $this->response->redirect(base_url('Usuario/alterarSenha'));
         }
     }
-
 }

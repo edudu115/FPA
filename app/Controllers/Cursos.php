@@ -1,25 +1,21 @@
 <?php
 
-    namespace App\Controllers;
+namespace App\Controllers;
 
-    class Cursos extends BaseController{
+class Cursos extends BaseController
+{
 
-        private $cursoModel;
+    private $cursoModel;
 
-        public function __construct()
-        {
-            $this->cursoModel = new \App\Models\CursosModel();
-        }
-
-        public function viewCursos(){
-            return view('formComponentesView',  [
-                                                    'cursos'=>$this->cursoModel->find()
-                                                ]);
-        }
-
-        
+    public function __construct()
+    {
+        $this->cursoModel = new \App\Models\CursosModel();
     }
 
-
-
-?>
+    public function viewCursos()
+    {
+        return view('formComponentesView',  [
+            'cursos' => $this->cursoModel->find()
+        ]);
+    }
+}
