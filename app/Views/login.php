@@ -13,11 +13,6 @@
     body {
       background-color: #c2ddc1;
     }
-
-    #button {
-
-      background-color: green;
-    }
   </style>
   <link rel='icon' href='../../../../favicon.ico'>
 
@@ -43,7 +38,7 @@
     <?php if ($session->loginError) : ?>
       <h5 class="text-danger">Usuário ou senha incorretos</h5>
     <?php endif ?>
-    <button id="button" class='btn btn-lg btn-primary btn-block' type='submit'>Login</button>
+    <button id="button" class='btn btn-lg btn-success btn-block' type='submit'>Login</button>
     <p class='mt-5 mb-3 text-muted'>&copy; 2023</p>
   </form>
 </body>
