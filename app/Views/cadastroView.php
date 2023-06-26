@@ -18,7 +18,7 @@ $session = session();
       <div class="row">
         <div class="col-3"></div>
         <div class="col-6">
-          <div class="">
+          <div class="mt-2">
             <label for="Cargo">Cargo</label>
             <input type="text" class="form-control" id="cargo" name="cargo" disabled value="<?= $session->get('usuario')['cargoUsuario'] == "c" ? "Coordenador" : "Professor" ?>">
           </div>
