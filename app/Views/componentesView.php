@@ -56,9 +56,7 @@ $session = session();
 <div style='text-align:left'>
   <form class="form-inline my-2 my-lg-0" action="<?= base_url('Preferencia/savePreferencia') ?>" method="POST">
     <input class="form-control mr-sm-2" id="searchbar" onkeyup="search_materia()" type="text" placeholder="Pesquisar por Matéria ...">
-    <button id="button" type="button" value="Salvar" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Salvar</button>
-    <?php if ($session->get('usuario')['cargoUsuario'] == "c") : ?>
-    <?php endif; ?>
+    <button id="button" type="submit" value="Salvar" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Salvar</button>
 </div>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
