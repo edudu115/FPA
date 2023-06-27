@@ -60,7 +60,9 @@ $session = session();
 </style>
 <br /><br />
 <div class="container-fluid">
+<center>
     <h1> Lista de Prioridades </h1>
+</center>
     <br />
 
     <input class="form-control mr-sm-2" id="searchbar" onkeyup="search_materia()" type="text" placeholder="Pesquisar por Professor ...">

@@ -55,13 +55,14 @@ $session = session();
 
 <body class='text-center'>
     <br /> <br />
-    <br><br>
-    <br /> <br />
+
     <center>
         <h1 class="display-4">Tabela de Atribuição de Aulas</h1>
     </center>
+    <br />
     <input class="form-control mr-sm-2" id="searchbar" onkeyup="search_materia()" type="text" placeholder="Pesquisar por Professor ...">
 
+    <br />
     <br />
     <div class="container">
         <table class="table table-hover table-sm" class="list">

@@ -38,7 +38,9 @@ $session = session();
 
 <br /> <br />
 <div class="container">
+<center>
     <h1 class="h1">Lista de Preferencia</h1>
+</center>    
     <table class="table table-hover table-sm" style="background-color: white">
         <thead>
             <tr>
