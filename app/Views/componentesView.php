@@ -56,27 +56,34 @@ $session = session();
 <div style='text-align:left'>
   <form class="form-inline my-2 my-lg-0" action="<?= base_url('Preferencia/savePreferencia') ?>" method="POST">
     <input class="form-control mr-sm-2" id="searchbar" onkeyup="search_materia()" type="text" placeholder="Pesquisar por Matéria ...">
-    <button id="button" type="submit" value="Salvar" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Salvar</button>
+    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalExemplo">Salvar</button>
+    <?php if ($session->get('usuario')['cargoUsuario'] == "c") : ?>
+    <?php endif; ?>
 </div>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+
+<!-- Modal -->
+<div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Atenção !!!</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <h5 class="modal-title" id="exampleModalLabel">Atenção !!!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
       <div class="modal-body">
         Deseja salvar suas preferencias ?
       </div>
       <div class="modal-footer">
-        <button id="button" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-        <button id="button" type="submit" value="Salvar" class="btn btn-primary">Salvar</button>
+      <button id="button" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+        <button id="button" type="submit" value="Salvar" class="btn btn-success">Salvar</button>
 
       </div>
     </div>
   </div>
 </div>
+
 
 <br />
 
