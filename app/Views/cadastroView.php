@@ -25,13 +25,13 @@ $session = session();
 
           <div class="mt-2">
             <label for="tempoCampus">Tempo de Campus</label>
-            <input type="number" class="form-control" id="tempoCampus" name="tempoCampus" placeholder="" value="" required>
+            <input type="number" class="form-control" id="tempoCampus" name="tempoCampus" placeholder="" value="<?= isset($atributos)? $atributos[0]['tempoCampus'] : "" ?>" required>
             <div class="invalid-feedback">
               É obrigatório inserir um tempo de Campus.
             </div>
             <div class="mt-2">
               <label for="tempoExp">Tempo de Experiencia</label>
-              <input type="number" class="form-control" id="tempoExp" name="tempoExp" placeholder="" value="" required>
+              <input type="number" class="form-control" id="tempoExp" name="tempoExp" placeholder="" value="<?= isset($atributos)? $atributos[0]['tempoExp'] : "" ?>" required>
               <div class="invalid-feedback">
                 É obrigatório inserir tempo de Experiencia.
               </div>
@@ -40,7 +40,7 @@ $session = session();
 
           <div class="mt-2">
             <label for="TempoProfissional">Tempo Profissional</label>
-            <input type="number" class="form-control" id="tempoProfissional" name="tempoProfissional" placeholder="" value="" required>
+            <input type="number" class="form-control" id="tempoProfissional" name="tempoProfissional" placeholder="" value="<?= isset($atributos)? $atributos[0]['tempoProfissional'] : "" ?>" required>
             <div class="invalid-feedback">
               É obrigatório inserir tempo Profissional
             </div>
@@ -48,7 +48,7 @@ $session = session();
 
           <div class="mt-2">
             <label for="tempoInstituicao">Tempo de Instituição</label>
-            <input type="number" class="form-control" id="tempoInstituicao" name="tempoInstituicao" placeholder="" value="" required>
+            <input type="number" class="form-control" id="tempoInstituicao" name="tempoInstituicao" placeholder="" value="<?= isset($atributos)? $atributos[0]['tempoInstituicao'] : "" ?>" required>
             <div class="invalid-feedback">
               É obrigatório inserir tempo de Instituição
             </div>
@@ -59,25 +59,25 @@ $session = session();
               <label class="input-group-text" for="nivelCarreira">Nivel de Carreira</label>
             </div>
             <select class="custom-select bg-light" name="nivelCarreira">
-              <option value="1">DI-1</option>
-              <option value="2">DI-2</option>
-              <option value="3">DII-1</option>
-              <option value="4">DII-2</option>
-              <option value="5">DIII-1</option>
-              <option value="6">DIII-2</option>
-              <option value="7">DIII-3</option>
-              <option value="8">DIII-4</option>
-              <option value="9">DIV-1</option>
-              <option value="10">DIV-2</option>
-              <option value="11">DIV-3</option>
-              <option value="12">DIV-4</option>
-              <option value="13">TITULAR</option>
+              <option value="1" <?= isset($atributos) && $atributos[0]['nivelCarreira'] == 1? 'selected' : "" ?>>DI-1</option>
+              <option value="2" <?= isset($atributos) && $atributos[0]['nivelCarreira'] == 2? 'selected' : "" ?>>DI-2</option>
+              <option value="3" <?= isset($atributos) && $atributos[0]['nivelCarreira'] == 3? 'selected' : "" ?>>DII-1</option>
+              <option value="4" <?= isset($atributos) && $atributos[0]['nivelCarreira'] == 4? 'selected' : "" ?>>DII-2</option>
+              <option value="5" <?= isset($atributos) && $atributos[0]['nivelCarreira'] == 5? 'selected' : "" ?>>DIII-1</option>
+              <option value="6" <?= isset($atributos) && $atributos[0]['nivelCarreira'] == 6? 'selected' : "" ?>>DIII-2</option>
+              <option value="7" <?= isset($atributos) && $atributos[0]['nivelCarreira'] == 7? 'selected' : "" ?>>DIII-3</option>
+              <option value="8" <?= isset($atributos) && $atributos[0]['nivelCarreira'] == 8? 'selected' : "" ?>>DIII-4</option>
+              <option value="9" <?= isset($atributos) && $atributos[0]['nivelCarreira'] == 9? 'selected' : "" ?>>DIV-1</option>
+              <option value="10" <?= isset($atributos) && $atributos[0]['nivelCarreira'] == 10? 'selected' : "" ?>>DIV-2</option>
+              <option value="11" <?= isset($atributos) && $atributos[0]['nivelCarreira'] == 11? 'selected' : "" ?>>DIV-3</option>
+              <option value="12" <?= isset($atributos) && $atributos[0]['nivelCarreira'] == 12? 'selected' : "" ?>>DIV-4</option>
+              <option value="13" <?= isset($atributos) && $atributos[0]['nivelCarreira'] == 13? 'selected' : "" ?>>TITULAR</option>
             </select>
           </div>
 
           <div class="mt-2">
             <label for="idade">Idade</label>
-            <input type="number" class="form-control" id="idade" name="idade" placeholder="" required>
+            <input type="number" class="form-control" id="idade" name="idade" placeholder="<?= isset($atributos)? $atributos[0]['idade'] : "" ?>" required>
             <div class="invalid-feedback">
               Idade é obrigatório.
             </div>

@@ -100,7 +100,7 @@
                 foreach($preferencias as $preferencia)
                 {
                     $usuario = $preferencia->usuario_idUsuario;
-                    $usuarioDados = $this->usuarioModel->desempateUsuario($usuario);
+                    $usuarioDados = $this->usuarioModel->atributoUsuario($usuario);
 
                     if($this->checaHorario($idComponente, $usuario))
                     {

@@ -23,7 +23,7 @@ class UsuarioModel extends Model
         return $query->getResult('object');
     }
 
-    public function desempateUsuario($idUsuario)
+    public function atributoUsuario($idUsuario)
     {
         $query = $this->db->query("SELECT idUsuario, tempoCampus, tempoExp, tempoProfissional, tempoInstituicao, nivelCarreira, idade 
                                    FROM usuario WHERE idUsuario = $idUsuario");
