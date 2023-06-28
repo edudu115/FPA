@@ -92,7 +92,7 @@
 
             if(sizeof($preferencias) >= 1)
             {
-                $auxiliar = ['idUsuario' => 0,'tempoCampus' => -1,
+                $auxiliar = ['idUsuario' => null,'tempoCampus' => -1,
                 'tempoExp' => -1,'tempoProfissional' => -1,
                 'tempoInstituicao' => -1, 
                 'nivelCarreira' => -1 , 'idade' => -1];
