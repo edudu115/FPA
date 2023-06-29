@@ -1,36 +1,86 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <form action="<?= base_url('Componentes/saveComponente')?>" method="post">
-        <label class="form-label" for="idComponente">Sigla da Matéria</label>
-            <input class="form-control" type="text" name="idComponente" id="idComponente" maxlength="5" value="<?= isset($componente) ? $componente->idComponente: "" ?>">
-        <label class="form-label" for="nomeMateria">Nome da Matéria</label>
-            <input class="form-control" type="text" name="nomeMateria" id="nomeMateria" value="<?= isset($componente) ? $componente->nomeMateria: "" ?>">
-        <label class="form-label" for="periodo">Período</label>
-            <select name='periodo' id='periodo'>
-                <option value='Manhã'>Manhã</option>
-                <option value='Tarde'>Tarde</option>
-                <option value='Noite'>Noite</option>
-            </select>
-        <label class="form-label" for="horasSemanais">Horas Semanais</label>
-            <input class="form-control" type="number" name="horasSemanais" id="horasSemanais" value="<?= isset($componente) ? $componente->horasSemanais: "" ?>">
-        <?php
-        echo "<label class='form-label' for='cursos'>Nome Cursos: </label>";
-            echo "<select name='curso_idCurso' id='cursos'>";
-                foreach($cursos as $curso){
-                    echo "<option value='$curso->idCurso'>".$curso->nomeCurso."</option>";
-            }
-            echo "</select>";
-        ?>
-        <!-- <label class="form-label" for="nomeCurso">Nome do Curso</label>
-        <input class="form-control" type="text" name="nomeCurso" id="nomeCurso" value=""> -->
-        <button class="btn btn-primary">Salvar</button>
-    </form>
+<?php $this->extend('Navbar/index.php');
+$this->section('corpo');
+$session = session();
+?>
+
+<?php
+function checaSelecionado($componente, $value)
+{
+    if ($value == $componente->periodo) {
+        echo "selected";
+    }
+}
+?>
+<br><br>
+<center>
+    <div class="card w-50 border-dark mb-3">
+        <div class="card-header">
+            <h1>Inserir Componente</h1>
+        </div>
+        <br />
+        <div class="card-body">
+            <div class='container'>
+                <form action="<?= base_url('Componentes/saveComponente') ?>" method="post">
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="idComponente">Sigla da Matéria</label>
+                            <input class="form-control" type="text" name="idComponente" id="idComponente" value="<?= isset($componente) ? $componente->idComponentes : "" ?>">
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="nomeMateria">Nome da Matéria</label>
+                            <input class="form-control" type="text" name="nomeMateria" id="nomeMateria" value="<?= isset($componente) ? $componente->nomeMateria : "" ?>">
+                        </div>
+                    </div>
+                    <div class='form-group col-md-10'>
+                        <label class="form-label" for="periodo">Período</label>
+                        <select name='periodo' id='periodo' class='form-control'>
+                            <option value='Manhã' <?= isset($componente) ? checaSelecionado($componente, 'Manhã') : "" ?>>Manhã</option>
+                            <option value='Tarde' <?= isset($componente) ? checaSelecionado($componente, 'Tarde') : "" ?>>Tarde</option>
+                            <option value='Noite' <?= isset($componente) ? checaSelecionado($componente, 'Noite') : "" ?>>Noite</option>
+                        </select>
+                    </div>
+                    <div class='form-group col-md-10'>
+                        <label class="form-label" for="diaSemana">Dia da Semana</label>
+                        <select name='diaSemana' class='form-control'>
+                            <option value='Segunda-feira'>Segunda-feira</option>
+                            <option value='Terça-feira'>Terça-feira</option>
+                            <option value='Quarta-feira'>Quarta-feira</option>
+                            <option value='Quinta-feira'>Quinta-feira</option>
+                            <option value='Sexta-feira'>Sexta-feira</option>
+                            <option value='Sábado'>Sábado</option>
+                        </select>
+                    </div>
+                    <div class='form-group col-md-10'>
+                        <label class="form-label" for="horasSemanais">Horas Semanais</label>
+                        <input class="form-control" type="number" name="horasSemanais" value="<?= isset($componente) ? $componente->horasSemanais : "" ?>">
+                    </div>
+                    <div class='form-group col-md-10'>
+                        <?php
+                        echo "<label class='form-label' for='cursos'>Nome Cursos: </label>";
+                        echo "<select name='curso_idCurso' class='form-control'>";
+                        foreach ($cursos as $curso) {
+                            echo "<option value='$curso->idCurso'>" . $curso->nomeCurso . "</option>";
+                        }
+                        echo "</select>";
+                        ?>
+                    </div>
+                    <div class='form-group col-md-10'>
+                        <label class="form-label" for="horaInicio">Horário de Início</label>
+                        <input class="form-control" type="time" name="horaInicio" id="horaInicio" value="<?= isset($horario) ? $horario->horaInicio : "" ?>">
+                    </div>
+                    <div class='form-group col-md-10'>
+                        <label class="form-label" for="horaFim">Horário de Fim</label>
+                        <input class="form-control" type="time" name="horaFim" id="horaFim" value="<?= isset($horario) ? $horario->horaFim : "" ?>">
+                    </div>
+                    <input type="hidden" name="idHorario" value="<?= isset($horario) ? $horario->idHorario : "" ?>">
+                    <br />
+                    <button type="submit" class="btn btn-success">Salvar</button>
+
+                </form>
+            </div>
+        </div>
+</center>
 </body>
+
 </html>
+<?php $this->endSection(); ?>

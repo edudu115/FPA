@@ -8,8 +8,6 @@
         private $horarioModel;
         public $session;
 
-        
-
         public function __construct(){
             $this->componenteModel = new \App\Models\ComponentesModel();
             $this->cursoModel = new \App\Models\CursosModel();
@@ -17,19 +15,7 @@
             $this->session = \Config\Services::session();
         }
         
-        public function viewComponente($i){
-
-            if($i == 2)
-            {
-                $dados2 = [
-                    'componente_idComponentes'=>$this->request->getPost('id'),
-                    'diaSemana'=>$this->request->getPost('diaSemana'),
-                    'horaInicio'=>$this->request->getPost('horaInicio'),
-                    'horaFim'=>$this->request->getPost('nomeMateria')
-                ];
-                $this->horarioModel->insert($dados2);
-            }
-
+        public function viewComponente(){
             $retorna = $this->componenteModel->joinComponente();
             $dados = ['retorna'=> $retorna,
                       'cargoUsuario' => $this->session->cargoUsuario,
@@ -49,29 +35,33 @@
                 'nomeMateria'=>$this->request->getPost('nomeMateria'),
                 'periodo'=>$this->request->getPost('periodo'),
                 'horasSemanais'=>$this->request->getPost('horasSemanais'),
-                'cursos_idCurso'=>$this->request->getPost('curso_idCurso')];
+                'cursos_idCurso'=>$this->request->getPost('curso_idCurso')
+            ];
+            $this->componenteModel->save($dados);
 
-            $this->componenteModel->insert($dados);
-
-            $id = ["idComponente" => $this->request->getPost('idComponente')];
-            return view('form2ComponentesView', $id);
-            }
-
-        public function saveHorario(){
             $dados2 = [
-                'componente_idComponentes'=>$this->request->getPost('id'),
+                'idHorario' => $this->request->getPost('idHorario'),
+                'componente_idComponentes'=>$this->request->getPost('idComponente'),
                 'diaSemana'=>$this->request->getPost('diaSemana'),
                 'horaInicio'=>$this->request->getPost('horaInicio'),
-                'horaFim'=>$this->request->getPost('nomeMateria')
+                'horaFim'=>$this->request->getPost('horaFim')
             ];
-            $this->horarioModel->insert($dados2);
-            return view('componentesView');
+            $this->horarioModel->save($dados2);
+
+            $this->response->redirect(base_url('Componentes/viewComponente'));
         }
 
         public function deleteComponente($id){
             $this->horarioModel->deleteHorario($id);
-            $this->response->redirect(base_url('Componentes/viewComponente/1'));
+            $this->response->redirect(base_url('Componentes/viewComponente'));
         }
-    }
 
-?>
+        public function updateComponente($id, $idHorario) {
+            $dados = ['cursos' => $this->cursoModel->find(),
+                      'componente' => $this->componenteModel->find($id),
+                      'horario' => $this->horarioModel->find($idHorario)];
+
+            return view('formComponentesView', $dados);
+        }
+
+    }

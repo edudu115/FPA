@@ -1,48 +1,115 @@
-<!doctype html>
-<html lang='pt-br'>
-  <head>
-    <meta charset='utf-8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
-    <meta name='description' content=''>
-    <meta name='author' content=''>
-     <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC' crossorigin='anonymous'>
+<?php $this->extend('Navbar/index.php');
+$this->section('corpo');
+$session = session();
 
-    <style>
-        body{
-            background-color: #c2ddc1;
+$componentesModel = new \App\Models\ComponentesModel();
+$retornaNull = $componentesModel->selectComponentesNull();
+
+?>
+<script>
+    function search_materia() {
+        let input = document.getElementById('searchbar').value
+        input = input.toLowerCase();
+        let x = document.getElementsByClassName('componentes');
+
+        for (i = 0; i < x.length; i++) {
+            if (!x[i].textContent.toLowerCase().includes(input)) {
+                x[i].style.display = "none";
+            } else {
+                x[i].style.display = "";
+            }
         }
-    </style>
-    <link rel='icon' href='../../../../favicon.ico'>
+    }
+</script>
+<style>
+    body {
+        background-color: #c2ddc1;
+    }
 
-    <title></title>
+    #searchbar {
+        margin-left: 5%;
+        padding: 15px;
+        border-radius: 10px;
+    }
 
-    <link href='../../dist/css/bootstrap.min.css' rel='stylesheet'>
+    input[type=text] {
+        width: 18%;
+        -webkit-transition: width 0.15s ease-in-out;
+        transition: width 0.15s ease-in-out;
+    }
+
+    input[type=text]:focus {
+        width: 30%;
+    }
+
+    #list {
+        font-size: 1.5em;
+        margin-left: 90px;
+    }
+</style>
+<link rel='icon' href='../../../../favicon.ico'>
+
+<title></title>
+
+<link href='../../dist/css/bootstrap.min.css' rel='stylesheet'>
 
 
-    <link href='signin.css' rel='stylesheet'>
-  </head>
+<link href='signin.css' rel='stylesheet'>
+</head>
 
-  <body class='text-center'>
-    <?php 
-    
-    ?>
+<body class='text-center'>
+    <br /> <br />
+
+    <center>
+        <h1 class="display-4">Tabela de Atribuição de Aulas</h1>
+    </center>
+    <br />
+    <input class="form-control mr-sm-2" id="searchbar" onkeyup="search_materia()" type="text" placeholder="Pesquisar por Professor ...">
+
+    <br />
+    <br />
     <div class="container">
-        <table class="table">
+        <table class="table table-hover table-sm" class="list">
             <thead>
                 <tr>
-                    <th scope="col">Materia</th>
-                    <th scope="col">Professor</th>
+                    <th scope="col">Nome do Prefessor</th>
+                    <th scope="col">Sigla</th>
+                    <th scope="col">Nome da Matéria</th>
+                    <th scope="col">Nome do Curso</th>
                 </tr>
             </thead>
-            <?php foreach($atribuidos as $atribuido): ?>
-                <tr>
-                    <td><?php echo $atribuido->componentes_idComponentes;?></td>
-                    <td><?php echo $atribuido->user_idUsuario;?></td>
+            <?php foreach ($retorna as $atribuido) : ?>
+                <tr class='componentes'>
+                    <td><?php echo $atribuido->nome; ?></td>
+                    <td><?php echo $atribuido->sigla; ?></td>
+                    <td><?php echo $atribuido->nomeMateria; ?></td>
+                    <td><?php echo $atribuido->nomeCurso; ?></td>
                 </tr>
-            <?php endforeach;?>
+            <?php endforeach; ?>
         </table>
     </div>
-
-      <p class='mt-5 mb-3 text-muted'>&copy; 2023</p>
-  </body>
-</html>
+    <br />
+    <center>
+        <h1 class="display-6">Tabela de Atribuições Nulas</h1>
+    </center>
+    <div class="container">
+        <table class="table table-hover table-sm" class="list">
+            <thead>
+                <tr>
+                    <th scope="col">Sigla</th>
+                    <th scope="col">Nome da Matéria</th>
+                    <th scope="col">Nome do Curso</th>
+                    <th scope="col">#</th>
+                </tr>
+            </thead>
+            <?php foreach ($retornaNull as $atribuido) : ?>
+                <tr class='componentes'>
+                    <td><?php echo $atribuido->sigla; ?></td>
+                    <td><?php echo $atribuido->nomeMateria; ?></td>
+                    <td><?php echo $atribuido->nomeCurso; ?></td>
+                    <td><?php echo $atribuido->usuarioNULL; ?></td>
+                </tr>
+            <?php endforeach; ?>
+        </table>
+    </div>
+    <?php $this->endSection(); ?>
