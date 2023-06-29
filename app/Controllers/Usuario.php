@@ -6,16 +6,14 @@ class Usuario extends BaseController
 {
     private $userModel;
     private $preferenciaModel;
-    private $componenteModel;
     private $session;
 
     public function __construct()
     {
         $this->userModel = new \App\Models\UsuarioModel;
         $this->preferenciaModel = new \App\Models\PreferenciaModel();
-        $this->componenteModel = new \App\Models\ComponentesModel();
         $this->session = session();
-    }
+    } 
 
     public function index()
     {
@@ -29,7 +27,10 @@ class Usuario extends BaseController
 
     public function viewupdatecadastro()
     {
-        return view("cadastroView.php");
+        $idUsuario = $this->session->get('usuario')['idUsuario'];
+        $dados = ["atributos" => $this->userModel->atributoUsuario($idUsuario)];
+        
+        return view("cadastroView.php", $dados);
     }
 
     public function logar()
@@ -48,8 +49,7 @@ class Usuario extends BaseController
             $this->session->set('usuario', $array);
             //$this->session->get('usuario')['cargoUsuario'];
 
-            $dados = ["user" => $retorno[0]];
-            return view('cadastroView', $dados);
+            $this->response->redirect(base_url("Usuario/viewupdatecadastro"));
         } else {
             $this->session->setFlashdata('loginError', true);
             $this->response->redirect(base_url());

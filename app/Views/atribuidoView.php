@@ -1,6 +1,10 @@
 <?php $this->extend('Navbar/index.php');
 $this->section('corpo');
 $session = session();
+
+$componentesModel = new \App\Models\ComponentesModel();
+$retornaNull = $componentesModel->selectComponentesNull();
+
 ?>
 <script>
     function search_materia() {
@@ -55,13 +59,14 @@ $session = session();
 
 <body class='text-center'>
     <br /> <br />
-    <br><br>
-    <br /> <br />
+
     <center>
         <h1 class="display-4">Tabela de Atribuição de Aulas</h1>
     </center>
+    <br />
     <input class="form-control mr-sm-2" id="searchbar" onkeyup="search_materia()" type="text" placeholder="Pesquisar por Professor ...">
 
+    <br />
     <br />
     <div class="container">
         <table class="table table-hover table-sm" class="list">
@@ -79,6 +84,30 @@ $session = session();
                     <td><?php echo $atribuido->sigla; ?></td>
                     <td><?php echo $atribuido->nomeMateria; ?></td>
                     <td><?php echo $atribuido->nomeCurso; ?></td>
+                </tr>
+            <?php endforeach; ?>
+        </table>
+    </div>
+    <br />
+    <center>
+        <h1 class="display-6">Tabela de Atribuições Nulas</h1>
+    </center>
+    <div class="container">
+        <table class="table table-hover table-sm" class="list">
+            <thead>
+                <tr>
+                    <th scope="col">Sigla</th>
+                    <th scope="col">Nome da Matéria</th>
+                    <th scope="col">Nome do Curso</th>
+                    <th scope="col">#</th>
+                </tr>
+            </thead>
+            <?php foreach ($retornaNull as $atribuido) : ?>
+                <tr class='componentes'>
+                    <td><?php echo $atribuido->sigla; ?></td>
+                    <td><?php echo $atribuido->nomeMateria; ?></td>
+                    <td><?php echo $atribuido->nomeCurso; ?></td>
+                    <td><?php echo $atribuido->usuarioNULL; ?></td>
                 </tr>
             <?php endforeach; ?>
         </table>

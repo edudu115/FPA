@@ -60,13 +60,38 @@ $session = session();
 </style>
 <br /><br />
 <div class="container-fluid">
+<center>
     <h1> Lista de Prioridades </h1>
+</center>
     <br />
 
     <input class="form-control mr-sm-2" id="searchbar" onkeyup="search_materia()" type="text" placeholder="Pesquisar por Professor ...">
     <br />
-    <button class="btn btn-warning"><a style="text-decoration: none; color: black;" href='<?= base_url('Atribuicoes/atribuicao') ?>'>Gerar horário</a></button>
+    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modalExemplo">Gerar horário</button>   
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Atenção !!!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Deseja gerar horário ?
+      </div>
+      <div class="modal-footer">
+      <button id="button" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+        <button id="button" type="submit" value="Salvar" class="btn btn-warning"><a style="text-decoration: none; color: black;" href='<?= base_url('Atribuicoes/atribuicao') ?>'>Gerar horário</a></button>
+
+      </div>
+    </div>
+  </div>
+</div>
+
 <br>
 <div id="container" class="container">
     <table class="table table-hover table-md" style="background-color: white">

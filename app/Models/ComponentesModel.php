@@ -47,4 +47,13 @@ class ComponentesModel extends Model
                                    ORDER BY idCOmponentes ASC;");
         return $query->getResult('object');
     }
+
+    public function selectComponentesNull()
+    {
+        $query = $this->db->query("SELECT comp.idComponentes AS sigla ,comp.nomeMateria, ifnull(comp.usuario_atribuidoPara, 'SEM ATRIBUIÇÃO') as usuarioNULL, c.nomeCurso
+                                   FROM (componentes comp 
+                                   INNER JOIN cursos c ON c.idCurso = comp.cursos_idCurso)
+                                   WHERE comp.usuario_atribuidoPara IS NULL;");
+        return $query->getResult();
+    }
 }
