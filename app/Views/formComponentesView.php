@@ -74,7 +74,7 @@ function checaSelecionado($componente, $value)
                     </div>
                     <input type="hidden" name="idHorario" value="<?= isset($horario) ? $horario->idHorario : "" ?>">
                     <br />
-                    <button type="button" class="btn btn-success">Salvar</button>
+                    <button type="submit" class="btn btn-success">Salvar</button>
 
                 </form>
             </div>
